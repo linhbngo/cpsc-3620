@@ -33,7 +33,7 @@ The objectives of this course are to investigate issues in modern distributed pl
 -   **Teaching Assistant:** Lili Xu
 -   Office: 222A McAdams Hall
 -   Office Hours: TBD
--   Email: lilix@clemson.edu
+-   Email: LILIX [at] CLEMSON [dot] EDU
 
 
 ## Important Dates
