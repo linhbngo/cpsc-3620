@@ -23,6 +23,19 @@ The objectives of this course are to investigate issues in modern distributed pl
 > 2. Familiarity with C/C++/Java.
 > 3. Introduction to Python.
 
+## Instructional Staff
+
+-   **Instructor of Record:** Dr. Linh B. Ngo
+-   Office: 2091 Barre Hall
+-   Office Hours: Wednesday 2:00 - 4:00PM or by appointment
+-   Email: LNGO [at] CLEMSON [dot] EDU
+
+-   **Teaching Assistant:** Lili Xu
+-   Office: 222A McAdams Hall
+-   Office Hours: TBD
+-   Email: lilix@clemson.edu
+
+
 ## Important Dates
 
 -   August 30: Last day to drop a class without a “W”
