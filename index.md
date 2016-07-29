@@ -25,15 +25,15 @@ The objectives of this course are to investigate issues in modern distributed pl
 
 ## Important Dates
 
-August 30: Last day to drop a class without a “W”
-October 21: Last day to drop a class
-November 7-8: Fall Break
-November 23-25: Thanksgiving
-December 8: Final Exam (11:30AM – 02:00PM)
+-   August 30: Last day to drop a class without a “W”
+-   October 21: Last day to drop a class
+-   November 7-8: Fall Break
+-   November 23-25: Thanksgiving
+-   December 8: Final Exam (11:30AM – 02:00PM)
 
 ## Reference Book (Optional)
 
-Parallel Programming: Techniques and Applications using Networked Workstations and Parallel Computers (2nd Edition - 2004) by Barry Wilkinson and Michael Allen. (ISBN: 0131405632)
+*Parallel Programming: Techniques and Applications using Networked Workstations and Parallel Computers* (2nd Edition - 2004) by Barry Wilkinson and Michael Allen. (ISBN: 0131405632)
 
 ## Laptop requirements
 
@@ -141,7 +141,7 @@ Students with disabilities needing accommodations should make an appointment wit
 43. **Wednesday, November 23: Thanksgiving**
 44. **Friday, November 25: Thanksgiving**
 45. [Monday, November 28]()
-46. [Wednesday, November 30()
+46. [Wednesday, November 30]()
 47. [Friday, December 2]()
 
 ## Acknowledgement
