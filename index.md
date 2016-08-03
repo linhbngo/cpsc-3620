@@ -130,7 +130,7 @@ Students with disabilities needing accommodations should make an appointment wit
 19. [Wednesday, September 28]()
 20. [Friday, September 30]()
 21. [Monday, October 3]()
-22. [Wednesday, October 5]()
+22. **Wednesday, October 5: Midterm Exam**
 23. [Friday, October 7]()
 24. [Monday, October 10]()
 25. [Wednesday, October 12]()
