@@ -109,7 +109,7 @@ Students with disabilities needing accommodations should make an appointment wit
 
 ## Introduction to Hadoop
 
-1. [Wednesday, August 17: Introduction to Class]()
+1. [Wednesday, August 17: Introduction to Class](00-intro-to-class.html)
 2. [Friday, August 19: Introduction to Distributed Computing]()
 3. [Monday, August 22: Introduction to Palmetto]()
 4. [Wednesday, August 24: Introduction to CloudLab]()
