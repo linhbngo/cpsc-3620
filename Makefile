@@ -76,3 +76,7 @@ settings :
 unittest: tools/check.py tools/validation_helpers.py tools/test_check.py
 	cd tools/ && python2 test_check.py
 	cd tools/ && python3 test_check.py
+
+## ipynb : convert all ipynb notebooks to html form.
+ipynb :
+	@jupyter nbconvert --to html *.ipynb
