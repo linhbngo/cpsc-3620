@@ -107,10 +107,14 @@ Students with disabilities needing accommodations should make an appointment wit
 ## Introduction to Hadoop
 
 1. Wednesday, August 17:
--   [Introduction to Class](00-intro-to-class.html)
+
+-   [Introduction to Class](intro-to-cpsc-3620.html)
 -   [Survey](https://goo.gl/forms/I9aJw7OptDeIotx73)
     
-2. [Friday, August 19: Introduction to Distributed Computing]()
+2. Friday, August 19: 
+
+-   [Introduction to Distributed Computing](intro-to-parallel-distributed-computing.html)
+
 3. [Monday, August 22: Introduction to Palmetto]()
 4. [Wednesday, August 24: Introduction to CloudLab]()
 5. [Friday, August 26: Introduction to Message-Passing Computing]()
