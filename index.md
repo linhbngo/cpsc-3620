@@ -104,12 +104,12 @@ Any assignment that does not include a collaboration statement will not receive 
 
 Students with disabilities needing accommodations should make an appointment with Dr. Arlene Stewart, Director of Disability Services, to discuss specific needs within the first month of classes. Student should present a Faculty Accommodation Letter from Student Disability Services when they meet with instructors. The Office of Student Disability Services in Suite 239, Academic Success Building (864-656-6848; sds-l@clemson.edu). Please be aware that accommodations are not retroactive and new Faculty Accommodation Letters must be presented each semester.
 
-
-
-
 ## Introduction to Hadoop
 
-1. [Wednesday, August 17: Introduction to Class](00-intro-to-class.html)
+1. Wednesday, August 17:
+    [Introduction to Class](00-intro-to-class.html)
+    [Survey](https://goo.gl/forms/I9aJw7OptDeIotx73)
+    
 2. [Friday, August 19: Introduction to Distributed Computing]()
 3. [Monday, August 22: Introduction to Palmetto]()
 4. [Wednesday, August 24: Introduction to CloudLab]()
