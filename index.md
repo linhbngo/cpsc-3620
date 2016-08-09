@@ -110,14 +110,19 @@ Students with disabilities needing accommodations should make an appointment wit
 
 -   [Introduction to Class](intro-to-cpsc-3620.html)
 -   [Survey](https://goo.gl/forms/I9aJw7OptDeIotx73)
-    
-2. Friday, August 19: 
+-   [Assignment 1](assignment-1.html)
+
+2. Friday, August 19:
 
 -   [Introduction to Distributed Computing](intro-to-parallel-distributed-computing.html)
 
 3. [Monday, August 22: Introduction to Palmetto]()
 4. [Wednesday, August 24: Introduction to CloudLab]()
-5. [Friday, August 26: Introduction to Message-Passing Computing]()
+5. Friday, August 26:
+
+-   [Introduction to Message-Passing Computing]()
+-   Assignment 1 Due
+
 6. [Monday, August 29: Pleasantly Parallel Computation]()
 7. [Wednesday, August 31: Pleasantly Parallel Computing: Workload Assignment]()
 8. [Friday, September 2]()
