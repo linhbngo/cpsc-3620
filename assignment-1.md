@@ -1,11 +1,11 @@
 ---
 layout: page
-title: Assignment 1 (30 points)
+title: Assignment 1 (30 points) - Due on Friday August 26
 ---
 
 ### Problem Description
 
-You are to read the papers and provide the answers to the subsequent questions. 
+You are to read the papers and provide the answers to the subsequent questions.
 
 #### [An Assessment of Beowulf-class Computing for NASA Requirements: Initial Findings from the First NASA Workshop on Beowulf-class Clustered Computing](http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=682207&tag=1)
 
