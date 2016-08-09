@@ -1,13 +1,11 @@
 ---
 layout: page
-title: Distributed and Cluster Computing (CPSC 3620)
+title: Assignment 1 (30 points)
 ---
-
-## Assignment 1 (30 points)
 
 ### Problem Description
 
-You are to read the papers and provide the answers to the questions:
+You are to read the papers and provide the answers to the subsequent questions. 
 
 #### [An Assessment of Beowulf-class Computing for NASA Requirements: Initial Findings from the First NASA Workshop on Beowulf-class Clustered Computing](http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=682207&tag=1)
 
