@@ -194,7 +194,9 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<center> <img src="pictures/payroll-serial.png" width="700"/> </center>
+<center> <img src="pictures/payroll-serial.png" width="700"/> 
+<sub> *https://computing.llnl.gov/tutorials/parallel_comp/* </sub>
+</center>
 </div>
 </div>
 </div>
@@ -203,7 +205,9 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<center> <img src="pictures/payroll-parallel.png" width="700"/> </center>
+<center> <img src="pictures/payroll-parallel.png" width="700"/> 
+<sub> *https://computing.llnl.gov/tutorials/parallel_comp/* </sub>
+</center>
 </div>
 </div>
 </div>
@@ -278,7 +282,11 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<center> Single computer, single core </center><center> <img src="pictures/single-core.png" width="250"/> </center>
+<center> Single computer, single core </center>
+<br>
+<center> <img src="pictures/single-core.png" width="250"/> 
+<sub> *http://www.intel.com/pressroom/kits/pentiumee/* </sub>
+</center>
 </div>
 </div>
 </div>
@@ -287,7 +295,11 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<center> Single site, single computer, multiple cores </center><center> <img src="pictures/multiple-core.png" width="250"/> </center>
+<center> Single site, single computer, multiple cores </center>
+<br>
+<center> <img src="pictures/multiple-core.png" width="250"/> 
+<sub> *http://www.intel.com/pressroom/kits/pentiumee/* </sub>
+</center>
 </div>
 </div>
 </div>
@@ -296,7 +308,9 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<center> Single site, multiple computers, multiple cores </center><center> <img src="pictures/cluster-computers.png" width="250"/> </center>
+<center> Single site, multiple computers, multiple cores </center>
+<br>
+<center> <img src="pictures/cluster-computers.png" width="500"/> </center>
 </div>
 </div>
 </div>
@@ -305,7 +319,9 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<center> Multiple sites, multiple computers, multiple cores </center><center> <img src="pictures/grid-computing.png" width="400"/> </center>
+<center> Multiple sites, multiple computers, multiple cores </center>
+<br>
+<center> <img src="pictures/grid-computing.png" width="500"/> </center>
 </div>
 </div>
 </div>
@@ -314,7 +330,9 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<center> Multiple sites, multiple computers, multiple cores, virtual unified domain </center><center> <img src="pictures/cloud.png" width="400"/> </center>
+<center> Multiple sites, multiple computers, multiple cores, virtual unified domain </center>
+<br>
+<center> <img src="pictures/cloud.png" width="400"/> </center>
 </div>
 </div>
 </div>
@@ -343,7 +361,16 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="-Quantification-of-Performance-Improvement-"><center> Quantification of Performance Improvement </center><a class="anchor-link" href="#-Quantification-of-Performance-Improvement-">&#182;</a></h3><p>Can we just throw more compute resources at the problem?</p>
+<h3 id="-Quantification-of-Performance-Improvement-"><center> Quantification of Performance Improvement </center><a class="anchor-link" href="#-Quantification-of-Performance-Improvement-">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Can we just throw more compute resources at the problem?</p>
 
 </div>
 </div>
@@ -384,24 +411,335 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Theoretical Max</strong>: Let $f$ be the fraction of the program that is not parallelizable. 
+Assume no communication overhead.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<center> <img src="pictures/amdahl-law.png" width="600"/> </center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<center> ${t_{p}} = f{t_{s}} + \frac{(1-f)t_{s}}{p}$ </center><p><br></p>
+<center> $S(p) = \frac{t_{s}}{f{t_{s}} + \frac{(1-f)t_{s}}{p}} = \frac{p}{pf+1-f} = \frac{p}{(p-1)f + 1}$ </center><p>This is known as Amdahl's Law</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>The efficiency $E$ is then defined as the ratior of speedup over the number of processors, $p$.</p>
 <p><br></p>
-<center> $E = \frac{t_{s}}{t_{p} \times p} = \frac{S(p)}{p} \times 100\%$ </center>
+<center> $E = \frac{t_{s}}{t_{p} \times p} = \frac{S(p)}{p} 100\% = \frac{1}{(p-1)f + 1} 100\%$ </center>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre> 
-</pre></div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Since $S(p)=\frac{p}{(p-1)f + 1}$, we have $S(p) \leq p $</p>
 
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Limiting factors:</p>
+<ul>
+<li>Non-parallelizable code</li>
+<li>Commmunication overhead</li>
+</ul>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Superlinear speedup:</strong> $S(p)>p$</p>
+<ul>
+<li>Poor sequential reference implementation</li>
+<li>Memory caching</li>
+<li>I/O Blocking</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="-Types-of-Distributed-Computing-Systems-"><center> Types of Distributed Computing Systems </center><a class="anchor-link" href="#-Types-of-Distributed-Computing-Systems-">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<center> **Flynn's Taxonomy**
+<img src="pictures/flynn.png" width="500"/> 
+<sub>*http://www.slideshare.net/hlshih/high-performance-computing-building-blocks-production-perspective*</sub>
+</center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Streaming SIMD extensions for x86 architectures</li>
+<li>Shared</li>
+<li>Distributed Shared Memory</li>
+<li>Heterogeneous Computing (Accelerators)</li>
+<li>Message Passing</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<center> **Streaming SIMD** </center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<center>
+<img src="pictures/intel-simd.png" width="600"/>
+
+<sub> https://software.intel.com/en-us/articles/introduction-to-intel-advanced-vector-extensions </sub>
+</center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<center> **Shared Memory (Distributed Shared Memory)** </center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<center> <img src="pictures/shared-mem.png" width="500"/>
+<br>
+<sub>*https://computing.llnl.gov/tutorials/parallel_comp/*</sub></center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>One processor, multiple threads</li>
+<li>All threads have read/write access to the same memory</li>
+<li>Programming models:
+<pre><code>- Threads (pthread) – programmer manages all parallelism
+- OpenMP: Compiler extensions handle parallelization through in-code markers
+- Vendor libraries (e.g. Intel math kernel libraries)</code></pre>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<center> **Heterogeneous Computing (Accelerators)** </center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<center> <img src="pictures/gpu-computing.png" width="500"/> 
+<br>
+<sub> *http://www.nvidia.com/docs/IO/143716/how-gpu-acceleration-works.png* </sub>
+</center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>GPU (Graphic Processing Units)
+<pre><code>  - Processor unit on graphic cards designed to support graphic rendering (numerical manipulation)
+  - Significant advantage for certain classes of scientific problem
+  - CUDA – Library developed by NVIDIA for their GPUs
+  - OpenACC – Standard devides by NVIDIA, Cray, and Portal Compiler (PGI). 
+  - OpenAMP – Extensions to Visual C++ (Microsoft) to direct computation to GPU
+  - OpenCL – Set of standards by the group behind OpenGL</code></pre>
+</li>
+<li>FPGA (field programmable gate array)
+<pre><code>  - Dynamically reconfigurable circuit board
+  - Expensive, difficult to program
+  - Power efficient, low heat</code></pre>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<center> **Message Passing** </center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<center> <img src="pictures/message-passing.png" width="500"/> 
+<sub> *https://computing.llnl.gov/tutorials/parallel_comp/*</sub>
+</center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Processes handle their own memory, data is passed between processes via messages.
+<pre><code>  - Scales well
+  - Commodity parts
+  - Expandable
+  - Heterogenous</code></pre>
+</li>
+<li>Programming Models:
+<pre><code>  - MPI: standardized message passing library
+  - MPI + OpenMP (hybrid model)
+  - MapReduce programming model</code></pre>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="-Benchmarking-"><center> Benchmarking </center><a class="anchor-link" href="#-Benchmarking-">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>LINPACK (Linear Algebra Package: Dense Matrix Solver</li>
+<li>HPCC: High-Performance Computing Challenge
+<pre><code>  - HPL (LINPACK to solve linear system of equation) 
+  - DGEMM (Double Precision General Matric Multiply)
+  - STREAM (Memory bandwidth)
+  - PTRANS (Parallel Matrix Transpose to measure processors communication)
+  - RandomAccess (Random memory updates)
+  - FFT (double precision complex discrete fourier transform)
+  - Communication bandwidth and latency</code></pre>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>SHOC: Scalable Heterogeneous Computing
+<pre><code>  - Non-traditional systems (GPU)</code></pre>
+</li>
+<li>TestDFSIO
+<pre><code>  - I/O Performance of MapReduce/Hadoop Distributed File System</code></pre>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="-Ranking-"><center> Ranking </center><a class="anchor-link" href="#-Ranking-">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>TOP500: Rank the supercomputers based on their LINPACK score</li>
+<li>GREEN500: Rank the supercomputers with emphasis on energy usage (LINPACK / power consumption)</li>
+<li>GRAPH500: Rank systems based on benchmarks degisned for data-intensive computing</li>
+</ul>
+
+</div>
+</div>
 </div>
     </div>
   </div>
