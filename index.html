@@ -4,25 +4,11 @@
     <meta charset="utf-8">
     <meta name="generator" content="pandoc">
     <title>Distributed and Cluster Computing (CPSC 3620)</title>
-    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css" />
-    <link rel="stylesheet" type="text/css" href="css/swc.css" />
-    <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
-    <meta charset="UTF-8" />
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    $(cat _includes/header.html)
   </head>
   <body class="lesson">
     <div class="container card">
-      <div class="banner">
-        <a href="http://citi.clemson.edu" title="Software Carpentry">
-          <img alt="Software Carpentry banner" src="img/paw.gif" width="100px" height="auto" />
-        </a>
-      </div>
+      $(cat _includes/banner.html)
       <article>
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
@@ -67,6 +53,13 @@
 <li>Office Hours: TBD</li>
 <li><p>Email: LILIX [at] CLEMSON [dot] EDU</p></li>
 </ul>
+<h2 id="time-and-location">Time and Location</h2>
+<ul>
+<li>MWF 08:00AM - 08:50AM</li>
+<li>McAdams 119</li>
+</ul>
+<h2 id="course-management-system">Course Management system</h2>
+<p>For this semester, we will use the new Canvas Course Management System. This is located at <a href="https://clemson.instructure.com/courses/2061" class="uri">https://clemson.instructure.com/courses/2061</a>.</p>
 <h2 id="important-dates">Important Dates</h2>
 <ul>
 <li>August 30: Last day to drop a class without a “W”</li>
@@ -181,15 +174,8 @@
         </div>
       </div>
       </article>
-      <div class="footer">
-        <a class="label clemson-orange" href="http://citi.clemson.edu">CITI</a>
-        <a class="label clemson-orange" href="https://github.com/clemsoncoe/hpc-workshop">Source</a>
-        <a class="label clemson-orange" href="mailto:atrikut@clemson.edu">Contact</a>
-        <a class="label clemson-orange" href="LICENSE.html">License</a>
-      </div>
+      $(cat _includes/footer.html)
     </div>
-    <!-- Javascript placed at the end of the document so the pages load faster -->
-    <script src="http://software-carpentry.org/v5/js/jquery-1.9.1.min.js"></script>
-    <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
+    $(cat _includes/javascript.html)
   </body>
 </html>

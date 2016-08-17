@@ -35,6 +35,15 @@ The objectives of this course are to investigate issues in modern distributed pl
 -   Office Hours: TBD
 -   Email: LILIX [at] CLEMSON [dot] EDU
 
+## Time and Location
+
+-   MWF 08:00AM - 08:50AM
+-   McAdams 119
+
+## Course Management system
+
+For this semester, we will use the new Canvas Course Management System. This is
+located at [https://clemson.instructure.com/courses/2061](https://clemson.instructure.com/courses/2061).
 
 ## Important Dates
 
