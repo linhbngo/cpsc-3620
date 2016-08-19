@@ -127,7 +127,7 @@ Students with disabilities needing accommodations should make an appointment wit
 
 3. Monday, August 22:
 
--   [Introduction to Palmetto](intro-to-clemson-computing-resources.html)
+-   [Introduction to Clemson Computing Resources](intro-to-clemson-computing-resources.html)
 
 
 4. Wednesday, August 24:
