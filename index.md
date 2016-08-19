@@ -113,7 +113,7 @@ Any assignment that does not include a collaboration statement will not receive 
 
 Students with disabilities needing accommodations should make an appointment with Dr. Arlene Stewart, Director of Disability Services, to discuss specific needs within the first month of classes. Student should present a Faculty Accommodation Letter from Student Disability Services when they meet with instructors. The Office of Student Disability Services in Suite 239, Academic Success Building (864-656-6848; sds-l@clemson.edu). Please be aware that accommodations are not retroactive and new Faculty Accommodation Letters must be presented each semester.
 
-## Introduction to Hadoop
+## Schedule
 
 1. Wednesday, August 17:
 
