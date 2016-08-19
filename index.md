@@ -116,16 +116,32 @@ Students with disabilities needing accommodations should make an appointment wit
 
 -   [Introduction to Distributed Computing](intro-to-parallel-distributed-computing.html)
 
-3. [Monday, August 22: Introduction to Palmetto]()
-4. [Wednesday, August 24: Introduction to CloudLab]()
+3. Monday, August 22:
+
+-   [Introduction to Palmetto](intro-to-clemson-computing-resources.html)
+
+
+4. Wednesday, August 24:
+
+-   [Introduction to CloudLab]()
+
 5. Friday, August 26:
 
 -   [Introduction to Message-Passing Computing]()
 -   Assignment 1 Due
 
-6. [Monday, August 29: Pleasantly Parallel Computation]()
-7. [Wednesday, August 31: Pleasantly Parallel Computing: Workload Assignment]()
-8. [Friday, September 2]()
+6. Monday, August 29:
+
+-   [Pleasantly Parallel Computation]()
+
+7. Wednesday, August 31:
+
+-   [Pleasantly Parallel Computing: Workload Assignment]()
+
+8. Friday, September 2:
+
+-    []()
+
 9. [Monday, September 5: Synchronous Computing: Broadcast and Barrier]()
 10. [Wednesday, September 7: Synchronous Computing: Row Exchange]()
 11. [Friday, September 9]()
@@ -155,9 +171,17 @@ Students with disabilities needing accommodations should make an appointment wit
 35. [Friday, November 4]()
 36. **Monday, November 7: Fall Break**
 37. [Wednesday, November 9: The Hadoop Ecosystem]()
-38. [Friday, November 11]()
-39. [Monday, November 14: HPCCSystems]()
-40. [Wednesday, November 16: HPCCSystems Lab]()
+38. [Friday, November 11:]()
+39. Monday, November 14:
+
+-   Supercomputing 2016
+-   [HPCCSystems]()
+
+40. Wednesday, November 16:
+
+-   Supercomputing 2016
+-   [HPCCSystems Lab]()
+
 41. [Friday, November 18]()
 42. [Monday, November 21: Message-Oriented Middleware]()
 43. **Wednesday, November 23: Thanksgiving**
