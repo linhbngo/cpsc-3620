@@ -128,11 +128,12 @@ Students with disabilities needing accommodations should make an appointment wit
 
 
 4. Wednesday, August 24:
+-   Introduction to Clemson Computing Resources: Palmetto (continue)
 -   [Introduction to Clemson Computing Resources: CloudLab](intro-to-clemson-computing-resources.html)
 -   [Assignment 2](assignment-2.html)
 
 5. Friday, August 26:
--   [Introduction to Message-Passing Computing]()
+-   [Introduction to Message-Passing Computing](introduction-to-MPI.html)
 -   **Assignment 1 Due**
 
 6. Monday, August 29:
