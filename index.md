@@ -116,49 +116,57 @@ Students with disabilities needing accommodations should make an appointment wit
 ## Schedule
 
 1. Wednesday, August 17:
-
 -   [Introduction to Class](intro-to-cpsc-3620.html)
 -   [Survey](https://goo.gl/forms/I9aJw7OptDeIotx73)
 -   [Assignment 1](assignment-1.html)
 
 2. Friday, August 19:
-
 -   [Introduction to Distributed Computing](intro-to-parallel-distributed-computing.html)
 
 3. Monday, August 22:
-
--   [Introduction to Clemson Computing Resources](intro-to-clemson-computing-resources.html)
+-   [Introduction to Clemson Computing Resources: Palmetto](intro-to-clemson-computing-resources.html)
 
 
 4. Wednesday, August 24:
-
--   [Introduction to CloudLab]()
+-   [Introduction to Clemson Computing Resources: CloudLab](intro-to-clemson-computing-resources.html)
+-   [Assignment 2](assignment-2.html)
 
 5. Friday, August 26:
-
 -   [Introduction to Message-Passing Computing]()
--   Assignment 1 Due
+-   **Assignment 1 Due**
 
 6. Monday, August 29:
-
 -   [Pleasantly Parallel Computation]()
 
 7. Wednesday, August 31:
-
 -   [Pleasantly Parallel Computing: Workload Assignment]()
 
 8. Friday, September 2:
+-   **Assignment 2 Due**
 
--    []()
+9. Monday, September 5:
+-   [Synchronous Computing: Broadcast and Barrier]()
 
-9. [Monday, September 5: Synchronous Computing: Broadcast and Barrier]()
-10. [Wednesday, September 7: Synchronous Computing: Row Exchange]()
-11. [Friday, September 9]()
-12. [Monday, September 12: Partitioning and Divide-and-Conquer]()
-13. [Wednesday, September 14: Bucket Sort ]()
-14. [Friday, September 16: TBD]()
-15. [Monday, September 19: Parallel Sorting: Transposition and Merge]()
-16. [Wednesday, September 21: Parallel Sorting: Quick Sort]()
+10. Wednesday, September 7:
+-   [Synchronous Computing: Row Exchange]()
+
+11. Friday, September 9:
+-   []()
+
+12. Monday, September 12:
+-   [Partitioning and Divide-and-Conquer]()
+
+13. Wednesday, September 14:
+-   [Bucket Sort ]()
+
+14. Friday, September 16:
+-   [TBD]()
+
+15. Monday, September 19:
+-   [Parallel Sorting: Transposition and Merge]()
+
+16. Wednesday, September 21:
+-   [Parallel Sorting: Quick Sort]()
 17. [Friday, September 23]()
 18. [Monday, September 26: Distributed File Systems]()
 19. [Wednesday, September 28: Scheduling on cluster of computers]()
