@@ -482,7 +482,7 @@ int main(int argc, char *argv[]){
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>In the first cell of your Jupyter notebook, type the followings**
+<li>In the first cell of your Jupyter notebook, type the followings:
 <pre><code>import ipyparallel
 c = ipyparallel.Client(profile="mpicluster")</code></pre>
 </li>
@@ -519,7 +519,7 @@ c = ipyparallel.Client(profile="mpicluster")</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[54]:</div>
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">ipyparallel</span>
@@ -537,7 +537,7 @@ c = ipyparallel.Client(profile="mpicluster")</code></pre>
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+<pre>[0, 1, 2, 3]
 </pre>
 </div>
 </div>
@@ -548,7 +548,7 @@ c = ipyparallel.Client(profile="mpicluster")</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[55]:</div>
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
@@ -567,22 +567,10 @@ print (&quot;My process is on node %s&quot; % (socket.gethostname()))
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[stdout:0] My process is on node node1140
-[stdout:1] My process is on node node1140
-[stdout:2] My process is on node node1140
-[stdout:3] My process is on node node1140
-[stdout:4] My process is on node node1140
-[stdout:5] My process is on node node1140
-[stdout:6] My process is on node node1140
-[stdout:7] My process is on node node1140
-[stdout:8] My process is on node node1140
-[stdout:9] My process is on node node1140
-[stdout:10] My process is on node node1140
-[stdout:11] My process is on node node1140
-[stdout:12] My process is on node node1140
-[stdout:13] My process is on node node1140
-[stdout:14] My process is on node node1140
-[stdout:15] My process is on node node1140
+<pre>[stdout:0] My process is on node node1901
+[stdout:1] My process is on node node1901
+[stdout:2] My process is on node node1901
+[stdout:3] My process is on node node1901
 </pre>
 </div>
 </div>
@@ -653,7 +641,7 @@ name = MPI.Get_processor_name()</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[56]:</div>
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
@@ -676,22 +664,10 @@ print (&quot;Hello world from process %s running on host %s out of %s processes&
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[stdout:0] Hello world from process 0 running on host node1140 out of 16 processes
-[stdout:1] Hello world from process 13 running on host node1140 out of 16 processes
-[stdout:2] Hello world from process 4 running on host node1140 out of 16 processes
-[stdout:3] Hello world from process 12 running on host node1140 out of 16 processes
-[stdout:4] Hello world from process 3 running on host node1140 out of 16 processes
-[stdout:5] Hello world from process 6 running on host node1140 out of 16 processes
-[stdout:6] Hello world from process 8 running on host node1140 out of 16 processes
-[stdout:7] Hello world from process 5 running on host node1140 out of 16 processes
-[stdout:8] Hello world from process 14 running on host node1140 out of 16 processes
-[stdout:9] Hello world from process 15 running on host node1140 out of 16 processes
-[stdout:10] Hello world from process 2 running on host node1140 out of 16 processes
-[stdout:11] Hello world from process 10 running on host node1140 out of 16 processes
-[stdout:12] Hello world from process 7 running on host node1140 out of 16 processes
-[stdout:13] Hello world from process 1 running on host node1140 out of 16 processes
-[stdout:14] Hello world from process 9 running on host node1140 out of 16 processes
-[stdout:15] Hello world from process 11 running on host node1140 out of 16 processes
+<pre>[stdout:0] Hello world from process 0 running on host node1901 out of 4 processes
+[stdout:1] Hello world from process 2 running on host node1901 out of 4 processes
+[stdout:2] Hello world from process 1 running on host node1901 out of 4 processes
+[stdout:3] Hello world from process 3 running on host node1901 out of 4 processes
 </pre>
 </div>
 </div>
@@ -714,7 +690,7 @@ print (&quot;Hello world from process %s running on host %s out of %s processes&
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[57]:</div>
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
@@ -740,21 +716,9 @@ else:
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[stdout:0] Process 0 is even
-[stdout:1] Process 13 is odd
-[stdout:2] Process 4 is even
-[stdout:3] Process 12 is even
-[stdout:4] Process 3 is odd
-[stdout:5] Process 6 is even
-[stdout:6] Process 8 is even
-[stdout:7] Process 5 is odd
-[stdout:8] Process 14 is even
-[stdout:9] Process 15 is odd
-[stdout:10] Process 2 is even
-[stdout:11] Process 10 is even
-[stdout:12] Process 7 is odd
-[stdout:13] Process 1 is odd
-[stdout:14] Process 9 is odd
-[stdout:15] Process 11 is odd
+[stdout:1] Process 2 is even
+[stdout:2] Process 1 is odd
+[stdout:3] Process 3 is odd
 </pre>
 </div>
 </div>
@@ -777,7 +741,7 @@ else:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[58]:</div>
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
@@ -802,21 +766,9 @@ print (&quot;Elements %s and %s are assigned to process %s&quot; % (A[rank%15], 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[stdout:0] Elements 2 and 13 are assigned to process 0
-[stdout:1] Elements 6 and 15 are assigned to process 13
-[stdout:2] Elements 5 and 1 are assigned to process 4
-[stdout:3] Elements 11 and 6 are assigned to process 12
-[stdout:4] Elements 3 and 5 are assigned to process 3
-[stdout:5] Elements 0 and 12 are assigned to process 6
-[stdout:6] Elements 10 and 8 are assigned to process 8
-[stdout:7] Elements 1 and 0 are assigned to process 5
-[stdout:8] Elements 15 and 14 are assigned to process 14
-[stdout:9] Elements 2 and 13 are assigned to process 15
-[stdout:10] Elements 4 and 3 are assigned to process 2
-[stdout:11] Elements 7 and 9 are assigned to process 10
-[stdout:12] Elements 12 and 10 are assigned to process 7
-[stdout:13] Elements 13 and 4 are assigned to process 1
-[stdout:14] Elements 8 and 7 are assigned to process 9
-[stdout:15] Elements 9 and 11 are assigned to process 11
+[stdout:1] Elements 4 and 3 are assigned to process 2
+[stdout:2] Elements 13 and 4 are assigned to process 1
+[stdout:3] Elements 3 and 5 are assigned to process 3
 </pre>
 </div>
 </div>
@@ -918,7 +870,7 @@ print (&quot;Elements %s and %s are assigned to process %s&quot; % (A[rank%15], 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[59]:</div>
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
@@ -946,8 +898,8 @@ if (rank == 1):
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[stdout:0] 0.15986945642629524
-[stdout:13] 0.15986945642629524
+<pre>[stdout:0] 0.40344607193885085
+[stdout:2] 0.40344607193885085
 </pre>
 </div>
 </div>
@@ -977,7 +929,7 @@ if (rank == 1):
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[60]:</div>
+<div class="prompt input_prompt">In&nbsp;[46]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
@@ -1002,7 +954,7 @@ elif rank == 1:
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[stdout:13] {&apos;enrollments&apos;: 40, &apos;semester&apos;: &apos;Fall 2016&apos;, &apos;class&apos;: &apos;cpsc3620&apos;}
+<pre>[stdout:2] {&apos;class&apos;: &apos;cpsc3620&apos;, &apos;semester&apos;: &apos;Fall 2016&apos;, &apos;enrollments&apos;: 40}
 </pre>
 </div>
 </div>
@@ -1013,7 +965,7 @@ elif rank == 1:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[61]:</div>
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
@@ -1038,7 +990,7 @@ elif rank == 1:
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[stdout:13] [1, 2, 3, 4]
+<pre>[stdout:2] [1, 2, 3, 4]
 </pre>
 </div>
 </div>
@@ -1067,7 +1019,7 @@ elif rank == 1:
 <li>Unexpected behavior, including programming failure, if even one process does not participate</li>
 <li>Types of collective communications:<ul>
 <li>Synchronization: barrier</li>
-<li>Data movement: broadcast, scatter/gather, all-to-all</li>
+<li>Data movement: broadcast, scatter/gather</li>
 <li>Collective computation (aggregate data to perform computation): Reduce</li>
 </ul>
 </li>
@@ -1081,10 +1033,202 @@ elif rank == 1:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<center> <img src="pictures/mpi-collective.png" width="700"/> 
+<sub> *https://computing.llnl.gov/tutorials/mpi/* </sub>
+</center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>broadcast:</strong></p>
+
+<pre><code>comm = MPI.COMM_WORLD</code></pre>
+<ul>
+<li>All processes:
+<pre><code>&lt;buffer at receiving process&gt; = comm.bcast(&lt;original data&gt;, root=&lt;root process&gt;)</code></pre>
+</li>
+<li><em>root</em> process is the one that has the original data initially. </li>
+</ul>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+<pre><code>int MPI_Bcast(
+    void *buf, 
+    int count, 
+    MPI_Datatype datatype, 
+    int root, 
+    MPI_Comm comm);</code></pre>
+<ul>
+<li>Don’t need to specify a TAG or DESTINATION</li>
+<li>Must specify the SENDER (root)</li>
+<li>Blocking call for all processes</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[48]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
+from mpi4py import MPI
+
+comm = MPI.COMM_WORLD
+rank = comm.Get_rank()
+
+if rank == 0:
+    data = 2
+else:
+    data = -1
+print (&quot;%s: %s&quot; % (rank, data))
+data = comm.bcast(data, root=0)
+print (&quot;%s: %s&quot; % (rank, data))
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[stdout:0] 
+0: 2
+0: 2
+[stdout:1] 
+2: -1
+2: 2
+[stdout:2] 
+1: -1
+1: 2
+[stdout:3] 
+3: -1
+3: 2
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[49]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
+from mpi4py import MPI
+
+comm = MPI.COMM_WORLD
+rank = comm.Get_rank()
+
+if rank == 0:
+    data = {&#39;key1&#39; : [7, 2.72, 2+3j],
+            &#39;key2&#39; : ( &#39;abc&#39;, &#39;xyz&#39;)}
+else:
+    data = None
+data = comm.bcast(data, root=0)
+print (data)
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[stdout:0] {&apos;key2&apos;: (&apos;abc&apos;, &apos;xyz&apos;), &apos;key1&apos;: [7, 2.72, (2+3j)]}
+[stdout:1] {&apos;key1&apos;: [7, 2.72, (2+3j)], &apos;key2&apos;: (&apos;abc&apos;, &apos;xyz&apos;)}
+[stdout:2] {&apos;key1&apos;: [7, 2.72, (2+3j)], &apos;key2&apos;: (&apos;abc&apos;, &apos;xyz&apos;)}
+[stdout:3] {&apos;key2&apos;: (&apos;abc&apos;, &apos;xyz&apos;), &apos;key1&apos;: [7, 2.72, (2+3j)]}
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong> How to save broadcast data into different variables on different processes? </strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
+from mpi4py import MPI
+
+comm = MPI.COMM_WORLD
+rank = comm.Get_rank()
+
+if rank == 0:
+    data = 2
+else:
+    data = -1
+print (&quot;%s: %s&quot; % (rank, data))
+data = comm.bcast(data, root=0)
+print (&quot;%s: %s&quot; % (rank, data))
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[stdout:0] 
+0: 2
+0: 2
+[stdout:1] 
+2: -1
+2: 2
+[stdout:2] 
+1: -1
+1: 2
+[stdout:3] 
+3: -1
+3: 2
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -1093,8 +1237,123 @@ elif rank == 1:
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>scatter:</strong></p>
 
+<pre><code>comm = MPI.COMM_WORLD</code></pre>
+<ul>
+<li>All processes:
+<pre><code>&lt;buffer at receiving process&gt; = comm.scatter(&lt;original array&gt;, root=&lt;root process&gt;)</code></pre>
+</li>
+<li><em>root</em> process is the one that has the original data array initially. </li>
+<li>Data are divided according to rank</li>
+</ul>
+
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong> Original MPI C Syntax: MPI_Scatter</strong></p>
+
+<pre><code>int MPI_Scatter(
+    void *sendbuf, 
+    int sendcount, 
+    MPI_Datatype sendtype, 
+    void *recvbuf,
+    int recvcnt,
+    MPI_Datatype recvtype,
+    int root, 
+    MPI_Comm comm);</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[51]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
+from mpi4py import MPI
+
+comm = MPI.COMM_WORLD
+size = comm.Get_size()
+rank = comm.Get_rank()
+
+if rank == 0:
+    data = [(i+1)**2 for i in range(size)]
+else:
+    data = None
+data = comm.scatter(data, root=0)
+print (&quot;%s: %s&quot; % (rank, data))
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[stdout:0] 0: 1
+[stdout:1] 2: 9
+[stdout:2] 1: 4
+[stdout:3] 3: 16
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[52]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
+from mpi4py import MPI
+
+comm = MPI.COMM_WORLD
+rank = comm.Get_rank()
+
+if rank == 0:
+    data = [{&#39;key1&#39; : [7, 2.72, 2+3j]},
+            {&#39;key2&#39; : ( &#39;abc&#39;, &#39;xyz&#39;)},
+            {&#39;key3&#39; : ( &#39;abc&#39;, &#39;xyz&#39;)},
+            {&#39;key4&#39; : ( &#39;cde&#39;, &#39;xyz&#39;)}]
+else:
+    data = None
+data = comm.scatter(data, root=0)
+print (&quot;%s: %s&quot; % (rank, data))
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[stdout:0] 0: {&apos;key1&apos;: [7, 2.72, (2+3j)]}
+[stdout:1] 2: {&apos;key3&apos;: (&apos;abc&apos;, &apos;xyz&apos;)}
+[stdout:2] 1: {&apos;key2&apos;: (&apos;abc&apos;, &apos;xyz&apos;)}
+[stdout:3] 3: {&apos;key4&apos;: (&apos;cde&apos;, &apos;xyz&apos;)}
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -1103,6 +1362,15 @@ elif rank == 1:
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>gather:</strong></p>
 
+<pre><code>comm = MPI.COMM_WORLD</code></pre>
+<ul>
+<li>All processes:
+<pre><code>&lt;buffer at sending process&gt; = comm.gather(&lt;final array&gt;, root=&lt;root process&gt;)</code></pre>
+</li>
+<li><em>root</em> process is the one that receives the original data array initially. </li>
+<li>Data arrive and are sorted at <em>root</em> according to rank</li>
+</ul>
+
 </div>
 </div>
 </div>
@@ -1111,10 +1379,132 @@ elif rank == 1:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>all-to-all</strong></p>
+<p><strong> Original MPI C Syntax: MPI_Gather</strong></p>
+
+<pre><code>int MPI_Gather(
+    void *sendbuff, 
+    int sendcount, 
+    MPI_Datatype sendtype, 
+    void *recvbuff,
+    int recvcnt,
+    MPI_Datatype recvtype,
+    int root, 
+    MPI_Comm comm);</code></pre>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[53]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
+from mpi4py import MPI
+
+comm = MPI.COMM_WORLD
+size = comm.Get_size()
+rank = comm.Get_rank()
+
+data = (rank+1)**2
+print (&quot;%s: %s&quot; % (rank, data))
+data = comm.gather(data, root=0)
+if rank == 0:
+    print (&quot;%s: %s&quot; % (rank, data))
+else:
+    print (&quot;%s: %s&quot; % (rank, data))
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[stdout:0] 
+0: 1
+0: [1, 4, 9, 16]
+[stdout:1] 
+2: 9
+2: None
+[stdout:2] 
+1: 4
+1: None
+[stdout:3] 
+3: 16
+3: None
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong> What happpens to variable <em>data</em> at the non-root process?</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[54]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
+from mpi4py import MPI
+
+comm = MPI.COMM_WORLD
+size = comm.Get_size()
+rank = comm.Get_rank()
+
+data = (rank+1)**2
+print (&quot;%s: %s&quot; % (rank, data))
+data = comm.gather(data, root=0)
+if rank == 0:
+    print (&quot;%s: %s&quot; % (rank, data))
+else:
+    print (&quot;%s: %s&quot; % (rank, data))
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[stdout:0] 
+0: 1
+0: [1, 4, 9, 16]
+[stdout:1] 
+2: 9
+2: None
+[stdout:2] 
+1: 4
+1: None
+[stdout:3] 
+3: 16
+3: None
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -1123,8 +1513,76 @@ elif rank == 1:
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>reduce</strong></p>
 
+<pre><code>comm = MPI.COMM_WORLD</code></pre>
+<ul>
+<li>All processes:
+<pre><code>&lt;final result at sending process&gt; = comm.reduce(&lt;data to be reduced&gt;, op=MPI.&lt;operation&gt;, root=&lt;root process&gt;)</code></pre>
+</li>
+<li><em>root</em> process is the one that receives the final reduced data initially. </li>
+</ul>
+
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong> Original MPI C Syntax: MPI_Reduce</strong></p>
+
+<pre><code>int MPI_Reduce(
+    void *sendbuf, 
+    void *recvbuff,
+    int count, 
+    MPI_Datatype datatype, 
+    MPI_OP op,
+    int root, 
+    MPI_Comm comm);</code></pre>
+<ul>
+<li>MPI_Op may be MPI_MIN, MPI_MAX, MPI_SUM, MPI_PROD (twelve total)</li>
+<li>Programmer may add operations, must be commutative and associative</li>
+<li>If count &gt; 1, then operation is performed element-wise</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[55]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
+from mpi4py import MPI
+
+comm = MPI.COMM_WORLD
+rank = comm.Get_rank()
+
+sum = comm.reduce(rank, op=MPI.SUM, root=0)
+
+if rank == 0:
+    print (&quot;The reduction is %s&quot; % (sum))
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[stdout:0] The reduction is 6
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
     </div>
   </div>
