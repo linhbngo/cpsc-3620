@@ -137,22 +137,25 @@ Students with disabilities needing accommodations should make an appointment wit
 -   **Assignment 1 Due**
 
 6. Monday, August 29:
--   [Pleasantly Parallel Computation]()
+-   Introduction to Message-Passing Computing (continue)
 
 7. Wednesday, August 31:
--   [Pleasantly Parallel Computing: Workload Assignment]()
+-   Introduction to Message-Passing Computing (continue)
 
 8. Friday, September 2:
+-   Introduction to Message-Passing Computing (continue)
+-   [Pleasantly Parallel Computation](pleasantly-parallel.html)
 -   **Assignment 2 Due**
 
 9. Monday, September 5:
--   [Synchronous Computing: Broadcast and Barrier]()
+-   [Pleasantly Parallel Computing: Workload Assignment]()
+-   
 
 10. Wednesday, September 7:
--   [Synchronous Computing: Row Exchange]()
+-   [Synchronous Computing: Broadcast and Barrier]()
 
 11. Friday, September 9:
--   []()
+-   [Synchronous Computing: Row Exchange]()
 
 12. Monday, September 12:
 -   [Partitioning and Divide-and-Conquer]()
