@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>introduction-to-MPI</title>
+<title>pleasantly-parallel</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -176,7 +176,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Introduction-to-Message-Passing-Interface-(MPI)"><center>Introduction to Message Passing Interface (MPI)</center><a class="anchor-link" href="#Introduction-to-Message-Passing-Interface-(MPI)">&#182;</a></h2><h3 id="-Linh-B.-Ngo-"><center> Linh B. Ngo </center><a class="anchor-link" href="#-Linh-B.-Ngo-">&#182;</a></h3><h3 id="-CPSC-3620-"><center> CPSC 3620 </center><a class="anchor-link" href="#-CPSC-3620-">&#182;</a></h3>
+<h2 id="Pleasantly-Parallel"><center>Pleasantly Parallel</center><a class="anchor-link" href="#Pleasantly-Parallel">&#182;</a></h2><h3 id="-Linh-B.-Ngo-"><center> Linh B. Ngo </center><a class="anchor-link" href="#-Linh-B.-Ngo-">&#182;</a></h3><h3 id="-CPSC-3620-"><center> CPSC 3620 </center><a class="anchor-link" href="#-CPSC-3620-">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -185,7 +185,10 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4><center>Message Passing</h4>
+<ul>
+<li>Embarrassingly parallel/naturally parallel/pleasantly parallel</li>
+<li>“A computation that can obviously be divided into a number of completely different parts, each of which can be executed by a separate process.”</li>
+</ul>
 
 </div>
 </div>
@@ -196,12 +199,8 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>Processes communicate via messages</li>
-<li>Messages can be<ul>
-<li>Raw data to be used in actual calculations</li>
-<li>Signals and acknowledgements for the receiving processes regarding the workflow</li>
-</ul>
-</li>
+<li>No communication or very little communication among the processes.</li>
+<li>Each process can do its tasks without any interaction with the other processes.</li>
 </ul>
 
 </div>
@@ -212,7 +211,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4><center>History of MPI</h4>
+<h4><center> Example: Trapezoid Calculation</h4>
 
 </div>
 </div>
@@ -222,167 +221,41 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong> Early 80s:</strong></p>
-<ul>
-<li>Various message passing environments were developed</li>
-<li>Many similar fundamental concepts</li>
-<li>N-cube (Caltech), P4 (Argonne), PICL and PVM (Oakridge), LAM (Ohio SC)</li>
-</ul>
-
+<center> 
+    <img src="pictures/trapezoid01.png" width="400"/>
+</center>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong> 1992: </strong></p>
-<ul>
-<li>More than 80 reseachers from different institutions in US and Europe agreed to develop and implement a common standard for message passing</li>
-<li>First meeting colocated with Supercomputing 1992</li>
-</ul>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">N</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">h</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="n">N</span><span class="p">;</span>
+</pre></div>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong> After finalization: </strong></p>
-<ul>
-<li>MPI becomes the <em>de-factor</em> standard for distributed memory parallel programming</li>
-<li>Available on every popular operating system and architecture</li>
-<li>Interconnect manufacturers commonly provide MPI implementations optimized for their hardware</li>
-<li>MPI standard defines interfaces for C, C++, and Fortran<ul>
-<li>Language bindings available for many popular languages (quality varies)</li>
-<li>MPI4PY: Bindings for python</li>
-</ul>
-</li>
-</ul>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="c1"># With 4 processors (cores)</span>
+<span class="n">size</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">local_N</span> <span class="o">=</span> 
+<span class="c1"># local_a = ?</span>
+<span class="c1"># local_b = ?</span>
+</pre></div>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong> 1994: MPI-1 </strong></p>
-<ul>
-<li>Communicators<ul>
-<li>Information about the runtime environments</li>
-<li>Creation of customized topologies</li>
-</ul>
-</li>
-<li>Point-to-point communication<ul>
-<li>Send and receive messages</li>
-<li>Blocking and non-blocking variations</li>
-</ul>
-</li>
-<li>Collectives<ul>
-<li>Broadcast and reduce</li>
-<li>Gather and scatter</li>
-</ul>
-</li>
-</ul>
 
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong> 1998: MPI-2 </strong></p>
-<ul>
-<li>One-sided communication (non-blocking)<ul>
-<li>Get &amp; Put (remote memory access)</li>
-</ul>
-</li>
-<li>Dynamic process management<ul>
-<li>Spawn</li>
-</ul>
-</li>
-<li>Parallel I/O<ul>
-<li>Multiple readers and writers for a single file</li>
-<li>Requires file-system level support (LustreFS, PVFS)</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong> 2012: MPI-3 </strong></p>
-<ul>
-<li>Revised remote-memory access semantic</li>
-<li>Fault tolerance model</li>
-<li>Non-blocking collective communication</li>
-<li>Access to internal variables, states, and counters for performance evaluation purposes</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4><center> Set up MPI on Palmetto for C/C++</h4>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Interactive mode:</strong></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><code>qsub -I -l select=1:ncpus=8:mpiprocs=8:mem=10gb,walltime=01:00:00</code></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><code>module load gcc/5.3.0 openmpi/1.10.3</code></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><em>The module load command can be added to a script, which then is to be sourced from inside .bashrc to automate module loading. Calling the module load directly from inside .bashrc is not recommended.</em></p>
-
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -390,128 +263,14 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>Create a file named <strong>hello.c</strong> inside directory <strong>cpsc3620</strong> with the following content
-<pre><code>#include &lt;stdio.h&gt;
-#include &lt;sys/utsname.h&gt;
-#include &lt;mpi.h&gt;
-int main(int argc, char *argv[]){
-  MPI_Init(&amp;argc, &amp;argv);
-  struct utsname uts;
-  uname (&amp;uts);
-  printf("My process is on node %s.\n", uts.nodename);
-  MPI_Finalize();
-  return 0;
+<li>Which workload goes to which process?
+<pre><code>if (rank == i) {
+  do great things
 }</code></pre>
 </li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Compile hello.c
-<pre><code>mpicc hello.c -o hello</code></pre>
-</li>
-<li>Run hello.c
-<pre><code>mpirun -np 2 ./hello</code></pre>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4><center> Set up MPI on Palmetto for Python (Interactive via Jupyter Notebook)</h4>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Before launching JupyterHub</strong></p>
-<ul>
-<li>Make sure that you have the command <code>module load gcc/5.3.0 openmpi/1.10.3</code> in your .jhubrc file. If you are using JupyterHub to edit the file, the server will need to be stopped and started again. </li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Before launching a Jupyter notebook (only need to be done once)</strong></p>
-<ul>
-<li>Install mpi4py by executing <code>pip install --user mpi4py</code> from a terminal. This needs to be done prior to launching a Jupyter notebook. </li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Before launching a Jupyter notebook (any time you wish to run interactive MPI inside Jupyter Notebook)</strong></p>
-<ul>
-<li>Inside a terminal (that must be kept open), execute the following command:
-<pre><code>ipcluster start --n &lt;Number of total possible cores&gt; --profile=mpicluster</code></pre>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>In the first cell of your Jupyter notebook, type the followings:
-<pre><code>import ipyparallel
-c = ipyparallel.Client(profile="mpicluster")</code></pre>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Test the attached cluster by running the following in a cell:
-<pre><code>print(c.ids)</code></pre>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Any cell that contains MPI codes must be started with <code>%%px</code></li>
+<li>Start with small number of processes</li>
+<li>Calculation workload assignment manually for each count of processes</li>
+<li>Generalize assignment for process i based on sample calculations</li>
 </ul>
 
 </div>
@@ -519,7 +278,7 @@ c = ipyparallel.Client(profile="mpicluster")</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">ipyparallel</span>
@@ -537,7 +296,7 @@ c = ipyparallel.Client(profile="mpicluster")</code></pre>
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+<pre>[0, 1, 2, 3]
 </pre>
 </div>
 </div>
@@ -548,460 +307,25 @@ c = ipyparallel.Client(profile="mpicluster")</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
-from mpi4py import MPI
-import socket
-print (&quot;My process is on node %s&quot; % (socket.gethostname()))
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[stdout:0] My process is on node node0263
-[stdout:1] My process is on node node0263
-[stdout:2] My process is on node node0263
-[stdout:3] My process is on node node0263
-[stdout:4] My process is on node node0263
-[stdout:5] My process is on node node0263
-[stdout:6] My process is on node node0263
-[stdout:7] My process is on node node0263
-[stdout:8] My process is on node node0263
-[stdout:9] My process is on node node0263
-[stdout:10] My process is on node node0263
-[stdout:11] My process is on node node0263
-[stdout:12] My process is on node node0263
-[stdout:13] My process is on node node0263
-[stdout:14] My process is on node node0263
-[stdout:15] My process is on node node0263
-[stdout:16] My process is on node node0342
-[stdout:17] My process is on node node0342
-[stdout:18] My process is on node node0342
-[stdout:19] My process is on node node0342
-[stdout:20] My process is on node node0342
-[stdout:21] My process is on node node0342
-[stdout:22] My process is on node node0342
-[stdout:23] My process is on node node0342
-[stdout:24] My process is on node node0342
-[stdout:25] My process is on node node0342
-[stdout:26] My process is on node node0342
-[stdout:27] My process is on node node0342
-[stdout:28] My process is on node node0342
-[stdout:29] My process is on node node0342
-[stdout:30] My process is on node node0342
-[stdout:31] My process is on node node0342
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4><center> The working of MPI in a nutshell</h4>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>All processes are launched at the beginning of the program execution<ul>
-<li>The number of processes are user-speficied</li>
-<li>Typically, this number is matched to the total number of cores available across the entire cluster</li>
-</ul>
-</li>
-<li>All processes have their own memory space and have access to the same source codes</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Basic parameters available to individual processes: </strong></p>
-
-<pre><code>comm = MPI.COMM_WORLD
-rank = comm.Get_rank()
-size = comm.Get_size()
-name = MPI.Get_processor_name()</code></pre>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>MPI defines <strong>communicator</strong> groups for point-to-point and collective communications<ul>
-<li>Unique IDs (<strong>rank</strong>) are defined for individual processes within a communicator group</li>
-<li>Communications are performed based on these IDs</li>
-<li>Default <strong>global communication</strong> (COMM_WORLD) contains all processes</li>
-<li>For $N$ processes, ranks go from $0$ to $N-1$</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
 from mpi4py import MPI
 comm = MPI.COMM_WORLD
-rank = comm.Get_rank()
-size = comm.Get_size()
-name = MPI.Get_processor_name()
-print (&quot;Hello world from process %s running on host %s out of %s processes&quot; % 
-       (rank, name, size))
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[stdout:0] Hello world from process 10 running on host node0263 out of 32 processes
-[stdout:1] Hello world from process 2 running on host node0263 out of 32 processes
-[stdout:2] Hello world from process 0 running on host node0263 out of 32 processes
-[stdout:3] Hello world from process 4 running on host node0263 out of 32 processes
-[stdout:4] Hello world from process 6 running on host node0263 out of 32 processes
-[stdout:5] Hello world from process 8 running on host node0263 out of 32 processes
-[stdout:6] Hello world from process 12 running on host node0263 out of 32 processes
-[stdout:7] Hello world from process 14 running on host node0263 out of 32 processes
-[stdout:8] Hello world from process 11 running on host node0263 out of 32 processes
-[stdout:9] Hello world from process 1 running on host node0263 out of 32 processes
-[stdout:10] Hello world from process 5 running on host node0263 out of 32 processes
-[stdout:11] Hello world from process 9 running on host node0263 out of 32 processes
-[stdout:12] Hello world from process 7 running on host node0263 out of 32 processes
-[stdout:13] Hello world from process 15 running on host node0263 out of 32 processes
-[stdout:14] Hello world from process 13 running on host node0263 out of 32 processes
-[stdout:15] Hello world from process 3 running on host node0263 out of 32 processes
-[stdout:16] Hello world from process 20 running on host node0342 out of 32 processes
-[stdout:17] Hello world from process 26 running on host node0342 out of 32 processes
-[stdout:18] Hello world from process 30 running on host node0342 out of 32 processes
-[stdout:19] Hello world from process 16 running on host node0342 out of 32 processes
-[stdout:20] Hello world from process 27 running on host node0342 out of 32 processes
-[stdout:21] Hello world from process 22 running on host node0342 out of 32 processes
-[stdout:22] Hello world from process 21 running on host node0342 out of 32 processes
-[stdout:23] Hello world from process 17 running on host node0342 out of 32 processes
-[stdout:24] Hello world from process 28 running on host node0342 out of 32 processes
-[stdout:25] Hello world from process 25 running on host node0342 out of 32 processes
-[stdout:26] Hello world from process 18 running on host node0342 out of 32 processes
-[stdout:27] Hello world from process 19 running on host node0342 out of 32 processes
-[stdout:28] Hello world from process 23 running on host node0342 out of 32 processes
-[stdout:29] Hello world from process 29 running on host node0342 out of 32 processes
-[stdout:30] Hello world from process 24 running on host node0342 out of 32 processes
-[stdout:31] Hello world from process 31 running on host node0342 out of 32 processes
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Ranks are used to enforce execution/exclusion of code segments within the original source code</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
-from mpi4py import MPI
-comm = MPI.COMM_WORLD
-rank = comm.Get_rank()
-size = comm.Get_size()
-name = MPI.Get_processor_name()
-if (rank % 2 == 0):
-    print (&quot;Process %s is even&quot; % (rank))
-else:
-    print (&quot;Process %s is odd&quot; % (rank))
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[stdout:0] Process 0 is even
-[stdout:1] Process 2 is even
-[stdout:2] Process 1 is odd
-[stdout:3] Process 3 is odd
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Ranks can be used as mean to calculate and distributed workload (data) among the processes</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
-from mpi4py import MPI
-import random
-comm = MPI.COMM_WORLD
-rank = comm.Get_rank()
-size = comm.Get_size()
-name = MPI.Get_processor_name()
-A = [2,13,4,3,5,1,0,12,10,8,7,9,11,6,15,14]
-#print (&quot;Elements %s and %s are assigned to process %s&quot; 
-#       % (A[rank%15], A[1+rank%15], rank))
-if (rank &lt; 4):
-    print (&quot;Process %s has elements %s&quot; % (rank, A[(4*rank):(4*rank+4)]))
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[stdout:1] Process 2 has elements [10, 8, 7, 9]
-[stdout:2] Process 0 has elements [2, 13, 4, 3]
-[stdout:9] Process 1 has elements [5, 1, 0, 12]
-[stdout:15] Process 3 has elements [11, 6, 15, 14]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Individual processes rely on communication (message passing) to enforce workflow<ul>
-<li>Point-to-point Communication</li>
-<li>Collective Communication</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4><center> Point-to-Point: Send and Receive</h4>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-
-<pre><code>comm = MPI.COMM_WORLD</code></pre>
-<ul>
-<li>Sender process:
-<pre><code>comm.send(data, dest_rank)</code></pre>
-</li>
-<li>Receiver process:   
-<pre><code>data = comm.recv(source_rank)</code></pre>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong> Original MPI C Syntax: MPI_Send</strong></p>
-
-<pre><code>int MPI_Send(void *buf, 
-    int count, 
-    MPI_Datatype datatype, 
-    int dest, 
-    int tag, 
-    MPI_Comm comm)</code></pre>
-<ul>
-<li>MPI_Datatype may be MPI_BYTE, MPI_PACKED, MPI_CHAR, MPI_SHORT, MPI_INT, MPI_LONG, MPI_FLOAT, MPI_DOUBLE, MPI_LONG_DOUBLE, MPI_UNSIGNED_CHAR</li>
-<li><em>dest</em> is the rank of the process the message is sent to</li>
-<li><em>tag</em> is an integer identify the message. Programmer is responsible for managing tag</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong> Original MPI C Syntax: MPI_Recv</strong></p>
-
-<pre><code>int MPI_Recv(
-    void *buf, 
-    int count, 
-    MPI_Datatype datatype, 
-    int source, 
-    int tag, 
-    MPI_Comm comm,
-    MPI_Status *status)</code></pre>
-<ul>
-<li>MPI_Datatype may be MPI_BYTE, MPI_PACKED, MPI_CHAR, MPI_SHORT, MPI_INT, MPI_LONG, MPI_FLOAT, MPI_DOUBLE, MPI_LONG_DOUBLE, MPI_UNSIGNED_CHAR</li>
-<li><em>source</em> is the rank of the process from which the message was sent.</li>
-<li><em>tag</em> is an integer identify the message. MPI_Recv will only place data in the buffer if the tag from MPI_Send matches. The constant MPI_ANY_TAG may be used when the source tag is unknown or not important. </li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
-from mpi4py import MPI
-import random
-comm = MPI.COMM_WORLD
-rank = comm.Get_rank()
-if (rank == 0):
-    send_pkg = random.random()
-    print (send_pkg)
-    comm.send(send_pkg, dest = 1, tag = 1)
-if (rank == 1):
-    recv_pkg = 0
-    recv_pkg = comm.recv(source = 0, tag = 1)
-    print (recv_pkg)
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[stdout:2] 0.4942599923980231
-[stdout:9] 0.4942599923980231
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Blocking risks</strong></p>
-<ul>
-<li>Send data larger than available network buffer (Blocking send)</li>
-<li>Lost data (or missing sender) leading to receiver hanging indefinitely (Blocking receive)</li>
-</ul>
-<p><strong>Data types</strong></p>
-<ul>
-<li>MPI4PY supports all default MPI's data types</li>
-<li>MPI4PY uses <em>pickle</em> to facilitate sending and receiving of complex data</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
-from mpi4py import MPI
-comm = MPI.COMM_WORLD
-rank = comm.Get_rank()
+rank = comm.Get_rank(); size = comm.Get_size()
+N = 8; a = 0; b = 1; h = (b - a)/N
+def f(x):
+    return x*x
+local_N = N / size
+local_a = a + rank * local_N * h
+partial_result = 0
+for i in range(0,int(local_N)):
+    partial_result = partial_result + (f(local_a) + f(local_a + h)) * h / 2
+    local_a = local_a + h
+sum = comm.reduce(partial_result, op=MPI.SUM, root=0)
 if rank == 0:
-    data = {&#39;class&#39;: &#39;cpsc3620&#39;, &#39;semester&#39;: &#39;Fall 2016&#39;, 
-            &#39;enrollments&#39;: 40}
-    comm.send(data, dest=1, tag=11)
-elif rank == 1:
-    data = comm.recv(source=0, tag=11)
-    print(data)
+    print (&quot;The integral is %s&quot; % (sum))
 </pre></div>
 
 </div>
@@ -1014,7 +338,7 @@ elif rank == 1:
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[stdout:9] {&apos;class&apos;: &apos;cpsc3620&apos;, &apos;enrollments&apos;: 40, &apos;semester&apos;: &apos;Fall 2016&apos;}
+<pre>[stdout:1] The integral is 0.3359375
 </pre>
 </div>
 </div>
@@ -1023,78 +347,51 @@ elif rank == 1:
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4><center> Does each process receive the same amount of work?</h4>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
 from mpi4py import MPI
 comm = MPI.COMM_WORLD
-rank = comm.Get_rank()
+rank = comm.Get_rank(); size = comm.Get_size()
+N = 8; a = 0; b = 1; h = (b - a)/N
+def f(x):
+    return x*x
+local_N = N / size
+local_a = a + rank * local_N * h
+partial_result = 0
+for i in range(0,int(local_N)):
+    partial_result = partial_result + (f(local_a) + f(local_a + h)) * h / 2
+    local_a = local_a + h
+sum = comm.reduce(partial_result, op=MPI.SUM, root=0)
 if rank == 0:
-    data = [1,2,3,4]
-    comm.send(data, dest=1, tag=11)
-elif rank == 1:
-    data = comm.recv(source=0, tag=11)
-    print(data)
+    print (&quot;The integral is %s&quot; % (sum))
 </pre></div>
 
 </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[stdout:9] [1, 2, 3, 4]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4><center> Collective Communication</h4>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Must involve ALL processes within the scope of a communicator</li>
-<li>Unexpected behavior, including programming failure, if even one process does not participate</li>
-<li>Types of collective communications:<ul>
-<li>Synchronization: barrier</li>
-<li>Data movement: broadcast, scatter/gather</li>
-<li>Collective computation (aggregate data to perform computation): Reduce</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<center> <img src="pictures/mpi-collective.png" width="700"/> 
-<sub> *https://computing.llnl.gov/tutorials/mpi/* </sub>
+<center> 
+    <img src="pictures/static-wa.png" width="400"/>
 </center>
 </div>
 </div>
@@ -1104,16 +401,9 @@ elif rank == 1:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>broadcast:</strong></p>
-
-<pre><code>comm = MPI.COMM_WORLD</code></pre>
-<ul>
-<li>All processes:
-<pre><code>&lt;buffer at receiving process&gt; = comm.bcast(&lt;original data&gt;, root=&lt;root process&gt;)</code></pre>
-</li>
-<li><em>root</em> process is the one that has the original data initially. </li>
-</ul>
-
+<center> 
+    <img src="pictures/cyclic-wl.png" width="400"/>
+</center>
 </div>
 </div>
 </div>
@@ -1122,527 +412,11 @@ elif rank == 1:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-
-<pre><code>int MPI_Bcast(
-    void *buf, 
-    int count, 
-    MPI_Datatype datatype, 
-    int root, 
-    MPI_Comm comm);</code></pre>
-<ul>
-<li>Don’t need to specify a TAG or DESTINATION</li>
-<li>Must specify the SENDER (root)</li>
-<li>Blocking call for all processes</li>
-</ul>
-
+<center> 
+    <img src="pictures/dynamic-wl.png" width="800"/>
+</center>
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[48]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
-from mpi4py import MPI
-
-comm = MPI.COMM_WORLD
-rank = comm.Get_rank()
-
-if rank == 0:
-    data = 2
-else:
-    data = -1
-print (&quot;%s: %s&quot; % (rank, data))
-data = comm.bcast(data, root=0)
-print (&quot;%s: %s&quot; % (rank, data))
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[stdout:0] 
-0: 2
-0: 2
-[stdout:1] 
-2: -1
-2: 2
-[stdout:2] 
-1: -1
-1: 2
-[stdout:3] 
-3: -1
-3: 2
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[49]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
-from mpi4py import MPI
-
-comm = MPI.COMM_WORLD
-rank = comm.Get_rank()
-
-if rank == 0:
-    data = {&#39;key1&#39; : [7, 2.72, 2+3j],
-            &#39;key2&#39; : ( &#39;abc&#39;, &#39;xyz&#39;)}
-else:
-    data = None
-data = comm.bcast(data, root=0)
-print (data)
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[stdout:0] {&apos;key2&apos;: (&apos;abc&apos;, &apos;xyz&apos;), &apos;key1&apos;: [7, 2.72, (2+3j)]}
-[stdout:1] {&apos;key1&apos;: [7, 2.72, (2+3j)], &apos;key2&apos;: (&apos;abc&apos;, &apos;xyz&apos;)}
-[stdout:2] {&apos;key1&apos;: [7, 2.72, (2+3j)], &apos;key2&apos;: (&apos;abc&apos;, &apos;xyz&apos;)}
-[stdout:3] {&apos;key2&apos;: (&apos;abc&apos;, &apos;xyz&apos;), &apos;key1&apos;: [7, 2.72, (2+3j)]}
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong> How to save broadcast data into different variables on different processes? </strong></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[50]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
-from mpi4py import MPI
-
-comm = MPI.COMM_WORLD
-rank = comm.Get_rank()
-
-if rank == 0:
-    data = 2
-else:
-    data = -1
-print (&quot;%s: %s&quot; % (rank, data))
-data = comm.bcast(data, root=0)
-print (&quot;%s: %s&quot; % (rank, data))
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[stdout:0] 
-0: 2
-0: 2
-[stdout:1] 
-2: -1
-2: 2
-[stdout:2] 
-1: -1
-1: 2
-[stdout:3] 
-3: -1
-3: 2
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>scatter:</strong></p>
-
-<pre><code>comm = MPI.COMM_WORLD</code></pre>
-<ul>
-<li>All processes:
-<pre><code>&lt;buffer at receiving process&gt; = comm.scatter(&lt;original array&gt;, root=&lt;root process&gt;)</code></pre>
-</li>
-<li><em>root</em> process is the one that has the original data array initially. </li>
-<li>Data are divided according to rank</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong> Original MPI C Syntax: MPI_Scatter</strong></p>
-
-<pre><code>int MPI_Scatter(
-    void *sendbuf, 
-    int sendcount, 
-    MPI_Datatype sendtype, 
-    void *recvbuf,
-    int recvcnt,
-    MPI_Datatype recvtype,
-    int root, 
-    MPI_Comm comm);</code></pre>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[51]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
-from mpi4py import MPI
-
-comm = MPI.COMM_WORLD
-size = comm.Get_size()
-rank = comm.Get_rank()
-
-if rank == 0:
-    data = [(i+1)**2 for i in range(size)]
-else:
-    data = None
-data = comm.scatter(data, root=0)
-print (&quot;%s: %s&quot; % (rank, data))
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[stdout:0] 0: 1
-[stdout:1] 2: 9
-[stdout:2] 1: 4
-[stdout:3] 3: 16
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[52]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
-from mpi4py import MPI
-
-comm = MPI.COMM_WORLD
-rank = comm.Get_rank()
-
-if rank == 0:
-    data = [{&#39;key1&#39; : [7, 2.72, 2+3j]},
-            {&#39;key2&#39; : ( &#39;abc&#39;, &#39;xyz&#39;)},
-            {&#39;key3&#39; : ( &#39;abc&#39;, &#39;xyz&#39;)},
-            {&#39;key4&#39; : ( &#39;cde&#39;, &#39;xyz&#39;)}]
-else:
-    data = None
-data = comm.scatter(data, root=0)
-print (&quot;%s: %s&quot; % (rank, data))
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[stdout:0] 0: {&apos;key1&apos;: [7, 2.72, (2+3j)]}
-[stdout:1] 2: {&apos;key3&apos;: (&apos;abc&apos;, &apos;xyz&apos;)}
-[stdout:2] 1: {&apos;key2&apos;: (&apos;abc&apos;, &apos;xyz&apos;)}
-[stdout:3] 3: {&apos;key4&apos;: (&apos;cde&apos;, &apos;xyz&apos;)}
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>gather:</strong></p>
-
-<pre><code>comm = MPI.COMM_WORLD</code></pre>
-<ul>
-<li>All processes:
-<pre><code>&lt;buffer at sending process&gt; = comm.gather(&lt;final array&gt;, root=&lt;root process&gt;)</code></pre>
-</li>
-<li><em>root</em> process is the one that receives the original data array initially. </li>
-<li>Data arrive and are sorted at <em>root</em> according to rank</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong> Original MPI C Syntax: MPI_Gather</strong></p>
-
-<pre><code>int MPI_Gather(
-    void *sendbuff, 
-    int sendcount, 
-    MPI_Datatype sendtype, 
-    void *recvbuff,
-    int recvcnt,
-    MPI_Datatype recvtype,
-    int root, 
-    MPI_Comm comm);</code></pre>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[53]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
-from mpi4py import MPI
-
-comm = MPI.COMM_WORLD
-size = comm.Get_size()
-rank = comm.Get_rank()
-
-data = (rank+1)**2
-print (&quot;%s: %s&quot; % (rank, data))
-data = comm.gather(data, root=0)
-if rank == 0:
-    print (&quot;%s: %s&quot; % (rank, data))
-else:
-    print (&quot;%s: %s&quot; % (rank, data))
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[stdout:0] 
-0: 1
-0: [1, 4, 9, 16]
-[stdout:1] 
-2: 9
-2: None
-[stdout:2] 
-1: 4
-1: None
-[stdout:3] 
-3: 16
-3: None
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong> What happpens to variable <em>data</em> at the non-root process?</strong></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[54]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
-from mpi4py import MPI
-
-comm = MPI.COMM_WORLD
-size = comm.Get_size()
-rank = comm.Get_rank()
-
-data = (rank+1)**2
-print (&quot;%s: %s&quot; % (rank, data))
-data = comm.gather(data, root=0)
-if rank == 0:
-    print (&quot;%s: %s&quot; % (rank, data))
-else:
-    print (&quot;%s: %s&quot; % (rank, data))
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[stdout:0] 
-0: 1
-0: [1, 4, 9, 16]
-[stdout:1] 
-2: 9
-2: None
-[stdout:2] 
-1: 4
-1: None
-[stdout:3] 
-3: 16
-3: None
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>reduce</strong></p>
-
-<pre><code>comm = MPI.COMM_WORLD</code></pre>
-<ul>
-<li>All processes:
-<pre><code>&lt;final result at sending process&gt; = comm.reduce(&lt;data to be reduced&gt;, op=MPI.&lt;operation&gt;, root=&lt;root process&gt;)</code></pre>
-</li>
-<li><em>root</em> process is the one that receives the final reduced data initially. </li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong> Original MPI C Syntax: MPI_Reduce</strong></p>
-
-<pre><code>int MPI_Reduce(
-    void *sendbuf, 
-    void *recvbuff,
-    int count, 
-    MPI_Datatype datatype, 
-    MPI_OP op,
-    int root, 
-    MPI_Comm comm);</code></pre>
-<ul>
-<li>MPI_Op may be MPI_MIN, MPI_MAX, MPI_SUM, MPI_PROD (twelve total)</li>
-<li>Programmer may add operations, must be commutative and associative</li>
-<li>If count &gt; 1, then operation is performed element-wise</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[55]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
-from mpi4py import MPI
-
-comm = MPI.COMM_WORLD
-rank = comm.Get_rank()
-
-sum = comm.reduce(rank, op=MPI.SUM, root=0)
-
-if rank == 0:
-    print (&quot;The reduction is %s&quot; % (sum))
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[stdout:0] The reduction is 6
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
     </div>
   </div>
