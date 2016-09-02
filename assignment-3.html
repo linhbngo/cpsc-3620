@@ -62,7 +62,16 @@
 <li><p>When the MPI process finishes reading its files, it will send the counts of each event type as a vector to process 0.  Your program should use a REDUCE call for this step.  Process 0 will  aggregate the counts of the individual <em>event_type</em> from  information collected from all participating processes using one reduce call.</p></li>
 <li><p>Process 0 will print out the final aggregation using the following format:</p></li>
 </ol>
-<p>Event Type                     Count SUBMIT                           ???? SCHEDULE                     ???? EVICT                              ???? FAIL                                 ???? FINISH                             ???? KILL                                  ???? LOST                                ???? UPDATE_PENDING        ???? UPDATE_RUNNING        ????</p>
+<p>Event Type                     Count</p>
+<p>SUBMIT                           ????</p>
+<p>SCHEDULE                     ????</p>
+<p>EVICT                              ????</p>
+<p>FAIL                                 ????</p>
+<p>FINISH                             ????</p>
+<p>KILL                                  ????</p>
+<p>LOST                                ????</p>
+<p>UPDATE_PENDING        ????</p>
+<p>UPDATE_RUNNING        ????</p>
 <ol start="6" style="list-style-type: decimal">
 <li><p>You will test your program on a number of processes that is {1, 2, 4, 8, 16}.   In your testing, be sure that your program runs correctly on all numbers of processes.</p></li>
 <li>Extra credit (+5):  </li>

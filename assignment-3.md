@@ -84,14 +84,23 @@ from  information collected from all participating processes using one reduce c
 5. Process 0 will print out the final aggregation using the following format:
 
 Event Type                     Count
+
 SUBMIT                           ????
+
 SCHEDULE                     ????
+
 EVICT                              ????
+
 FAIL                                 ????
+
 FINISH                             ????
+
 KILL                                  ????
+
 LOST                                ????
+
 UPDATE_PENDING        ????
+
 UPDATE_RUNNING        ????
 
 
