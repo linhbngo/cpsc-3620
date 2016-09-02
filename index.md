@@ -145,7 +145,9 @@ Students with disabilities needing accommodations should make an appointment wit
 8. Friday, September 2:
 -   Introduction to Message-Passing Computing (continue)
 -   [Pleasantly Parallel Computation](pleasantly-parallel.html)
+-   [Assignment 3](assignment-3.html)
 -   **Assignment 2 Due**
+
 
 9. Monday, September 5:
 -   [Pleasantly Parallel Computing: Workload Assignment]()
