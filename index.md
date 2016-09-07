@@ -143,27 +143,25 @@ Students with disabilities needing accommodations should make an appointment wit
 -   Introduction to Message-Passing Computing (continue)
 
 8. Friday, September 2:
--   Introduction to Message-Passing Computing (continue)
--   [Pleasantly Parallel Computation](pleasantly-parallel.html)
+-   Introduction to Message-Passing Computing (continue)   
 -   [Assignment 3](assignment-3.html)
 -   **Assignment 2 Due**
 
 
 9. Monday, September 5:
--   [Pleasantly Parallel Computing: Workload Assignment]()
--   
+-   [Pleasantly Parallel Computation](pleasantly-parallel.html)
 
 10. Wednesday, September 7:
--   [Synchronous Computing: Broadcast and Barrier]()
+-   [Pleasantly Parallel Computing: Workload Assignment](pleasantly-parallel.html)
 
 11. Friday, September 9:
--   [Synchronous Computing: Row Exchange]()
+-   [Partitioning and Divide-and-Conquer](divide-and-conquer.html)
 
 12. Monday, September 12:
--   [Partitioning and Divide-and-Conquer]()
+-   [Synchronous Computing: Broadcast and Barrier]()
 
 13. Wednesday, September 14:
--   [Bucket Sort ]()
+-   [Synchronous Computing: Row Exchange]()
 
 14. Friday, September 16:
 -   [TBD]()
