@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>introduction-to-MPI</title>
+<title>synchronous-computing</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -176,350 +176,13 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Introduction-to-Message-Passing-Interface-(MPI)"><center>Introduction to Message Passing Interface (MPI)</center><a class="anchor-link" href="#Introduction-to-Message-Passing-Interface-(MPI)">&#182;</a></h2><h3 id="-Linh-B.-Ngo-"><center> Linh B. Ngo </center><a class="anchor-link" href="#-Linh-B.-Ngo-">&#182;</a></h3><h3 id="-CPSC-3620-"><center> CPSC 3620 </center><a class="anchor-link" href="#-CPSC-3620-">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4><center>Message Passing</h4>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Processes communicate via messages</li>
-<li>Messages can be<ul>
-<li>Raw data to be used in actual calculations</li>
-<li>Signals and acknowledgements for the receiving processes regarding the workflow</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4><center>History of MPI</h4>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong> Early 80s:</strong></p>
-<ul>
-<li>Various message passing environments were developed</li>
-<li>Many similar fundamental concepts</li>
-<li>N-cube (Caltech), P4 (Argonne), PICL and PVM (Oakridge), LAM (Ohio SC)</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong> 1992: </strong></p>
-<ul>
-<li>More than 80 reseachers from different institutions in US and Europe agreed to develop and implement a common standard for message passing</li>
-<li>First meeting colocated with Supercomputing 1992</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong> After finalization: </strong></p>
-<ul>
-<li>MPI becomes the <em>de-factor</em> standard for distributed memory parallel programming</li>
-<li>Available on every popular operating system and architecture</li>
-<li>Interconnect manufacturers commonly provide MPI implementations optimized for their hardware</li>
-<li>MPI standard defines interfaces for C, C++, and Fortran<ul>
-<li>Language bindings available for many popular languages (quality varies)</li>
-<li>MPI4PY: Bindings for python</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong> 1994: MPI-1 </strong></p>
-<ul>
-<li>Communicators<ul>
-<li>Information about the runtime environments</li>
-<li>Creation of customized topologies</li>
-</ul>
-</li>
-<li>Point-to-point communication<ul>
-<li>Send and receive messages</li>
-<li>Blocking and non-blocking variations</li>
-</ul>
-</li>
-<li>Collectives<ul>
-<li>Broadcast and reduce</li>
-<li>Gather and scatter</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong> 1998: MPI-2 </strong></p>
-<ul>
-<li>One-sided communication (non-blocking)<ul>
-<li>Get &amp; Put (remote memory access)</li>
-</ul>
-</li>
-<li>Dynamic process management<ul>
-<li>Spawn</li>
-</ul>
-</li>
-<li>Parallel I/O<ul>
-<li>Multiple readers and writers for a single file</li>
-<li>Requires file-system level support (LustreFS, PVFS)</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong> 2012: MPI-3 </strong></p>
-<ul>
-<li>Revised remote-memory access semantic</li>
-<li>Fault tolerance model</li>
-<li>Non-blocking collective communication</li>
-<li>Access to internal variables, states, and counters for performance evaluation purposes</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4><center> Set up MPI on Palmetto for C/C++</h4>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Interactive mode:</strong></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><code>qsub -I -l select=1:ncpus=8:mpiprocs=8:mem=10gb,walltime=01:00:00</code></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><code>module load gcc/5.3.0 openmpi/1.10.3</code></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><em>The module load command can be added to a script, which then is to be sourced from inside .bashrc to automate module loading. Calling the module load directly from inside .bashrc is not recommended.</em></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Create a file named <strong>hello.c</strong> inside directory <strong>cpsc3620</strong> with the following content
-<pre><code>#include &lt;stdio.h&gt;
-#include &lt;sys/utsname.h&gt;
-#include &lt;mpi.h&gt;
-int main(int argc, char *argv[]){
-  MPI_Init(&amp;argc, &amp;argv);
-  struct utsname uts;
-  uname (&amp;uts);
-  printf("My process is on node %s.\n", uts.nodename);
-  MPI_Finalize();
-  return 0;
-}</code></pre>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Compile hello.c
-<pre><code>mpicc hello.c -o hello</code></pre>
-</li>
-<li>Run hello.c
-<pre><code>mpirun -np 2 ./hello</code></pre>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4><center> Set up MPI on Palmetto for Python (Interactive via Jupyter Notebook)</h4>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Before launching JupyterHub</strong></p>
-<ul>
-<li>Make sure that you have the command <code>module load gcc/5.3.0 openmpi/1.10.3</code> in your .jhubrc file. If you are using JupyterHub to edit the file, the server will need to be stopped and started again. </li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Before launching a Jupyter notebook (only need to be done once)</strong></p>
-<ul>
-<li>Install mpi4py by executing <code>pip install --user mpi4py</code> from a terminal. This needs to be done prior to launching a Jupyter notebook. </li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Before launching a Jupyter notebook (any time you wish to run interactive MPI inside Jupyter Notebook)</strong></p>
-<ul>
-<li>Inside a terminal (that must be kept open), execute the following command:
-<pre><code>ipcluster start --n &lt;Number of total possible cores&gt; --profile=mpicluster</code></pre>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>In the first cell of your Jupyter notebook, type the followings:
-<pre><code>import ipyparallel
-c = ipyparallel.Client(profile="mpicluster")</code></pre>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Test the attached cluster by running the following in a cell:
-<pre><code>print(c.ids)</code></pre>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Any cell that contains MPI codes must be started with <code>%%px</code></li>
-</ul>
-
+<h2 id="Synchronous-Computing"><center>Synchronous Computing</center><a class="anchor-link" href="#Synchronous-Computing">&#182;</a></h2><h3 id="-Linh-B.-Ngo-"><center> Linh B. Ngo </center><a class="anchor-link" href="#-Linh-B.-Ngo-">&#182;</a></h3><h3 id="-CPSC-3620-"><center> CPSC 3620 </center><a class="anchor-link" href="#-CPSC-3620-">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">ipyparallel</span>
@@ -537,40 +200,7 @@ c = ipyparallel.Client(profile="mpicluster")</code></pre>
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[0, 1, 2, 3]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
-from mpi4py import MPI
-import socket
-print (&quot;My process is on node %s&quot; % (socket.gethostname()))
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[stdout:0] My process is on node node1925
-[stdout:1] My process is on node node1925
-[stdout:2] My process is on node node1925
-[stdout:3] My process is on node node1925
+<pre>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 </pre>
 </div>
 </div>
@@ -584,8 +214,7 @@ print (&quot;My process is on node %s&quot; % (socket.gethostname()))
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4><center> The working of MPI in a nutshell</h4>
-
+<h4 id="-Synchronous-Computation-"><center> Synchronous Computation </center><a class="anchor-link" href="#-Synchronous-Computation-">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -594,279 +223,7 @@ print (&quot;My process is on node %s&quot; % (socket.gethostname()))
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>All processes are launched at the beginning of the program execution<ul>
-<li>The number of processes are user-speficied</li>
-<li>Typically, this number is matched to the total number of cores available across the entire cluster</li>
-</ul>
-</li>
-<li>All processes have their own memory space and have access to the same source codes</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Basic parameters available to individual processes: </strong></p>
-
-<pre><code>comm = MPI.COMM_WORLD
-rank = comm.Get_rank()
-size = comm.Get_size()
-name = MPI.Get_processor_name()</code></pre>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>MPI defines <strong>communicator</strong> groups for point-to-point and collective communications<ul>
-<li>Unique IDs (<strong>rank</strong>) are defined for individual processes within a communicator group</li>
-<li>Communications are performed based on these IDs</li>
-<li>Default <strong>global communication</strong> (COMM_WORLD) contains all processes</li>
-<li>For $N$ processes, ranks go from $0$ to $N-1$</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
-from mpi4py import MPI
-comm = MPI.COMM_WORLD
-rank = comm.Get_rank()
-size = comm.Get_size()
-name = MPI.Get_processor_name()
-print (&quot;Hello world from process %s running on host %s out of %s processes&quot; % 
-       (rank, name, size))
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[stdout:0] Hello world from process 0 running on host node1925 out of 4 processes
-[stdout:1] Hello world from process 2 running on host node1925 out of 4 processes
-[stdout:2] Hello world from process 1 running on host node1925 out of 4 processes
-[stdout:3] Hello world from process 3 running on host node1925 out of 4 processes
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Ranks are used to enforce execution/exclusion of code segments within the original source code</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
-from mpi4py import MPI
-comm = MPI.COMM_WORLD
-rank = comm.Get_rank()
-size = comm.Get_size()
-name = MPI.Get_processor_name()
-if (rank % 2 == 0):
-    print (&quot;Process %s is even&quot; % (rank))
-else:
-    print (&quot;Process %s is odd&quot; % (rank))
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[stdout:0] Process 0 is even
-[stdout:1] Process 2 is even
-[stdout:2] Process 1 is odd
-[stdout:3] Process 3 is odd
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Ranks can be used as mean to calculate and distributed workload (data) among the processes</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
-from mpi4py import MPI
-import random
-comm = MPI.COMM_WORLD
-rank = comm.Get_rank()
-size = comm.Get_size()
-name = MPI.Get_processor_name()
-A = [2,13,4,3,5,1,0,12,10,8,7,9,11,6,15,14]
-#print (&quot;Elements %s and %s are assigned to process %s&quot; 
-#       % (A[rank%15], A[1+rank%15], rank))
-if (rank &lt; 4):
-    print (&quot;Process %s has elements %s&quot; % (rank, A[(4*rank):(4*rank+4)]))
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[stdout:1] Process 2 has elements [10, 8, 7, 9]
-[stdout:2] Process 0 has elements [2, 13, 4, 3]
-[stdout:9] Process 1 has elements [5, 1, 0, 12]
-[stdout:15] Process 3 has elements [11, 6, 15, 14]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Individual processes rely on communication (message passing) to enforce workflow<ul>
-<li>Point-to-point Communication</li>
-<li>Collective Communication</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4><center> Point-to-Point: Send and Receive</h4>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-
-<pre><code>comm = MPI.COMM_WORLD</code></pre>
-<ul>
-<li>Sender process:
-<pre><code>comm.send(data, dest_rank)</code></pre>
-</li>
-<li>Receiver process:   
-<pre><code>data = comm.recv(source_rank)</code></pre>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong> Original MPI C Syntax: MPI_Send</strong></p>
-
-<pre><code>int MPI_Send(void *buf, 
-    int count, 
-    MPI_Datatype datatype, 
-    int dest, 
-    int tag, 
-    MPI_Comm comm)</code></pre>
-<ul>
-<li>MPI_Datatype may be MPI_BYTE, MPI_PACKED, MPI_CHAR, MPI_SHORT, MPI_INT, MPI_LONG, MPI_FLOAT, MPI_DOUBLE, MPI_LONG_DOUBLE, MPI_UNSIGNED_CHAR</li>
-<li><em>dest</em> is the rank of the process the message is sent to</li>
-<li><em>tag</em> is an integer identify the message. Programmer is responsible for managing tag</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong> Original MPI C Syntax: MPI_Recv</strong></p>
-
-<pre><code>int MPI_Recv(
-    void *buf, 
-    int count, 
-    MPI_Datatype datatype, 
-    int source, 
-    int tag, 
-    MPI_Comm comm,
-    MPI_Status *status)</code></pre>
-<ul>
-<li>MPI_Datatype may be MPI_BYTE, MPI_PACKED, MPI_CHAR, MPI_SHORT, MPI_INT, MPI_LONG, MPI_FLOAT, MPI_DOUBLE, MPI_LONG_DOUBLE, MPI_UNSIGNED_CHAR</li>
-<li><em>source</em> is the rank of the process from which the message was sent.</li>
-<li><em>tag</em> is an integer identify the message. MPI_Recv will only place data in the buffer if the tag from MPI_Send matches. The constant MPI_ANY_TAG may be used when the source tag is unknown or not important. </li>
-</ul>
+<p>In a (fully) synchronous computation, all the processes synchronized at regular points, usually to exchange data or to making sure every process has gone through the same set of procedures (to update their own data) before proceeding.</p>
 
 </div>
 </div>
@@ -876,19 +233,7 @@ if (rank &lt; 4):
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
-from mpi4py import MPI
-import random
-comm = MPI.COMM_WORLD
-rank = comm.Get_rank()
-if (rank == 0):
-    send_pkg = random.random()
-    print (send_pkg)
-    comm.send(send_pkg, dest = 1, tag = 1)
-if (rank == 1):
-    recv_pkg = 0
-    recv_pkg = comm.recv(source = 0, tag = 1)
-    print (recv_pkg)
+<div class=" highlight hl-ipython3"><pre><span class="o">!</span>mpirun -np <span class="m">16</span> python nobarrier.py
 </pre></div>
 
 </div>
@@ -901,8 +246,64 @@ if (rank == 1):
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[stdout:0] 0.655381079134236
-[stdout:2] 0.655381079134236
+<pre>process 1 is here
+process 2 is here
+process 3 is here
+process 4 is here
+process 5 is here
+process 6 is here
+process 7 is here
+process 8 is here
+process 9 is here
+process 10 is here
+process 11 is here
+process 12 is here
+process 13 is here
+process 14 is here
+process 15 is here
+process 0 is here
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="o">!</span>mpirun -np <span class="m">16</span> python barrier.py
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>process 3 is here
+process 4 is here
+process 5 is here
+process 6 is here
+process 7 is here
+process 8 is here
+process 9 is here
+process 10 is here
+process 11 is here
+process 12 is here
+process 13 is here
+process 14 is here
+process 15 is here
+process 0 is here
+process 1 is here
+process 2 is here
 </pre>
 </div>
 </div>
@@ -916,100 +317,7 @@ if (rank == 1):
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Blocking risks</strong></p>
-<ul>
-<li>Send data larger than available network buffer (Blocking send)</li>
-<li>Lost data (or missing sender) leading to receiver hanging indefinitely (Blocking receive)</li>
-</ul>
-<p><strong>Data types</strong></p>
-<ul>
-<li>MPI4PY supports all default MPI's data types</li>
-<li>MPI4PY uses <em>pickle</em> to facilitate sending and receiving of complex data</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
-from mpi4py import MPI
-comm = MPI.COMM_WORLD
-rank = comm.Get_rank()
-if rank == 0:
-    data = {&#39;class&#39;: &#39;cpsc3620&#39;, &#39;semester&#39;: &#39;Fall 2016&#39;, 
-            &#39;enrollments&#39;: 40}
-    comm.send(data, dest=1, tag=11)
-elif rank == 1:
-    data = comm.recv(source=0, tag=11)
-    print(data)
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[stdout:9] {&apos;class&apos;: &apos;cpsc3620&apos;, &apos;enrollments&apos;: 40, &apos;semester&apos;: &apos;Fall 2016&apos;}
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
-from mpi4py import MPI
-comm = MPI.COMM_WORLD
-rank = comm.Get_rank()
-if rank == 0:
-    data = [1,2,3,4]
-    comm.send(data, dest=1, tag=11)
-elif rank == 1:
-    data = comm.recv(source=0, tag=11)
-    print(data)
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[stdout:9] [1, 2, 3, 4]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4><center> Collective Communication</h4>
-
+<h4 id="-Barrier-"><center> Barrier </center><a class="anchor-link" href="#-Barrier-">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -1019,14 +327,8 @@ elif rank == 1:
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>Must involve ALL processes within the scope of a communicator</li>
-<li>Unexpected behavior, including programming failure, if even one process does not participate</li>
-<li>Types of collective communications:<ul>
-<li>Synchronization: barrier</li>
-<li>Data movement: broadcast, scatter/gather</li>
-<li>Collective computation (aggregate data to perform computation): Reduce</li>
-</ul>
-</li>
+<li>A basic mechanism for synchronizing processes - inserted at the point in each process where it must wait</li>
+<li>All processes can continue from this point when all the processes have reached it. </li>
 </ul>
 
 </div>
@@ -1037,46 +339,10 @@ elif rank == 1:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<center> <img src="pictures/mpi-collective.png" width="700"/> 
-<sub> *https://computing.llnl.gov/tutorials/mpi/* </sub>
-</center>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>broadcast:</strong></p>
-
-<pre><code>comm = MPI.COMM_WORLD</code></pre>
+<p>Comm.Barrier()</p>
+<p>Parameters:</p>
 <ul>
-<li>All processes:
-<pre><code>&lt;buffer at receiving process&gt; = comm.bcast(&lt;original data&gt;, root=&lt;root process&gt;)</code></pre>
-</li>
-<li><em>root</em> process is the one that has the original data initially. </li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-
-<pre><code>int MPI_Bcast(
-    void *buf, 
-    int count, 
-    MPI_Datatype datatype, 
-    int root, 
-    MPI_Comm comm);</code></pre>
-<ul>
-<li>Don’t need to specify a TAG or DESTINATION</li>
-<li>Must specify the SENDER (root)</li>
-<li>Blocking call for all processes</li>
+<li>Comm (MPI comm) – communicator on which we are to block processes</li>
 </ul>
 
 </div>
@@ -1084,27 +350,480 @@ elif rank == 1:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
-from mpi4py import MPI
-comm = MPI.COMM_WORLD; rank = comm.Get_rank();
-if rank == 0:
-    data = 2
-elif (rank != 1):
-    data = -1
-else:
-    data = -2
-print (&quot;%s: %s&quot; % (rank, data))
-if (rank != 1):
-    data = comm.bcast(data, root=0)
-    print (&quot;%s: %s&quot; % (rank, data))
-else:
-    data1 = comm.bcast(data, root=0)
-print (&quot;%s: %s&quot; % (rank, data))
-if (rank == 1):
-    print(&quot;%s: %s&quot; % (rank, data1))
+<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">visualize_dc</span><span class="p">():</span>
+    <span class="kn">from</span> <span class="nn">graphviz</span> <span class="k">import</span> <span class="n">Digraph</span>
+    <span class="n">dot</span> <span class="o">=</span> <span class="n">Digraph</span><span class="p">(</span><span class="n">comment</span><span class="o">=</span><span class="s1">&#39;Divide and Conquer&#39;</span><span class="p">)</span>
+
+    <span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P0-0-arr&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span> <span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P0-0-dep&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P0-1-arr&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span> <span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P0-1-dep&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P1-1-arr&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span> <span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P1-1-dep&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P0-2-arr&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span> <span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P0-2-dep&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P1-2-arr&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span> <span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P1-2-dep&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P2-2-arr&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span> <span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P2-2-dep&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P3-2-arr&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span> <span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P3-2-dep&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P0-3-arr&#39;</span><span class="p">,</span> <span class="s1">&#39;P0&#39;</span><span class="p">);</span> <span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P0-3-dep&#39;</span><span class="p">,</span> <span class="s1">&#39;P0&#39;</span><span class="p">);</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P1-3-arr&#39;</span><span class="p">,</span> <span class="s1">&#39;P1&#39;</span><span class="p">);</span> <span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P1-3-dep&#39;</span><span class="p">,</span> <span class="s1">&#39;P1&#39;</span><span class="p">);</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P2-3-arr&#39;</span><span class="p">,</span> <span class="s1">&#39;P2&#39;</span><span class="p">);</span> <span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P2-3-dep&#39;</span><span class="p">,</span> <span class="s1">&#39;P2&#39;</span><span class="p">);</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P3-3-arr&#39;</span><span class="p">,</span> <span class="s1">&#39;P3&#39;</span><span class="p">);</span> <span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P3-3-dep&#39;</span><span class="p">,</span> <span class="s1">&#39;P3&#39;</span><span class="p">);</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P4-3-arr&#39;</span><span class="p">,</span> <span class="s1">&#39;P4&#39;</span><span class="p">);</span> <span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P4-3-dep&#39;</span><span class="p">,</span> <span class="s1">&#39;P4&#39;</span><span class="p">);</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P5-3-arr&#39;</span><span class="p">,</span> <span class="s1">&#39;P5&#39;</span><span class="p">);</span> <span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P5-3-dep&#39;</span><span class="p">,</span> <span class="s1">&#39;P5&#39;</span><span class="p">);</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P6-3-arr&#39;</span><span class="p">,</span> <span class="s1">&#39;P6&#39;</span><span class="p">);</span> <span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P6-3-dep&#39;</span><span class="p">,</span> <span class="s1">&#39;P6&#39;</span><span class="p">);</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P7-3-arr&#39;</span><span class="p">,</span> <span class="s1">&#39;P7&#39;</span><span class="p">);</span> <span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P7-3-dep&#39;</span><span class="p">,</span> <span class="s1">&#39;P7&#39;</span><span class="p">);</span>
+
+    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P0-3-arr&#39;</span><span class="p">,</span><span class="s1">&#39;P0-2-arr&#39;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">&quot;4&quot;</span><span class="p">)</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P4-3-arr&#39;</span><span class="p">,</span><span class="s1">&#39;P0-2-arr&#39;</span><span class="p">)</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P1-3-arr&#39;</span><span class="p">,</span><span class="s1">&#39;P1-2-arr&#39;</span><span class="p">)</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P5-3-arr&#39;</span><span class="p">,</span><span class="s1">&#39;P1-2-arr&#39;</span><span class="p">)</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P2-3-arr&#39;</span><span class="p">,</span><span class="s1">&#39;P2-2-arr&#39;</span><span class="p">)</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P6-3-arr&#39;</span><span class="p">,</span><span class="s1">&#39;P2-2-arr&#39;</span><span class="p">)</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P3-3-arr&#39;</span><span class="p">,</span><span class="s1">&#39;P3-2-arr&#39;</span><span class="p">)</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P7-3-arr&#39;</span><span class="p">,</span><span class="s1">&#39;P3-2-arr&#39;</span><span class="p">)</span>
+
+    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P0-2-arr&#39;</span><span class="p">,</span><span class="s1">&#39;P0-1-arr&#39;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">&quot;4&quot;</span><span class="p">)</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P2-2-arr&#39;</span><span class="p">,</span><span class="s1">&#39;P0-1-arr&#39;</span><span class="p">)</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P1-2-arr&#39;</span><span class="p">,</span><span class="s1">&#39;P1-1-arr&#39;</span><span class="p">)</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P3-2-arr&#39;</span><span class="p">,</span><span class="s1">&#39;P1-1-arr&#39;</span><span class="p">)</span>
+    
+    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P0-1-arr&#39;</span><span class="p">,</span><span class="s1">&#39;P0-0-arr&#39;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">&quot;4&quot;</span><span class="p">)</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P1-1-arr&#39;</span><span class="p">,</span><span class="s1">&#39;P0-0-arr&#39;</span><span class="p">)</span>
+
+    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P0-0-arr&#39;</span><span class="p">,</span><span class="s1">&#39;P0-0-dep&#39;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">&quot;4&quot;</span><span class="p">)</span>
+
+    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P0-0-dep&#39;</span><span class="p">,</span><span class="s1">&#39;P0-1-dep&#39;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">&quot;4&quot;</span><span class="p">)</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P0-0-dep&#39;</span><span class="p">,</span><span class="s1">&#39;P1-1-dep&#39;</span><span class="p">)</span>
+
+    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P0-1-dep&#39;</span><span class="p">,</span><span class="s1">&#39;P0-2-dep&#39;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">&quot;4&quot;</span><span class="p">)</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P0-1-dep&#39;</span><span class="p">,</span><span class="s1">&#39;P2-2-dep&#39;</span><span class="p">)</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P1-1-dep&#39;</span><span class="p">,</span><span class="s1">&#39;P1-2-dep&#39;</span><span class="p">)</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P1-1-dep&#39;</span><span class="p">,</span><span class="s1">&#39;P3-2-dep&#39;</span><span class="p">)</span>
+
+    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P0-2-dep&#39;</span><span class="p">,</span><span class="s1">&#39;P0-3-dep&#39;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">&quot;4&quot;</span><span class="p">)</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P0-2-dep&#39;</span><span class="p">,</span><span class="s1">&#39;P4-3-dep&#39;</span><span class="p">)</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P1-2-dep&#39;</span><span class="p">,</span><span class="s1">&#39;P1-3-dep&#39;</span><span class="p">)</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P1-2-dep&#39;</span><span class="p">,</span><span class="s1">&#39;P5-3-dep&#39;</span><span class="p">)</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P2-2-dep&#39;</span><span class="p">,</span><span class="s1">&#39;P2-3-dep&#39;</span><span class="p">)</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P2-2-dep&#39;</span><span class="p">,</span><span class="s1">&#39;P6-3-dep&#39;</span><span class="p">)</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P3-2-dep&#39;</span><span class="p">,</span><span class="s1">&#39;P3-3-dep&#39;</span><span class="p">)</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P3-2-dep&#39;</span><span class="p">,</span><span class="s1">&#39;P7-3-dep&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">dot</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">visualize_dc</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[33]:</div>
+
+<div class="output_svg output_subarea output_execute_result">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.28.0 (20110507.0412)
+ -->
+<!-- Title: _anonymous_0 Pages: 1 -->
+<svg width="566pt" height="548pt"
+ viewBox="0.00 0.00 566.00 548.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph1" class="graph" transform="scale(1 1) rotate(0) translate(4 544)">
+<title>_anonymous_0</title>
+<polygon fill="white" stroke="white" points="-4,5 -4,-544 563,-544 563,5 -4,5"/>
+<!-- P0&#45;0&#45;arr -->
+<g id="node1" class="node"><title>P0&#45;0&#45;arr</title>
+<ellipse fill="none" stroke="black" cx="27" cy="-306" rx="27" ry="18"/>
+</g>
+<!-- P0&#45;0&#45;dep -->
+<g id="node2" class="node"><title>P0&#45;0&#45;dep</title>
+<ellipse fill="none" stroke="black" cx="27" cy="-234" rx="27" ry="18"/>
+</g>
+<!-- P0&#45;0&#45;arr&#45;&gt;P0&#45;0&#45;dep -->
+<g id="edge30" class="edge"><title>P0&#45;0&#45;arr&#45;&gt;P0&#45;0&#45;dep</title>
+<path fill="none" stroke="black" d="M27,-287.697C27,-279.983 27,-270.712 27,-262.112"/>
+<polygon fill="black" stroke="black" points="30.5001,-262.104 27,-252.104 23.5001,-262.104 30.5001,-262.104"/>
+</g>
+<!-- P0&#45;1&#45;dep -->
+<g id="node4" class="node"><title>P0&#45;1&#45;dep</title>
+<ellipse fill="none" stroke="black" cx="27" cy="-162" rx="27" ry="18"/>
+</g>
+<!-- P0&#45;0&#45;dep&#45;&gt;P0&#45;1&#45;dep -->
+<g id="edge32" class="edge"><title>P0&#45;0&#45;dep&#45;&gt;P0&#45;1&#45;dep</title>
+<path fill="none" stroke="black" d="M27,-215.697C27,-207.983 27,-198.712 27,-190.112"/>
+<polygon fill="black" stroke="black" points="30.5001,-190.104 27,-180.104 23.5001,-190.104 30.5001,-190.104"/>
+</g>
+<!-- P1&#45;1&#45;dep -->
+<g id="node6" class="node"><title>P1&#45;1&#45;dep</title>
+<ellipse fill="none" stroke="black" cx="351" cy="-162" rx="27" ry="18"/>
+</g>
+<!-- P0&#45;0&#45;dep&#45;&gt;P1&#45;1&#45;dep -->
+<g id="edge34" class="edge"><title>P0&#45;0&#45;dep&#45;&gt;P1&#45;1&#45;dep</title>
+<path fill="none" stroke="black" d="M52.4237,-227.507C109.915,-215.086 250.02,-184.817 315.799,-170.605"/>
+<polygon fill="black" stroke="black" points="316.659,-174 325.694,-168.467 315.181,-167.158 316.659,-174"/>
+</g>
+<!-- P0&#45;1&#45;arr -->
+<g id="node3" class="node"><title>P0&#45;1&#45;arr</title>
+<ellipse fill="none" stroke="black" cx="27" cy="-378" rx="27" ry="18"/>
+</g>
+<!-- P0&#45;1&#45;arr&#45;&gt;P0&#45;0&#45;arr -->
+<g id="edge26" class="edge"><title>P0&#45;1&#45;arr&#45;&gt;P0&#45;0&#45;arr</title>
+<path fill="none" stroke="black" d="M27,-359.697C27,-351.983 27,-342.712 27,-334.112"/>
+<polygon fill="black" stroke="black" points="30.5001,-334.104 27,-324.104 23.5001,-334.104 30.5001,-334.104"/>
+</g>
+<!-- P0&#45;2&#45;dep -->
+<g id="node8" class="node"><title>P0&#45;2&#45;dep</title>
+<ellipse fill="none" stroke="black" cx="27" cy="-90" rx="27" ry="18"/>
+</g>
+<!-- P0&#45;1&#45;dep&#45;&gt;P0&#45;2&#45;dep -->
+<g id="edge36" class="edge"><title>P0&#45;1&#45;dep&#45;&gt;P0&#45;2&#45;dep</title>
+<path fill="none" stroke="black" d="M27,-143.697C27,-135.983 27,-126.712 27,-118.112"/>
+<polygon fill="black" stroke="black" points="30.5001,-118.104 27,-108.104 23.5001,-118.104 30.5001,-118.104"/>
+</g>
+<!-- P2&#45;2&#45;dep -->
+<g id="node12" class="node"><title>P2&#45;2&#45;dep</title>
+<ellipse fill="none" stroke="black" cx="171" cy="-90" rx="27" ry="18"/>
+</g>
+<!-- P0&#45;1&#45;dep&#45;&gt;P2&#45;2&#45;dep -->
+<g id="edge38" class="edge"><title>P0&#45;1&#45;dep&#45;&gt;P2&#45;2&#45;dep</title>
+<path fill="none" stroke="black" d="M48.2477,-150.671C72.6018,-138.832 112.719,-119.331 140.428,-105.862"/>
+<polygon fill="black" stroke="black" points="142.202,-108.891 149.665,-101.371 139.141,-102.595 142.202,-108.891"/>
+</g>
+<!-- P1&#45;1&#45;arr -->
+<g id="node5" class="node"><title>P1&#45;1&#45;arr</title>
+<ellipse fill="none" stroke="black" cx="351" cy="-378" rx="27" ry="18"/>
+</g>
+<!-- P1&#45;1&#45;arr&#45;&gt;P0&#45;0&#45;arr -->
+<g id="edge28" class="edge"><title>P1&#45;1&#45;arr&#45;&gt;P0&#45;0&#45;arr</title>
+<path fill="none" stroke="black" d="M325.576,-371.507C268.085,-359.086 127.98,-328.817 62.2007,-314.605"/>
+<polygon fill="black" stroke="black" points="62.8193,-311.158 52.3056,-312.467 61.341,-318 62.8193,-311.158"/>
+</g>
+<!-- P1&#45;2&#45;dep -->
+<g id="node10" class="node"><title>P1&#45;2&#45;dep</title>
+<ellipse fill="none" stroke="black" cx="351" cy="-90" rx="27" ry="18"/>
+</g>
+<!-- P1&#45;1&#45;dep&#45;&gt;P1&#45;2&#45;dep -->
+<g id="edge40" class="edge"><title>P1&#45;1&#45;dep&#45;&gt;P1&#45;2&#45;dep</title>
+<path fill="none" stroke="black" d="M351,-143.697C351,-135.983 351,-126.712 351,-118.112"/>
+<polygon fill="black" stroke="black" points="354.5,-118.104 351,-108.104 347.5,-118.104 354.5,-118.104"/>
+</g>
+<!-- P3&#45;2&#45;dep -->
+<g id="node14" class="node"><title>P3&#45;2&#45;dep</title>
+<ellipse fill="none" stroke="black" cx="459" cy="-90" rx="27" ry="18"/>
+</g>
+<!-- P1&#45;1&#45;dep&#45;&gt;P3&#45;2&#45;dep -->
+<g id="edge42" class="edge"><title>P1&#45;1&#45;dep&#45;&gt;P3&#45;2&#45;dep</title>
+<path fill="none" stroke="black" d="M369.812,-148.807C387.002,-137.665 412.618,-121.062 431.993,-108.504"/>
+<polygon fill="black" stroke="black" points="433.916,-111.429 440.403,-103.053 430.108,-105.555 433.916,-111.429"/>
+</g>
+<!-- P0&#45;2&#45;arr -->
+<g id="node7" class="node"><title>P0&#45;2&#45;arr</title>
+<ellipse fill="none" stroke="black" cx="27" cy="-450" rx="27" ry="18"/>
+</g>
+<!-- P0&#45;2&#45;arr&#45;&gt;P0&#45;1&#45;arr -->
+<g id="edge18" class="edge"><title>P0&#45;2&#45;arr&#45;&gt;P0&#45;1&#45;arr</title>
+<path fill="none" stroke="black" d="M27,-431.697C27,-423.983 27,-414.712 27,-406.112"/>
+<polygon fill="black" stroke="black" points="30.5001,-406.104 27,-396.104 23.5001,-406.104 30.5001,-406.104"/>
+</g>
+<!-- P0&#45;3&#45;dep -->
+<g id="node16" class="node"><title>P0&#45;3&#45;dep</title>
+<ellipse fill="none" stroke="black" cx="27" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="27" y="-14.3" font-family="Times,serif" font-size="14.00">P0</text>
+</g>
+<!-- P0&#45;2&#45;dep&#45;&gt;P0&#45;3&#45;dep -->
+<g id="edge44" class="edge"><title>P0&#45;2&#45;dep&#45;&gt;P0&#45;3&#45;dep</title>
+<path fill="none" stroke="black" d="M27,-71.6966C27,-63.9827 27,-54.7125 27,-46.1124"/>
+<polygon fill="black" stroke="black" points="30.5001,-46.1043 27,-36.1043 23.5001,-46.1044 30.5001,-46.1043"/>
+</g>
+<!-- P4&#45;3&#45;dep -->
+<g id="node24" class="node"><title>P4&#45;3&#45;dep</title>
+<ellipse fill="none" stroke="black" cx="99" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="99" y="-14.3" font-family="Times,serif" font-size="14.00">P4</text>
+</g>
+<!-- P0&#45;2&#45;dep&#45;&gt;P4&#45;3&#45;dep -->
+<g id="edge46" class="edge"><title>P0&#45;2&#45;dep&#45;&gt;P4&#45;3&#45;dep</title>
+<path fill="none" stroke="black" d="M41.5703,-74.8345C51.7499,-64.9376 65.5239,-51.5462 77.0306,-40.3591"/>
+<polygon fill="black" stroke="black" points="79.4741,-42.865 84.2043,-33.3847 74.5945,-37.8461 79.4741,-42.865"/>
+</g>
+<!-- P1&#45;2&#45;arr -->
+<g id="node9" class="node"><title>P1&#45;2&#45;arr</title>
+<ellipse fill="none" stroke="black" cx="351" cy="-450" rx="27" ry="18"/>
+</g>
+<!-- P1&#45;2&#45;arr&#45;&gt;P1&#45;1&#45;arr -->
+<g id="edge22" class="edge"><title>P1&#45;2&#45;arr&#45;&gt;P1&#45;1&#45;arr</title>
+<path fill="none" stroke="black" d="M351,-431.697C351,-423.983 351,-414.712 351,-406.112"/>
+<polygon fill="black" stroke="black" points="354.5,-406.104 351,-396.104 347.5,-406.104 354.5,-406.104"/>
+</g>
+<!-- P1&#45;3&#45;dep -->
+<g id="node18" class="node"><title>P1&#45;3&#45;dep</title>
+<ellipse fill="none" stroke="black" cx="315" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="315" y="-14.3" font-family="Times,serif" font-size="14.00">P1</text>
+</g>
+<!-- P1&#45;2&#45;dep&#45;&gt;P1&#45;3&#45;dep -->
+<g id="edge48" class="edge"><title>P1&#45;2&#45;dep&#45;&gt;P1&#45;3&#45;dep</title>
+<path fill="none" stroke="black" d="M342.65,-72.7646C338.288,-64.2831 332.853,-53.7144 327.959,-44.1974"/>
+<polygon fill="black" stroke="black" points="330.99,-42.4395 323.304,-35.1473 324.765,-45.6409 330.99,-42.4395"/>
+</g>
+<!-- P5&#45;3&#45;dep -->
+<g id="node26" class="node"><title>P5&#45;3&#45;dep</title>
+<ellipse fill="none" stroke="black" cx="387" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="387" y="-14.3" font-family="Times,serif" font-size="14.00">P5</text>
+</g>
+<!-- P1&#45;2&#45;dep&#45;&gt;P5&#45;3&#45;dep -->
+<g id="edge50" class="edge"><title>P1&#45;2&#45;dep&#45;&gt;P5&#45;3&#45;dep</title>
+<path fill="none" stroke="black" d="M359.35,-72.7646C363.712,-64.2831 369.147,-53.7144 374.041,-44.1974"/>
+<polygon fill="black" stroke="black" points="377.235,-45.6409 378.696,-35.1473 371.01,-42.4395 377.235,-45.6409"/>
+</g>
+<!-- P2&#45;2&#45;arr -->
+<g id="node11" class="node"><title>P2&#45;2&#45;arr</title>
+<ellipse fill="none" stroke="black" cx="171" cy="-450" rx="27" ry="18"/>
+</g>
+<!-- P2&#45;2&#45;arr&#45;&gt;P0&#45;1&#45;arr -->
+<g id="edge20" class="edge"><title>P2&#45;2&#45;arr&#45;&gt;P0&#45;1&#45;arr</title>
+<path fill="none" stroke="black" d="M149.752,-438.671C125.398,-426.832 85.2814,-407.331 57.5723,-393.862"/>
+<polygon fill="black" stroke="black" points="58.8588,-390.595 48.3349,-389.371 55.7984,-396.891 58.8588,-390.595"/>
+</g>
+<!-- P2&#45;3&#45;dep -->
+<g id="node20" class="node"><title>P2&#45;3&#45;dep</title>
+<ellipse fill="none" stroke="black" cx="171" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="171" y="-14.3" font-family="Times,serif" font-size="14.00">P2</text>
+</g>
+<!-- P2&#45;2&#45;dep&#45;&gt;P2&#45;3&#45;dep -->
+<g id="edge52" class="edge"><title>P2&#45;2&#45;dep&#45;&gt;P2&#45;3&#45;dep</title>
+<path fill="none" stroke="black" d="M171,-71.6966C171,-63.9827 171,-54.7125 171,-46.1124"/>
+<polygon fill="black" stroke="black" points="174.5,-46.1043 171,-36.1043 167.5,-46.1044 174.5,-46.1043"/>
+</g>
+<!-- P6&#45;3&#45;dep -->
+<g id="node28" class="node"><title>P6&#45;3&#45;dep</title>
+<ellipse fill="none" stroke="black" cx="243" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="243" y="-14.3" font-family="Times,serif" font-size="14.00">P6</text>
+</g>
+<!-- P2&#45;2&#45;dep&#45;&gt;P6&#45;3&#45;dep -->
+<g id="edge54" class="edge"><title>P2&#45;2&#45;dep&#45;&gt;P6&#45;3&#45;dep</title>
+<path fill="none" stroke="black" d="M185.57,-74.8345C195.75,-64.9376 209.524,-51.5462 221.031,-40.3591"/>
+<polygon fill="black" stroke="black" points="223.474,-42.865 228.204,-33.3847 218.595,-37.8461 223.474,-42.865"/>
+</g>
+<!-- P3&#45;2&#45;arr -->
+<g id="node13" class="node"><title>P3&#45;2&#45;arr</title>
+<ellipse fill="none" stroke="black" cx="459" cy="-450" rx="27" ry="18"/>
+</g>
+<!-- P3&#45;2&#45;arr&#45;&gt;P1&#45;1&#45;arr -->
+<g id="edge24" class="edge"><title>P3&#45;2&#45;arr&#45;&gt;P1&#45;1&#45;arr</title>
+<path fill="none" stroke="black" d="M440.188,-436.807C422.998,-425.665 397.382,-409.062 378.007,-396.504"/>
+<polygon fill="black" stroke="black" points="379.892,-393.555 369.597,-391.053 376.084,-399.429 379.892,-393.555"/>
+</g>
+<!-- P3&#45;3&#45;dep -->
+<g id="node22" class="node"><title>P3&#45;3&#45;dep</title>
+<ellipse fill="none" stroke="black" cx="459" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="459" y="-14.3" font-family="Times,serif" font-size="14.00">P3</text>
+</g>
+<!-- P3&#45;2&#45;dep&#45;&gt;P3&#45;3&#45;dep -->
+<g id="edge56" class="edge"><title>P3&#45;2&#45;dep&#45;&gt;P3&#45;3&#45;dep</title>
+<path fill="none" stroke="black" d="M459,-71.6966C459,-63.9827 459,-54.7125 459,-46.1124"/>
+<polygon fill="black" stroke="black" points="462.5,-46.1043 459,-36.1043 455.5,-46.1044 462.5,-46.1043"/>
+</g>
+<!-- P7&#45;3&#45;dep -->
+<g id="node30" class="node"><title>P7&#45;3&#45;dep</title>
+<ellipse fill="none" stroke="black" cx="531" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="531" y="-14.3" font-family="Times,serif" font-size="14.00">P7</text>
+</g>
+<!-- P3&#45;2&#45;dep&#45;&gt;P7&#45;3&#45;dep -->
+<g id="edge58" class="edge"><title>P3&#45;2&#45;dep&#45;&gt;P7&#45;3&#45;dep</title>
+<path fill="none" stroke="black" d="M473.57,-74.8345C483.75,-64.9376 497.524,-51.5462 509.031,-40.3591"/>
+<polygon fill="black" stroke="black" points="511.474,-42.865 516.204,-33.3847 506.595,-37.8461 511.474,-42.865"/>
+</g>
+<!-- P0&#45;3&#45;arr -->
+<g id="node15" class="node"><title>P0&#45;3&#45;arr</title>
+<ellipse fill="none" stroke="black" cx="27" cy="-522" rx="27" ry="18"/>
+<text text-anchor="middle" x="27" y="-518.3" font-family="Times,serif" font-size="14.00">P0</text>
+</g>
+<!-- P0&#45;3&#45;arr&#45;&gt;P0&#45;2&#45;arr -->
+<g id="edge2" class="edge"><title>P0&#45;3&#45;arr&#45;&gt;P0&#45;2&#45;arr</title>
+<path fill="none" stroke="black" d="M27,-503.697C27,-495.983 27,-486.712 27,-478.112"/>
+<polygon fill="black" stroke="black" points="30.5001,-478.104 27,-468.104 23.5001,-478.104 30.5001,-478.104"/>
+</g>
+<!-- P1&#45;3&#45;arr -->
+<g id="node17" class="node"><title>P1&#45;3&#45;arr</title>
+<ellipse fill="none" stroke="black" cx="315" cy="-522" rx="27" ry="18"/>
+<text text-anchor="middle" x="315" y="-518.3" font-family="Times,serif" font-size="14.00">P1</text>
+</g>
+<!-- P1&#45;3&#45;arr&#45;&gt;P1&#45;2&#45;arr -->
+<g id="edge6" class="edge"><title>P1&#45;3&#45;arr&#45;&gt;P1&#45;2&#45;arr</title>
+<path fill="none" stroke="black" d="M323.35,-504.765C327.712,-496.283 333.147,-485.714 338.041,-476.197"/>
+<polygon fill="black" stroke="black" points="341.235,-477.641 342.696,-467.147 335.01,-474.439 341.235,-477.641"/>
+</g>
+<!-- P2&#45;3&#45;arr -->
+<g id="node19" class="node"><title>P2&#45;3&#45;arr</title>
+<ellipse fill="none" stroke="black" cx="171" cy="-522" rx="27" ry="18"/>
+<text text-anchor="middle" x="171" y="-518.3" font-family="Times,serif" font-size="14.00">P2</text>
+</g>
+<!-- P2&#45;3&#45;arr&#45;&gt;P2&#45;2&#45;arr -->
+<g id="edge10" class="edge"><title>P2&#45;3&#45;arr&#45;&gt;P2&#45;2&#45;arr</title>
+<path fill="none" stroke="black" d="M171,-503.697C171,-495.983 171,-486.712 171,-478.112"/>
+<polygon fill="black" stroke="black" points="174.5,-478.104 171,-468.104 167.5,-478.104 174.5,-478.104"/>
+</g>
+<!-- P3&#45;3&#45;arr -->
+<g id="node21" class="node"><title>P3&#45;3&#45;arr</title>
+<ellipse fill="none" stroke="black" cx="459" cy="-522" rx="27" ry="18"/>
+<text text-anchor="middle" x="459" y="-518.3" font-family="Times,serif" font-size="14.00">P3</text>
+</g>
+<!-- P3&#45;3&#45;arr&#45;&gt;P3&#45;2&#45;arr -->
+<g id="edge14" class="edge"><title>P3&#45;3&#45;arr&#45;&gt;P3&#45;2&#45;arr</title>
+<path fill="none" stroke="black" d="M459,-503.697C459,-495.983 459,-486.712 459,-478.112"/>
+<polygon fill="black" stroke="black" points="462.5,-478.104 459,-468.104 455.5,-478.104 462.5,-478.104"/>
+</g>
+<!-- P4&#45;3&#45;arr -->
+<g id="node23" class="node"><title>P4&#45;3&#45;arr</title>
+<ellipse fill="none" stroke="black" cx="99" cy="-522" rx="27" ry="18"/>
+<text text-anchor="middle" x="99" y="-518.3" font-family="Times,serif" font-size="14.00">P4</text>
+</g>
+<!-- P4&#45;3&#45;arr&#45;&gt;P0&#45;2&#45;arr -->
+<g id="edge4" class="edge"><title>P4&#45;3&#45;arr&#45;&gt;P0&#45;2&#45;arr</title>
+<path fill="none" stroke="black" d="M84.4297,-506.834C74.2501,-496.938 60.4761,-483.546 48.9694,-472.359"/>
+<polygon fill="black" stroke="black" points="51.4055,-469.846 41.7957,-465.385 46.5259,-474.865 51.4055,-469.846"/>
+</g>
+<!-- P5&#45;3&#45;arr -->
+<g id="node25" class="node"><title>P5&#45;3&#45;arr</title>
+<ellipse fill="none" stroke="black" cx="387" cy="-522" rx="27" ry="18"/>
+<text text-anchor="middle" x="387" y="-518.3" font-family="Times,serif" font-size="14.00">P5</text>
+</g>
+<!-- P5&#45;3&#45;arr&#45;&gt;P1&#45;2&#45;arr -->
+<g id="edge8" class="edge"><title>P5&#45;3&#45;arr&#45;&gt;P1&#45;2&#45;arr</title>
+<path fill="none" stroke="black" d="M378.65,-504.765C374.288,-496.283 368.853,-485.714 363.959,-476.197"/>
+<polygon fill="black" stroke="black" points="366.99,-474.439 359.304,-467.147 360.765,-477.641 366.99,-474.439"/>
+</g>
+<!-- P6&#45;3&#45;arr -->
+<g id="node27" class="node"><title>P6&#45;3&#45;arr</title>
+<ellipse fill="none" stroke="black" cx="243" cy="-522" rx="27" ry="18"/>
+<text text-anchor="middle" x="243" y="-518.3" font-family="Times,serif" font-size="14.00">P6</text>
+</g>
+<!-- P6&#45;3&#45;arr&#45;&gt;P2&#45;2&#45;arr -->
+<g id="edge12" class="edge"><title>P6&#45;3&#45;arr&#45;&gt;P2&#45;2&#45;arr</title>
+<path fill="none" stroke="black" d="M228.43,-506.834C218.25,-496.938 204.476,-483.546 192.969,-472.359"/>
+<polygon fill="black" stroke="black" points="195.405,-469.846 185.796,-465.385 190.526,-474.865 195.405,-469.846"/>
+</g>
+<!-- P7&#45;3&#45;arr -->
+<g id="node29" class="node"><title>P7&#45;3&#45;arr</title>
+<ellipse fill="none" stroke="black" cx="531" cy="-522" rx="27" ry="18"/>
+<text text-anchor="middle" x="531" y="-518.3" font-family="Times,serif" font-size="14.00">P7</text>
+</g>
+<!-- P7&#45;3&#45;arr&#45;&gt;P3&#45;2&#45;arr -->
+<g id="edge16" class="edge"><title>P7&#45;3&#45;arr&#45;&gt;P3&#45;2&#45;arr</title>
+<path fill="none" stroke="black" d="M516.43,-506.834C506.25,-496.938 492.476,-483.546 480.969,-472.359"/>
+<polygon fill="black" stroke="black" points="483.405,-469.846 473.796,-465.385 478.526,-474.865 483.405,-469.846"/>
+</g>
+</g>
+</svg>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[115]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">visualize_dc_1</span><span class="p">():</span>
+    <span class="kn">from</span> <span class="nn">graphviz</span> <span class="k">import</span> <span class="n">Digraph</span>
+    <span class="n">dot</span> <span class="o">=</span> <span class="n">Digraph</span><span class="p">(</span><span class="n">comment</span><span class="o">=</span><span class="s1">&#39;Divide and Conquer&#39;</span><span class="p">)</span>
+
+    <span class="n">P0</span> <span class="o">=</span> <span class="n">Digraph</span><span class="p">(</span><span class="s1">&#39;Process_0&#39;</span><span class="p">)</span>
+    <span class="n">P0</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P0-0&#39;</span><span class="p">,</span> <span class="s1">&#39;P0&#39;</span><span class="p">);</span> <span class="n">P0</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P0-1&#39;</span><span class="p">,</span> <span class="s1">&#39;P0&#39;</span><span class="p">);</span> <span class="n">P0</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P0-2&#39;</span><span class="p">,</span> <span class="s1">&#39;P0&#39;</span><span class="p">);</span> <span class="n">P0</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P0-3&#39;</span><span class="p">,</span> <span class="s1">&#39;P0&#39;</span><span class="p">);</span>
+    <span class="n">P0</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P0-0&#39;</span><span class="p">,</span><span class="s1">&#39;P0-1&#39;</span><span class="p">,</span> <span class="n">arrowhead</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">&quot;8&quot;</span><span class="p">);</span> 
+    <span class="n">P0</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P0-1&#39;</span><span class="p">,</span><span class="s1">&#39;P0-2&#39;</span><span class="p">,</span> <span class="n">arrowhead</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">&quot;6&quot;</span><span class="p">);</span> 
+    <span class="n">P0</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P0-2&#39;</span><span class="p">,</span><span class="s1">&#39;P0-3&#39;</span><span class="p">,</span> <span class="n">arrowhead</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">&quot;4&quot;</span><span class="p">);</span> 
+    <span class="n">P1</span> <span class="o">=</span> <span class="n">Digraph</span><span class="p">(</span><span class="s1">&#39;Process_1&#39;</span><span class="p">)</span>
+    <span class="n">P1</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P1-0&#39;</span><span class="p">,</span> <span class="s1">&#39;P1&#39;</span><span class="p">);</span> <span class="n">P1</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P1-1&#39;</span><span class="p">,</span> <span class="s1">&#39;P1&#39;</span><span class="p">);</span> <span class="n">P1</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P1-2&#39;</span><span class="p">,</span> <span class="s1">&#39;P1&#39;</span><span class="p">);</span> <span class="n">P1</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P1-3&#39;</span><span class="p">,</span> <span class="s1">&#39;P1&#39;</span><span class="p">);</span>
+    <span class="n">P1</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P1-0&#39;</span><span class="p">,</span><span class="s1">&#39;P1-1&#39;</span><span class="p">,</span> <span class="n">arrowhead</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">&quot;8&quot;</span><span class="p">);</span> 
+    <span class="n">P1</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P1-1&#39;</span><span class="p">,</span><span class="s1">&#39;P1-2&#39;</span><span class="p">,</span> <span class="n">arrowhead</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">&quot;6&quot;</span><span class="p">);</span> 
+    <span class="n">P1</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P1-2&#39;</span><span class="p">,</span><span class="s1">&#39;P1-3&#39;</span><span class="p">,</span> <span class="n">arrowhead</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">&quot;4&quot;</span><span class="p">);</span> 
+    <span class="n">P2</span> <span class="o">=</span> <span class="n">Digraph</span><span class="p">(</span><span class="s1">&#39;Process_2&#39;</span><span class="p">)</span>
+    <span class="n">P2</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P2-0&#39;</span><span class="p">,</span> <span class="s1">&#39;P2&#39;</span><span class="p">);</span> <span class="n">P2</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P2-1&#39;</span><span class="p">,</span> <span class="s1">&#39;P2&#39;</span><span class="p">);</span> <span class="n">P2</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P2-2&#39;</span><span class="p">,</span> <span class="s1">&#39;P2&#39;</span><span class="p">);</span> <span class="n">P2</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P2-3&#39;</span><span class="p">,</span> <span class="s1">&#39;P2&#39;</span><span class="p">);</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P2-0&#39;</span><span class="p">,</span><span class="s1">&#39;P2-1&#39;</span><span class="p">,</span> <span class="n">arrowhead</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">&quot;4&quot;</span><span class="p">);</span> 
+    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P2-1&#39;</span><span class="p">,</span><span class="s1">&#39;P2-2&#39;</span><span class="p">,</span> <span class="n">arrowhead</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">&quot;4&quot;</span><span class="p">);</span> 
+    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P2-2&#39;</span><span class="p">,</span><span class="s1">&#39;P2-3&#39;</span><span class="p">,</span> <span class="n">arrowhead</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">&quot;4&quot;</span><span class="p">);</span> 
+    <span class="n">P3</span> <span class="o">=</span> <span class="n">Digraph</span><span class="p">(</span><span class="s1">&#39;Process_3&#39;</span><span class="p">)</span>
+    <span class="n">P3</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P3-0&#39;</span><span class="p">,</span> <span class="s1">&#39;P3&#39;</span><span class="p">);</span> <span class="n">P3</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P3-1&#39;</span><span class="p">,</span> <span class="s1">&#39;P3&#39;</span><span class="p">);</span> <span class="n">P3</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P3-2&#39;</span><span class="p">,</span> <span class="s1">&#39;P3&#39;</span><span class="p">);</span> <span class="n">P3</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P3-3&#39;</span><span class="p">,</span> <span class="s1">&#39;P3&#39;</span><span class="p">);</span>
+
+    <span class="n">P3</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P3-0&#39;</span><span class="p">,</span><span class="s1">&#39;P3-1&#39;</span><span class="p">,</span> <span class="n">arrowhead</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">&quot;4&quot;</span><span class="p">);</span> 
+    <span class="n">P3</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P3-1&#39;</span><span class="p">,</span><span class="s1">&#39;P3-2&#39;</span><span class="p">,</span> <span class="n">arrowhead</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">&quot;4&quot;</span><span class="p">);</span> 
+    <span class="n">P3</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P3-2&#39;</span><span class="p">,</span><span class="s1">&#39;P3-3&#39;</span><span class="p">,</span> <span class="n">arrowhead</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">&quot;4&quot;</span><span class="p">);</span> 
+
+    <span class="n">P4</span> <span class="o">=</span> <span class="n">Digraph</span><span class="p">(</span><span class="s1">&#39;Process_4&#39;</span><span class="p">)</span>
+    <span class="n">P4</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P4-0&#39;</span><span class="p">,</span> <span class="s1">&#39;P4&#39;</span><span class="p">);</span> <span class="n">P4</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P4-1&#39;</span><span class="p">,</span> <span class="s1">&#39;P4&#39;</span><span class="p">);</span> <span class="n">P4</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P4-2&#39;</span><span class="p">,</span> <span class="s1">&#39;P4&#39;</span><span class="p">);</span> <span class="n">P4</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P4-3&#39;</span><span class="p">,</span> <span class="s1">&#39;P4&#39;</span><span class="p">);</span>
+    <span class="n">P4</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P4-0&#39;</span><span class="p">,</span><span class="s1">&#39;P4-1&#39;</span><span class="p">,</span> <span class="n">arrowhead</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">);</span> 
+    <span class="n">P4</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P4-1&#39;</span><span class="p">,</span><span class="s1">&#39;P4-2&#39;</span><span class="p">,</span> <span class="n">arrowhead</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">);</span> 
+    <span class="n">P4</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P4-2&#39;</span><span class="p">,</span><span class="s1">&#39;P4-3&#39;</span><span class="p">,</span> <span class="n">arrowhead</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">);</span> 
+
+    <span class="n">P5</span> <span class="o">=</span> <span class="n">Digraph</span><span class="p">(</span><span class="s1">&#39;Process_5&#39;</span><span class="p">)</span>
+    <span class="n">P5</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P5-0&#39;</span><span class="p">,</span> <span class="s1">&#39;P5&#39;</span><span class="p">);</span> <span class="n">P5</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P5-1&#39;</span><span class="p">,</span> <span class="s1">&#39;P5&#39;</span><span class="p">);</span> <span class="n">P5</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P5-2&#39;</span><span class="p">,</span> <span class="s1">&#39;P5&#39;</span><span class="p">);</span> <span class="n">P5</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P5-3&#39;</span><span class="p">,</span> <span class="s1">&#39;P5&#39;</span><span class="p">);</span>
+    <span class="n">P5</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P5-0&#39;</span><span class="p">,</span><span class="s1">&#39;P5-1&#39;</span><span class="p">,</span> <span class="n">arrowhead</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">);</span> 
+    <span class="n">P5</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P5-1&#39;</span><span class="p">,</span><span class="s1">&#39;P5-2&#39;</span><span class="p">,</span> <span class="n">arrowhead</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">);</span> 
+    <span class="n">P5</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P5-2&#39;</span><span class="p">,</span><span class="s1">&#39;P5-3&#39;</span><span class="p">,</span> <span class="n">arrowhead</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">);</span> 
+
+    <span class="n">P6</span> <span class="o">=</span> <span class="n">Digraph</span><span class="p">(</span><span class="s1">&#39;Process_6&#39;</span><span class="p">)</span>
+    <span class="n">P6</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P6-0&#39;</span><span class="p">,</span> <span class="s1">&#39;P6&#39;</span><span class="p">);</span> <span class="n">P6</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P6-1&#39;</span><span class="p">,</span> <span class="s1">&#39;P6&#39;</span><span class="p">);</span> <span class="n">P6</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P6-2&#39;</span><span class="p">,</span> <span class="s1">&#39;P6&#39;</span><span class="p">);</span> <span class="n">P6</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P6-3&#39;</span><span class="p">,</span> <span class="s1">&#39;P6&#39;</span><span class="p">);</span>
+    <span class="n">P6</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P6-0&#39;</span><span class="p">,</span><span class="s1">&#39;P6-1&#39;</span><span class="p">,</span> <span class="n">arrowhead</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">);</span> 
+    <span class="n">P6</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P6-1&#39;</span><span class="p">,</span><span class="s1">&#39;P6-2&#39;</span><span class="p">,</span> <span class="n">arrowhead</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">);</span> 
+    <span class="n">P6</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P6-2&#39;</span><span class="p">,</span><span class="s1">&#39;P6-3&#39;</span><span class="p">,</span> <span class="n">arrowhead</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">);</span> 
+
+    <span class="n">P7</span> <span class="o">=</span> <span class="n">Digraph</span><span class="p">(</span><span class="s1">&#39;Process_7&#39;</span><span class="p">)</span>
+    <span class="n">P7</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P7-0&#39;</span><span class="p">,</span> <span class="s1">&#39;P7&#39;</span><span class="p">);</span> <span class="n">P7</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P7-1&#39;</span><span class="p">,</span> <span class="s1">&#39;P7&#39;</span><span class="p">);</span> <span class="n">P7</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P7-2&#39;</span><span class="p">,</span> <span class="s1">&#39;P7&#39;</span><span class="p">);</span> <span class="n">P7</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;P7-3&#39;</span><span class="p">,</span> <span class="s1">&#39;P7&#39;</span><span class="p">);</span>
+    <span class="n">P7</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P7-0&#39;</span><span class="p">,</span><span class="s1">&#39;P7-1&#39;</span><span class="p">,</span> <span class="n">arrowhead</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">);</span> 
+    <span class="n">P7</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P7-1&#39;</span><span class="p">,</span><span class="s1">&#39;P7-2&#39;</span><span class="p">,</span> <span class="n">arrowhead</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">);</span> 
+    <span class="n">P7</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P7-2&#39;</span><span class="p">,</span><span class="s1">&#39;P7-3&#39;</span><span class="p">,</span> <span class="n">arrowhead</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">);</span>          
+
+    <span class="n">dot</span><span class="o">.</span><span class="n">subgraph</span><span class="p">(</span><span class="n">P0</span><span class="p">);</span> <span class="n">dot</span><span class="o">.</span><span class="n">subgraph</span><span class="p">(</span><span class="n">P1</span><span class="p">);</span> <span class="n">dot</span><span class="o">.</span><span class="n">subgraph</span><span class="p">(</span><span class="n">P2</span><span class="p">);</span> <span class="n">dot</span><span class="o">.</span><span class="n">subgraph</span><span class="p">(</span><span class="n">P3</span><span class="p">)</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">subgraph</span><span class="p">(</span><span class="n">P4</span><span class="p">);</span> <span class="n">dot</span><span class="o">.</span><span class="n">subgraph</span><span class="p">(</span><span class="n">P5</span><span class="p">);</span> <span class="n">dot</span><span class="o">.</span><span class="n">subgraph</span><span class="p">(</span><span class="n">P6</span><span class="p">);</span> <span class="n">dot</span><span class="o">.</span><span class="n">subgraph</span><span class="p">(</span><span class="n">P7</span><span class="p">)</span>    
+    
+    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P0-0&#39;</span><span class="p">,</span><span class="s1">&#39;P1-1&#39;</span><span class="p">);</span> <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P1-0&#39;</span><span class="p">,</span><span class="s1">&#39;P0-1&#39;</span><span class="p">);</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P2-0&#39;</span><span class="p">,</span><span class="s1">&#39;P3-1&#39;</span><span class="p">);</span> <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P3-0&#39;</span><span class="p">,</span><span class="s1">&#39;P2-1&#39;</span><span class="p">);</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P4-0&#39;</span><span class="p">,</span><span class="s1">&#39;P5-1&#39;</span><span class="p">);</span> <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P5-0&#39;</span><span class="p">,</span><span class="s1">&#39;P4-1&#39;</span><span class="p">);</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P6-0&#39;</span><span class="p">,</span><span class="s1">&#39;P7-1&#39;</span><span class="p">);</span> <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P7-0&#39;</span><span class="p">,</span><span class="s1">&#39;P6-1&#39;</span><span class="p">);</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P0-1&#39;</span><span class="p">,</span><span class="s1">&#39;P2-2&#39;</span><span class="p">);</span> <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P2-1&#39;</span><span class="p">,</span><span class="s1">&#39;P0-2&#39;</span><span class="p">);</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P1-1&#39;</span><span class="p">,</span><span class="s1">&#39;P3-2&#39;</span><span class="p">);</span> <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P3-1&#39;</span><span class="p">,</span><span class="s1">&#39;P1-2&#39;</span><span class="p">);</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P4-1&#39;</span><span class="p">,</span><span class="s1">&#39;P6-2&#39;</span><span class="p">);</span> <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P6-1&#39;</span><span class="p">,</span><span class="s1">&#39;P4-2&#39;</span><span class="p">);</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P5-1&#39;</span><span class="p">,</span><span class="s1">&#39;P7-2&#39;</span><span class="p">);</span> <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P7-1&#39;</span><span class="p">,</span><span class="s1">&#39;P5-2&#39;</span><span class="p">);</span>
+   
+    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P0-2&#39;</span><span class="p">,</span><span class="s1">&#39;P4-3&#39;</span><span class="p">);</span> <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P4-2&#39;</span><span class="p">,</span><span class="s1">&#39;P0-3&#39;</span><span class="p">);</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P1-2&#39;</span><span class="p">,</span><span class="s1">&#39;P5-3&#39;</span><span class="p">);</span> <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P5-2&#39;</span><span class="p">,</span><span class="s1">&#39;P1-3&#39;</span><span class="p">);</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P2-2&#39;</span><span class="p">,</span><span class="s1">&#39;P6-3&#39;</span><span class="p">);</span> <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P6-2&#39;</span><span class="p">,</span><span class="s1">&#39;P2-3&#39;</span><span class="p">);</span>
+    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P3-2&#39;</span><span class="p">,</span><span class="s1">&#39;P7-3&#39;</span><span class="p">);</span> <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;P7-2&#39;</span><span class="p">,</span><span class="s1">&#39;P3-3&#39;</span><span class="p">);</span>
+    
+    <span class="k">return</span> <span class="n">dot</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[116]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">visualize_dc_1</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -1116,24 +835,21 @@ if (rank == 1):
 
 
 <div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[stdout:0] 
-0: 2
-0: 2
-0: 2
-[stdout:1] 
-2: -1
-2: 2
-2: 2
-[stdout:2] 
-1: -2
-1: -2
-1: 2
-[stdout:3] 
-3: -1
-3: 2
-3: 2
-</pre>
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansired">---------------------------------------------------------------------------</span>
+<span class="ansired">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansigreen">&lt;ipython-input-116-06b12c6470ec&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
+<span class="ansigreen">----&gt; 1</span><span class="ansiyellow"> </span>visualize_dc_1<span class="ansiyellow">(</span><span class="ansiyellow">)</span><span class="ansiyellow"></span>
+
+<span class="ansigreen">&lt;ipython-input-115-23c2ed81f248&gt;</span> in <span class="ansicyan">visualize_dc_1</span><span class="ansiblue">()</span>
+<span class="ansigreen">     49</span>     P7<span class="ansiyellow">.</span>edge<span class="ansiyellow">(</span><span class="ansiblue">&apos;P7-2&apos;</span><span class="ansiyellow">,</span><span class="ansiblue">&apos;P7-3&apos;</span><span class="ansiyellow">,</span> arrowhead<span class="ansiyellow">=</span><span class="ansiblue">&quot;none&quot;</span><span class="ansiyellow">)</span><span class="ansiyellow">;</span><span class="ansiyellow"></span>
+<span class="ansigreen">     50</span> <span class="ansiyellow"></span>
+<span class="ansigreen">---&gt; 51</span><span class="ansiyellow">     </span>dot<span class="ansiyellow">.</span>subgraph<span class="ansiyellow">(</span>P0<span class="ansiyellow">,</span> P1<span class="ansiyellow">)</span><span class="ansiyellow"></span>
+<span class="ansigreen">     52</span> <span class="ansired">#    dot.subgraph(P0); dot.subgraph(P1); dot.subgraph(P2); dot.subgraph(P3)</span><span class="ansiyellow"></span><span class="ansiyellow"></span>
+<span class="ansigreen">     53</span> <span class="ansired">#    dot.subgraph(P4); dot.subgraph(P5); dot.subgraph(P6); dot.subgraph(P7)</span><span class="ansiyellow"></span><span class="ansiyellow"></span>
+
+<span class="ansired">TypeError</span>: subgraph() takes 2 positional arguments but 3 were given</pre>
 </div>
 </div>
 
@@ -1143,480 +859,13 @@ if (rank == 1):
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
-from mpi4py import MPI
-
-comm = MPI.COMM_WORLD
-rank = comm.Get_rank()
-
-if rank == 0:
-    data = {&#39;key1&#39; : [7, 2.72, 2+3j],
-            &#39;key2&#39; : ( &#39;abc&#39;, &#39;xyz&#39;)}
-else:
-    data = None
-data = comm.bcast(data, root=0)
-print (&quot;process %s&quot; % (rank))
-print (rank,data)
+<div class=" highlight hl-ipython3"><pre> 
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[stdout:0] 
-process 0
-0 {&apos;key2&apos;: (&apos;abc&apos;, &apos;xyz&apos;), &apos;key1&apos;: [7, 2.72, (2+3j)]}
-[stdout:1] 
-process 2
-2 {&apos;key1&apos;: [7, 2.72, (2+3j)], &apos;key2&apos;: (&apos;abc&apos;, &apos;xyz&apos;)}
-[stdout:2] 
-process 1
-1 {&apos;key1&apos;: [7, 2.72, (2+3j)], &apos;key2&apos;: (&apos;abc&apos;, &apos;xyz&apos;)}
-[stdout:3] 
-process 3
-3 {&apos;key1&apos;: [7, 2.72, (2+3j)], &apos;key2&apos;: (&apos;abc&apos;, &apos;xyz&apos;)}
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong> How to save broadcast data into different variables on different processes? </strong></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[50]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
-from mpi4py import MPI
-
-comm = MPI.COMM_WORLD
-rank = comm.Get_rank()
-
-if rank == 0:
-    data = 2
-else:
-    data = -1
-print (&quot;%s: %s&quot; % (rank, data))
-data = comm.bcast(data, root=0)
-print (&quot;%s: %s&quot; % (rank, data))
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[stdout:0] 
-0: 2
-0: 2
-[stdout:1] 
-2: -1
-2: 2
-[stdout:2] 
-1: -1
-1: 2
-[stdout:3] 
-3: -1
-3: 2
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>scatter:</strong></p>
-
-<pre><code>comm = MPI.COMM_WORLD</code></pre>
-<ul>
-<li>All processes:
-<pre><code>&lt;buffer at receiving process&gt; = comm.scatter(&lt;original array&gt;, root=&lt;root process&gt;)</code></pre>
-</li>
-<li><em>root</em> process is the one that has the original data array initially. </li>
-<li>Data are divided according to rank</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong> Original MPI C Syntax: MPI_Scatter</strong></p>
-
-<pre><code>int MPI_Scatter(
-    void *sendbuf, 
-    int sendcount, 
-    MPI_Datatype sendtype, 
-    void *recvbuf,
-    int recvcnt,
-    MPI_Datatype recvtype,
-    int root, 
-    MPI_Comm comm);</code></pre>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
-from mpi4py import MPI
-comm = MPI.COMM_WORLD
-size = comm.Get_size();rank = comm.Get_rank(); print(rank)
-
-if rank == 0:
-    data = [(i+1)**2 for i in range(size)]
-    print (data)
-else:
-    data = None
-partial_data = comm.scatter(data, root=0)
-print (data)
-print (partial_data)
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[stdout:0] 
-0
-[1, 4, 9, 16]
-[1, 4, 9, 16]
-1
-[stdout:1] 
-2
-None
-9
-[stdout:2] 
-1
-None
-4
-[stdout:3] 
-3
-None
-16
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
-from mpi4py import MPI
-
-comm = MPI.COMM_WORLD
-rank = comm.Get_rank()
-
-if rank == 0:
-    data = [{&#39;key1&#39; : [7, 2.72, 2+3j]},
-            {&#39;key2&#39; : ( &#39;abc&#39;, &#39;xyz&#39;)},
-            {&#39;key3&#39; : ( &#39;abc&#39;, &#39;xyz&#39;)},
-            {&#39;key4&#39; : ( &#39;cde&#39;, &#39;xyz&#39;)}]
-else:
-    data = None
-data = comm.scatter(data, root=0)
-print (&quot;%s: %s&quot; % (rank, data))
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[stdout:0] 2: {&apos;key3&apos;: (&apos;abc&apos;, &apos;xyz&apos;)}
-[stdout:1] 0: {&apos;key1&apos;: [7, 2.72, (2+3j)]}
-[stdout:2] 1: {&apos;key2&apos;: (&apos;abc&apos;, &apos;xyz&apos;)}
-[stdout:3] 3: {&apos;key4&apos;: (&apos;cde&apos;, &apos;xyz&apos;)}
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>gather:</strong></p>
-
-<pre><code>comm = MPI.COMM_WORLD</code></pre>
-<ul>
-<li>All processes:
-<pre><code>&lt;buffer at sending process&gt; = comm.gather(&lt;final array&gt;, root=&lt;root process&gt;)</code></pre>
-</li>
-<li><em>root</em> process is the one that receives the original data array initially. </li>
-<li>Data arrive and are sorted at <em>root</em> according to rank</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong> Original MPI C Syntax: MPI_Gather</strong></p>
-
-<pre><code>int MPI_Gather(
-    void *sendbuff, 
-    int sendcount, 
-    MPI_Datatype sendtype, 
-    void *recvbuff,
-    int recvcnt,
-    MPI_Datatype recvtype,
-    int root, 
-    MPI_Comm comm);</code></pre>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
-from mpi4py import MPI
-
-comm = MPI.COMM_WORLD
-size = comm.Get_size()
-rank = comm.Get_rank()
-
-data = (rank+1)**2
-print (&quot;%s: %s&quot; % (rank, data))
-all_data = comm.gather(data, root=0)
-if rank == 0:
-    print (&quot;%s: %s&quot; % (rank, data))
-    print (all_data)
-else:
-    print (&quot;%s: %s&quot; % (rank, data))
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[stdout:0] 
-2: 9
-2: 9
-[stdout:1] 
-0: 1
-0: 1
-[1, 4, 9, 16]
-[stdout:2] 
-1: 4
-1: 4
-[stdout:3] 
-3: 16
-3: 16
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong> What happpens to variable <em>data</em> at the non-root process?</strong></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[54]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
-from mpi4py import MPI
-
-comm = MPI.COMM_WORLD
-size = comm.Get_size()
-rank = comm.Get_rank()
-
-data = (rank+1)**2
-print (&quot;%s: %s&quot; % (rank, data))
-data = comm.gather(data, root=0)
-if rank == 0:
-    print (&quot;%s: %s&quot; % (rank, data))
-else:
-    print (&quot;%s: %s&quot; % (rank, data))
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[stdout:0] 
-0: 1
-0: [1, 4, 9, 16]
-[stdout:1] 
-2: 9
-2: None
-[stdout:2] 
-1: 4
-1: None
-[stdout:3] 
-3: 16
-3: None
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>reduce</strong></p>
-
-<pre><code>comm = MPI.COMM_WORLD</code></pre>
-<ul>
-<li>All processes:
-<pre><code>&lt;final result at sending process&gt; = comm.reduce(&lt;data to be reduced&gt;, op=MPI.&lt;operation&gt;, root=&lt;root process&gt;)</code></pre>
-</li>
-<li><em>root</em> process is the one that receives the final reduced data initially. </li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong> Original MPI C Syntax: MPI_Reduce</strong></p>
-
-<pre><code>int MPI_Reduce(
-    void *sendbuf, 
-    void *recvbuff,
-    int count, 
-    MPI_Datatype datatype, 
-    MPI_OP op,
-    int root, 
-    MPI_Comm comm);</code></pre>
-<ul>
-<li>MPI_Op may be MPI_MIN, MPI_MAX, MPI_SUM, MPI_PROD (twelve total)</li>
-<li>Programmer may add operations, must be commutative and associative</li>
-<li>If count &gt; 1, then operation is performed element-wise</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
-from mpi4py import MPI
-
-comm = MPI.COMM_WORLD
-rank = comm.Get_rank()
-
-sum = comm.reduce(rank, op=MPI.SUM, root=0)
-
-if rank == 0:
-    print (&quot;The reduction is %s&quot; % (sum))
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[stdout:1] The reduction is 6
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
