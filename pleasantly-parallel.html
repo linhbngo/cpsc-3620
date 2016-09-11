@@ -238,7 +238,7 @@ Numpy and have syntax similar to the original MPI_xxxx routines in C</li>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">ipyparallel</span>
@@ -256,7 +256,7 @@ Numpy and have syntax similar to the original MPI_xxxx routines in C</li>
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+<pre>[0, 1, 2, 3]
 </pre>
 </div>
 </div>
@@ -304,7 +304,7 @@ Numpy and have syntax similar to the original MPI_xxxx routines in C</li>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
@@ -312,11 +312,11 @@ import numpy
 from mpi4py import MPI
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank(); print(rank)
-a = numpy.zeros((3), dtype=numpy.int)
+a = numpy.zeros((4), dtype=numpy.int)
 status = MPI.Status()
 print (a)
 if rank == 0:
-    a = numpy.array([1,2,3])
+    a = numpy.array([1,2,4])
     print (a)
     comm.Send(a, dest=1, tag = 1000)
 if rank == 1:
@@ -337,57 +337,33 @@ if rank == 1:
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[stdout:0] 
-0
-[0 0 0]
-[1 2 3]
+4
+[0 0 0 0]
 [stdout:1] 
-6
-[0 0 0]
+0
+[0 0 0 0]
+[1 2 4]
 [stdout:2] 
 2
-[0 0 0]
+[0 0 0 0]
 [stdout:3] 
-8
-[0 0 0]
+6
+[0 0 0 0]
 [stdout:4] 
-4
-[0 0 0]
+5
+[0 0 0 0]
 [stdout:5] 
-10
-[0 0 0]
-[stdout:6] 
-14
-[0 0 0]
-[stdout:7] 
 1
-[0 0 0]
+[0 0 0 0]
 0
 1000
-[1 2 3]
-[stdout:8] 
-12
-[0 0 0]
-[stdout:9] 
-3
-[0 0 0]
-[stdout:10] 
-5
-[0 0 0]
-[stdout:11] 
+[1 2 4 0]
+[stdout:6] 
 7
-[0 0 0]
-[stdout:12] 
-9
-[0 0 0]
-[stdout:13] 
-13
-[0 0 0]
-[stdout:14] 
-11
-[0 0 0]
-[stdout:15] 
-15
-[0 0 0]
+[0 0 0 0]
+[stdout:7] 
+3
+[0 0 0 0]
 </pre>
 </div>
 </div>
@@ -415,7 +391,7 @@ if rank == 1:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
@@ -444,17 +420,29 @@ print (&quot;Process&quot;, rank, &quot;has the number&quot;, rand_num[0])
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[stdout:0] 
 0.0
-Process 2 has the number 0.293651585916
+Process 4 has the number 0.118409632948
 [stdout:1] 
 0.0
-Process 3 has the number 0.293651585916
+0.118409632948
+Process 0 has the number 0.118409632948
 [stdout:2] 
 0.0
-0.293651585916
-Process 0 has the number 0.293651585916
+Process 2 has the number 0.118409632948
 [stdout:3] 
 0.0
-Process 1 has the number 0.293651585916
+Process 6 has the number 0.118409632948
+[stdout:4] 
+0.0
+Process 5 has the number 0.118409632948
+[stdout:5] 
+0.0
+Process 1 has the number 0.118409632948
+[stdout:6] 
+0.0
+Process 7 has the number 0.118409632948
+[stdout:7] 
+0.0
+Process 3 has the number 0.118409632948
 </pre>
 </div>
 </div>
@@ -595,7 +583,7 @@ process 15 x_local: [ 46.  47.  48.]
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
@@ -630,22 +618,24 @@ print (&quot;process&quot;, rank, &quot;x_local:&quot;, x_local)
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[stdout:0] 
-[ 6.   7.5  9. ]
-process 2 x: None
-process 2 x_local: [ 6.   7.5  9. ]
+[ 0.   1.5  3. ]
+[ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+process 0 x: [  0.00000000e+000   1.50000000e+000   3.00000000e+000   2.47032823e-323
+   0.00000000e+000   0.00000000e+000   1.97626258e-323   0.00000000e+000
+   0.00000000e+000   1.48219694e-323   0.00000000e+000   0.00000000e+000]
+process 0 x_local: [ 0.   1.5  3. ]
 [stdout:1] 
 [  9.   10.5  12. ]
 process 3 x: None
 process 3 x_local: [  9.   10.5  12. ]
 [stdout:2] 
-[ 0.   1.5  3. ]
-[ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
-process 0 x: [  0.    1.5   3.    3.    4.5   6.    6.    7.5   9.    9.   10.5  12. ]
-process 0 x_local: [ 0.   1.5  3. ]
-[stdout:3] 
 [ 3.   4.5  6. ]
 process 1 x: None
 process 1 x_local: [ 3.   4.5  6. ]
+[stdout:3] 
+[ 6.   7.5  9. ]
+process 2 x: None
+process 2 x_local: [ 6.   7.5  9. ]
 </pre>
 </div>
 </div>
@@ -870,14 +860,15 @@ print (total)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
+import numpy
 from mpi4py import MPI
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank(); size = comm.Get_size()
-N = 8; a = 0; b = 1; h = (b - a)/N
+N = 1000; a = 0; b = 1; h = (b - a)/N
 def f(x):
     return x*x
 local_N = N / size
@@ -885,7 +876,7 @@ local_a = a + rank * local_N * h
 partial_result = numpy.zeros(1)
 sum = numpy.zeros(1)
 for i in range(0,int(local_N)):
-    partial_result = partial_result + (f(local_a) + f(local_a + h)) * h / 2
+    partial_result += (f(local_a) + f(local_a + h)) * h / 2
     local_a = local_a + h
 comm.Reduce(partial_result,sum, op=MPI.SUM, root=0)
 if rank == 0:
@@ -902,7 +893,7 @@ if rank == 0:
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[stdout:2] The integral is [ 0.3359375]
+<pre>[stdout:1] The integral is [ 0.3333335]
 </pre>
 </div>
 </div>
@@ -923,10 +914,11 @@ if rank == 0:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
+import numpy
 from mpi4py import MPI
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank(); size = comm.Get_size()
@@ -956,12 +948,16 @@ if rank == 0:
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[stdout:0] Process  2  has  0.099609375
-[stdout:1] Process  3  has  0.193359375
-[stdout:2] 
-Process  0  has  0.005859375
+<pre>[stdout:0] Process  4  has  0.0400390625
+[stdout:1] 
+Process  0  has  0.0009765625
 The integral is 0.3359375
-[stdout:3] Process  1  has  0.037109375
+[stdout:2] Process  2  has  0.0126953125
+[stdout:3] Process  6  has  0.0830078125
+[stdout:4] Process  5  has  0.0595703125
+[stdout:5] Process  1  has  0.0048828125
+[stdout:6] Process  7  has  0.1103515625
+[stdout:7] Process  3  has  0.0244140625
 </pre>
 </div>
 </div>
@@ -994,23 +990,22 @@ The integral is 0.3359375
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
-from mpi4py import MPI
+import numpy; from mpi4py import MPI
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank(); size = comm.Get_size()
-N = 1000; a = 0; b = 1; h = (b - a)/N
+N = 3000; a = 0; b = 1; h = (b - a)/N
 def f(x):
     return x*x
-local_N = N / size
-local_a = ...
+local_N = N / size; local_a = a + rank * h
 partial_result = numpy.zeros(1)
 sum = numpy.zeros(1)
 for i in range(0,int(local_N)):
     partial_result = partial_result + (f(local_a) + f(local_a + h)) * h / 2
-    local_a = ...
+    local_a = local_a + size * h
 comm.Reduce(partial_result,sum, op=MPI.SUM, root=0)
 print (&quot;Process &quot;, rank, &quot; has &quot;, partial_result[0])
 if rank == 0:
@@ -1018,6 +1013,29 @@ if rank == 0:
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[stdout:0] Process  4  has  0.0416874328704
+[stdout:1] 
+Process  0  has  0.0415209328704
+The integral is 0.333333351852
+[stdout:2] Process  2  has  0.0416041273148
+[stdout:3] Process  6  has  0.041770849537
+[stdout:4] Process  5  has  0.0417291273148
+[stdout:5] Process  1  has  0.0415625162037
+[stdout:6] Process  7  has  0.041812599537
+[stdout:7] Process  3  has  0.0416457662037
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
