@@ -1449,134 +1449,6 @@ process 1 has None
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
-import numpy as np
-from mpi4py import MPI
-comm = MPI.COMM_WORLD
-rank = comm.Get_rank(); size = comm.Get_size(); N = 16
-unsorted = np.zeros(N, dtype=&quot;int&quot;)
-final_sorted = np.zeros(N, dtype=&quot;int&quot;)
-if rank == 0:
-    unsorted = np.random.randint(low=0,high=N,size=N)
-comm.Bcast(unsorted)
-local_min = rank * N / size
-local_max = (rank + 1) * N / size
-print(rank, local_min, local_max)
-local_bucket = unsorted[np.logical_and(unsorted &gt;= local_min, unsorted &lt; local_max)]
-local_sorted = np.sort(local_bucket)
-arr_sendcount = np.zeros(size, dtype=&quot;int&quot;)
-sendcount = np.array([local_sorted.size], dtype=&quot;int&quot;)
-comm.Gather(sendcount, arr_sendcount, root=0)
-comm.Bcast(arr_sendcount, root = 0)
-dispcount = np.zeros(size, dtype=&quot;int&quot;)
-dispcount[0] = 0
-for i in range(1,size):
-    dispcount[i] = dispcount[i-1] + arr_sendcount[i-1]
-comm.Gatherv(local_sorted, [final_sorted, tuple(arr_sendcount), tuple(dispcount), MPI.DOUBLE])
-if (rank == 0):
-    print (arr_sendcount)
-    print (unsorted)
-    print (final_sorted)
-    print (arr_sendcount)
-    print (dispcount)
-print(local_bucket)
-print(local_sorted)
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[stdout:0] 
-2 4.0 6.0
-[4]
-[4]
-[stdout:1] 
-0 0.0 2.0
-[4 4 1 1 0 4 2 0]
-[10  0 10  2  0  0  2 10  3 12 10  1  2  4 12  7]
-[ 0  0  0  1  2  2  2  3  4  7 10 10 10 10 12 12]
-[4 4 1 1 0 4 2 0]
-[ 0  4  8  9 10 10 14 16]
-[0 0 0 1]
-[0 0 0 1]
-[stdout:2] 
-6 12.0 14.0
-[12 12]
-[12 12]
-[stdout:3] 
-4 8.0 10.0
-[]
-[]
-[stdout:4] 
-3 6.0 8.0
-[7]
-[7]
-[stdout:5] 
-5 10.0 12.0
-[10 10 10 10]
-[10 10 10 10]
-[stdout:6] 
-7 14.0 16.0
-[]
-[]
-[stdout:7] 
-1 2.0 4.0
-[2 2 3 2]
-[2 2 2 3]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<center> <img src="pictures/bucketsort3.png" width="700"/> 
-<sub>Wilkinson, Barry, and Michael Allen. Parallel programming. 2nd Ed. 2003. </sub>
-</center>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Uppercase collective: MPI.Alltoallv</strong></p>
-<p>Comm.Gatherv([sendbuf, tuple_int sendcounts, tuple_int displacements, MPI_Datatype sendtype],[recvbuf, tuple_int recvcounts, tuple_int displacements, MPI_Datatype sendtype])</p>
-<p>Parameters:</p>
-<ul>
-<li>Comm (MPI comm) – communicator across which to scatter</li>
-<li>sendbuf (choice) – buffer</li>
-<li>recvbuf (choice) – buffer in which to receive the sendbuf</li>
-<li>sendcounts (tuple_int) – number of elements to send to each process (one integer for each process)</li>
-<li>displacements (tuple_int) – number of elements away from the first element in the sending array at which to begin sending the segmented array</li>
-<li>sendtype (MPI_Datatype) – MPI datatype of the buffer being sent (choice of sendbuf)</li>
-<li>recvcounts (tuple_int) – number of elements to receive from each process (one integer for each process)</li>
-<li>displacements (tuple_int) – number of elements away from the first element in the receiving array at which to begin appending the segmented array</li>
-<li>sendtype (MPI_Datatype) – MPI datatype of the buffer being receive (choice of recvbuf)</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1606,7 +1478,157 @@ print(local_sorted)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
+import numpy as np
+from mpi4py import MPI
+comm = MPI.COMM_WORLD
+
+rank = comm.Get_rank(); size = comm.Get_size(); N = 16
+
+unsorted = np.zeros(N, dtype=&quot;int&quot;)
+final_sorted = np.zeros(N, dtype=&quot;int&quot;)
+
+if rank == 0:
+    unsorted = np.random.randint(low=0,high=N,size=N)
+    
+comm.Bcast(unsorted)
+local_min = rank * N / size
+local_max = (rank + 1) * N / size
+
+#generic form:
+# local_min = rank * (b - a) / size
+# local_max = (rank + 1) * (b - a) / size
+
+print(rank, local_min, local_max)
+
+local_bucket = unsorted[np.logical_and(unsorted &gt;= local_min, unsorted &lt; local_max)]
+local_sorted = np.sort(local_bucket)
+
+arr_sendcount = np.zeros(size, dtype=&quot;int&quot;)
+sendcount = np.array([local_sorted.size], dtype=&quot;int&quot;)
+
+comm.Gather(sendcount, arr_sendcount, root=0)
+comm.Bcast(arr_sendcount, root = 0)
+
+dispcount = np.zeros(size, dtype=&quot;int&quot;)
+dispcount[0] = 0
+for i in range(1,size):
+    dispcount[i] = dispcount[i-1] + arr_sendcount[i-1]
+    
+comm.Gatherv(local_sorted, [final_sorted, tuple(arr_sendcount), tuple(dispcount), MPI.DOUBLE])
+
+if (rank == 0):
+    print (unsorted)
+    print (final_sorted)
+print(local_bucket)
+print(local_sorted)
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[stdout:0] 
+2 8.0 12.0
+[11 11  8  8]
+[ 8  8 11 11]
+[stdout:1] 
+0 0.0 4.0
+[13  5  7  5 11 11  8  5  8 12 13  1 14  0  4 12]
+[ 0  1  4  5  5  5  7  8  8 11 11 12 12 13 13 14]
+[1 0]
+[0 1]
+[stdout:2] 
+3 12.0 16.0
+[13 12 13 14 12]
+[12 12 13 13 14]
+[stdout:3] 
+1 4.0 8.0
+[5 7 5 5 4]
+[4 5 5 5 7]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<center> <img src="pictures/bucketsort3.png" width="700"/> 
+<sub>Wilkinson, Barry, and Michael Allen. Parallel programming. 2nd Ed. 2003. </sub>
+</center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Uppercase collective: MPI.Alltoallv</strong></p>
+<p>Comm.Alltoallv([sendbuf, tuple_int sendcounts, tuple_int displacements, MPI_Datatype sendtype],[recvbuf, tuple_int recvcounts, tuple_int displacements, MPI_Datatype sendtype])</p>
+<p>Parameters:</p>
+<ul>
+<li>Comm (MPI comm) – communicator across which to scatter</li>
+<li>sendbuf (choice) – buffer</li>
+<li>recvbuf (choice) – buffer in which to receive the sendbuf</li>
+<li>sendcounts (tuple_int) – number of elements to send to each process (one integer for each process)</li>
+<li>displacements (tuple_int) – number of elements away from the first element in the sending array at which to begin sending the segmented array</li>
+<li>sendtype (MPI_Datatype) – MPI datatype of the buffer being sent (choice of sendbuf)</li>
+<li>recvcounts (tuple_int) – number of elements to receive from each process (one integer for each process)</li>
+<li>displacements (tuple_int) – number of elements away from the first element in the receiving array at which to begin appending the segmented array</li>
+<li>sendtype (MPI_Datatype) – MPI datatype of the buffer being receive (choice of recvbuf)</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">ipyparallel</span>
+<span class="n">c</span><span class="o">=</span><span class="n">ipyparallel</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">profile</span><span class="o">=</span><span class="s2">&quot;mpicluster&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">ids</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[0, 1, 2, 3]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
@@ -1614,7 +1636,7 @@ import numpy
 import random
 from mpi4py import MPI
 comm = MPI.COMM_WORLD
-rank = comm.Get_rank(); size = comm.Get_size(); N = 4
+rank = comm.Get_rank(); size = comm.Get_size(); N = 8
 local_array = numpy.random.randint(low = 0, high = N, size = N)
 print(&quot;Rank &quot;, rank, &quot;: &quot;, local_array)
 #stackoverflow
@@ -1654,33 +1676,33 @@ print (new_array)
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[stdout:0] 
-Rank  2 :  [1 2 2 1]
-[1 1 1 1]
-[0 1 2 3]
-[1 1 1 1]
-[0 1 2 3]
-[1 0 2 0]
+Rank  2 :  [1 1 4 3 2 2 2 4]
+[1 1 4 2]
+[0 1 2 6]
+[3 1 4 5]
+[0 3 4 8]
+[6 5 1 4 4 3 2 2 3 1 6 5 1]
 [stdout:1] 
-Rank  0 :  [0 3 1 2]
-[1 1 1 1]
-[0 1 2 3]
-[1 1 1 1]
-[0 1 2 3]
-[0 1 1 1]
+Rank  0 :  [5 7 7 6 5 1 6 3]
+[2 1 3 2]
+[0 2 3 6]
+[2 2 1 1]
+[0 2 4 5]
+[5 7 2 6 1 4]
 [stdout:2] 
-Rank  3 :  [1 3 0 2]
-[1 1 1 1]
-[0 1 2 3]
-[1 1 1 1]
-[0 1 2 3]
-[2 0 1 2]
+Rank  3 :  [4 4 3 1 6 5 1 3]
+[1 1 5 1]
+[0 1 2 7]
+[2 4 2 1]
+[0 2 6 8]
+[6 3 0 1 1 5 2 4 3]
 [stdout:3] 
-Rank  1 :  [1 3 0 0]
+Rank  1 :  [2 6 2 4 0 1 1 5]
+[2 1 1 4]
+[0 2 3 4]
 [1 1 1 1]
 [0 1 2 3]
-[1 1 1 1]
-[0 1 2 3]
-[3 3 2 3]
+[7 2 1 4]
 </pre>
 </div>
 </div>
@@ -1691,7 +1713,7 @@ Rank  1 :  [1 3 0 0]
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
@@ -1735,7 +1757,7 @@ for i in range(1,size):
 #print (dispcount)
 recvcount = numpy.zeros(size, dtype=&quot;int&quot;)
 comm.Alltoall(sendcount, recvcount)
-#print(recvcount)
+print(recvcount)
 disprecv = numpy.zeros(size, dtype=&quot;int&quot;)
 disprecv[0] = 0
 for i in range(1,size):
@@ -1770,60 +1792,58 @@ if (rank == 0):
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[stdout:0] 
-Scattered data at process  2 :  [ 5  2  2 11]
-Local_unsorted_bucketed at process  2 :  [2 2 0 0]
-Local_unsorted_bucketed at process  2 :  [2 2 5 0]
-Local_unsorted_bucketed at process  2 :  [ 2  2  5 11]
-Sendcount at process  2 :  [2 1 1 0]
+Scattered data at process  2 :  [ 2  8 15 10]
+Local_unsorted_bucketed at process  2 :  [2 0 0 0]
+Local_unsorted_bucketed at process  2 :  [ 2  8 10  0]
+Local_unsorted_bucketed at process  2 :  [ 2  8 10 15]
+Sendcount at process  2 :  [1 0 2 1]
 Bucket matrix at process  2 : 
- [[ 2  2 -1 -1]
- [ 5 -1 -1 -1]
- [11 -1 -1 -1]
- [-1 -1 -1 -1]]
-[0 0 1 2]
-[ 9 11 10]
-[stdout:1] 
-Original unsorted data at process 0 :  [ 4  2 14  3  2  9  7 12  5  2  2 11  2  0 14 10]
-Scattered data at process  0 :  [ 4  2 14  3]
-Local_unsorted_bucketed at process  0 :  [2 3 0 0]
-Local_unsorted_bucketed at process  0 :  [2 3 4 0]
-Local_unsorted_bucketed at process  0 :  [ 2  3  4 14]
-Sendcount at process  0 :  [2 1 0 1]
-Bucket matrix at process  0 : 
- [[ 2  3 -1 -1]
- [ 4 -1 -1 -1]
- [-1 -1 -1 -1]
- [14 -1 -1 -1]]
-[0 2 3 5]
-[2 3 2 2 2 2 0]
-[ 0  2  2  2  2  2  3  4  5  7  9 10 11 12 14 14]
-[stdout:2] 
-Scattered data at process  3 :  [ 2  0 14 10]
-Local_unsorted_bucketed at process  3 :  [2 0 0 0]
-Local_unsorted_bucketed at process  3 :  [ 2  0 10  0]
-Local_unsorted_bucketed at process  3 :  [ 2  0 10 14]
-Sendcount at process  3 :  [2 0 1 1]
-Bucket matrix at process  3 : 
- [[ 2  0 -1 -1]
- [-1 -1 -1 -1]
- [10 -1 -1 -1]
- [14 -1 -1 -1]]
-[0 1 2 2]
-[14 12 14]
-[stdout:3] 
-Scattered data at process  1 :  [ 2  9  7 12]
-Local_unsorted_bucketed at process  1 :  [2 0 0 0]
-Local_unsorted_bucketed at process  1 :  [2 7 0 0]
-Local_unsorted_bucketed at process  1 :  [2 7 9 0]
-Local_unsorted_bucketed at process  1 :  [ 2  7  9 12]
-Sendcount at process  1 :  [1 1 1 1]
-Bucket matrix at process  1 : 
  [[ 2 -1 -1 -1]
- [ 7 -1 -1 -1]
- [ 9 -1 -1 -1]
+ [-1 -1 -1 -1]
+ [ 8 10 -1 -1]
+ [15 -1 -1 -1]]
+[0 2 5 7]
+[ 8  8  9  9 11  8 10  9]
+[stdout:1] 
+Original unsorted data at process 0 :  [ 8  6  8 12  6  9  9 11  2  8 15 10 15  9 15  3]
+Scattered data at process  0 :  [ 8  6  8 12]
+Local_unsorted_bucketed at process  0 :  [6 0 0 0]
+Local_unsorted_bucketed at process  0 :  [6 8 8 0]
+Local_unsorted_bucketed at process  0 :  [ 6  8  8 12]
+Sendcount at process  0 :  [0 1 2 1]
+Bucket matrix at process  0 : 
+ [[-1 -1 -1 -1]
+ [ 6 -1 -1 -1]
+ [ 8  8 -1 -1]
  [12 -1 -1 -1]]
-[0 1 2 3]
-[4 7 5]
+[0 0 0 1]
+[2 3]
+[ 2  3  6  6  8  8  8  9  9  9 10 11 12 15 15 15]
+[stdout:2] 
+Scattered data at process  3 :  [15  9 15  3]
+Local_unsorted_bucketed at process  3 :  [3 0 0 0]
+Local_unsorted_bucketed at process  3 :  [3 9 0 0]
+Local_unsorted_bucketed at process  3 :  [ 3  9 15 15]
+Sendcount at process  3 :  [1 0 1 2]
+Bucket matrix at process  3 : 
+ [[ 3 -1 -1 -1]
+ [-1 -1 -1 -1]
+ [ 9 -1 -1 -1]
+ [15 15 -1 -1]]
+[0 1 1 2]
+[12 15 15 15]
+[stdout:3] 
+Scattered data at process  1 :  [ 6  9  9 11]
+Local_unsorted_bucketed at process  1 :  [6 0 0 0]
+Local_unsorted_bucketed at process  1 :  [ 6  9  9 11]
+Sendcount at process  1 :  [0 1 3 0]
+Bucket matrix at process  1 : 
+ [[-1 -1 -1 -1]
+ [ 6 -1 -1 -1]
+ [ 9  9 11 -1]
+ [-1 -1 -1 -1]]
+[0 1 2 2]
+[6 6]
 </pre>
 </div>
 </div>
