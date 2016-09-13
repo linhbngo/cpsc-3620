@@ -158,13 +158,14 @@ Students with disabilities needing accommodations should make an appointment wit
 -   [Partitioning and Divide-and-Conquer](divide-and-conquer.html)
 
 12. Monday, September 12:
--   [Synchronous Computing: Broadcast and Barrier]()
+-   [Partitioning and Divide-and-Conquer: Bucket Sorts](divide-and-conquer.html)
 
 13. Wednesday, September 14:
--   [Synchronous Computing: Row Exchange]()
+-   [Synchronous Computing: Broadcast and Barrier]()
 
 14. Friday, September 16:
--   [TBD]()
+-   [Synchronous Computing: Row Exchange]()
+-   **Assignment 3 Due**
 
 15. Monday, September 19:
 -   [Parallel Sorting: Transposition and Merge]()
@@ -204,6 +205,8 @@ Students with disabilities needing accommodations should make an appointment wit
 -   [HPCCSystems Lab]()
 
 41. [Friday, November 18]()
+-   Supercomputing 2016
+
 42. [Monday, November 21: Message-Oriented Middleware]()
 43. **Wednesday, November 23: Thanksgiving**
 44. **Friday, November 25: Thanksgiving**
