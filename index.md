@@ -161,7 +161,7 @@ Students with disabilities needing accommodations should make an appointment wit
 -   [Partitioning and Divide-and-Conquer: Bucket Sorts](divide-and-conquer.html)
 
 13. Wednesday, September 14:
--   [Synchronous Computing: Broadcast and Barrier]()
+-   [Synchronous Computing: Barrier](synchronous-computing.html)
 
 14. Friday, September 16:
 -   [Synchronous Computing: Row Exchange]()
