@@ -164,7 +164,8 @@ Students with disabilities needing accommodations should make an appointment wit
 -   [Synchronous Computing: Barrier](synchronous-computing.html)
 
 14. Friday, September 16:
--   [Synchronous Computing: Row Exchange]()
+-   [Synchronous Computing: Row Exchange](heat-exchange.html)
+-   [Assignment 4](assignment-4.html)
 -   **Assignment 3 Due**
 
 15. Monday, September 19:
@@ -176,6 +177,7 @@ Students with disabilities needing accommodations should make an appointment wit
 18. [Monday, September 26: Distributed File Systems]()
 19. [Wednesday, September 28: Scheduling on cluster of computers]()
 20. [Friday, September 30]()
+-   **Assignment 4 Due**
 21. [Monday, October 3: Review]()
 22. **Wednesday, October 5: Midterm Exam**
 23. [Friday, October 7: Introduction to Big Data and Data Intensive Computing]()
