@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>synchronous-computing</title>
+<title>heat-exchange</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -176,45 +176,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Synchronous-Computing"><center>Synchronous Computing</center><a class="anchor-link" href="#Synchronous-Computing">&#182;</a></h2><h3 id="-Linh-B.-Ngo-"><center> Linh B. Ngo </center><a class="anchor-link" href="#-Linh-B.-Ngo-">&#182;</a></h3><h3 id="-CPSC-3620-"><center> CPSC 3620 </center><a class="anchor-link" href="#-CPSC-3620-">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">ipyparallel</span>
-<span class="n">c</span><span class="o">=</span><span class="n">ipyparallel</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">profile</span><span class="o">=</span><span class="s2">&quot;mpicluster&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">ids</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[0, 1, 2, 3, 4, 5, 6, 7]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="-Synchronous-Computation-"><center> Synchronous Computation </center><a class="anchor-link" href="#-Synchronous-Computation-">&#182;</a></h4>
+<h2 id="Synchronous-Computing:-Heat-Exchange"><center>Synchronous Computing: Heat Exchange</center><a class="anchor-link" href="#Synchronous-Computing:-Heat-Exchange">&#182;</a></h2><h3 id="-Linh-B.-Ngo-"><center> Linh B. Ngo </center><a class="anchor-link" href="#-Linh-B.-Ngo-">&#182;</a></h3><h3 id="-CPSC-3620-"><center> CPSC 3620 </center><a class="anchor-link" href="#-CPSC-3620-">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -223,85 +185,58 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In a (fully) synchronous computation, all the processes synchronized at regular points, usually to exchange data or to making sure every process has gone through the same set of procedures (to update their own data) before proceeding.</p>
-
+<center> <img src="pictures/heatexchange1.png" width="700"/> 
+</center>
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">!</span>mpirun -np <span class="m">8</span> python nobarrier.py
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>process 1 is here
-process 2 is here
-process 3 is here
-process 4 is here
-process 5 is here
-process 6 is here
-process 7 is here
-process 0 is here
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">!</span>mpirun -np <span class="m">8</span> python barrier.py
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>process 0 is here
-process 1 is here
-process 2 is here
-process 3 is here
-process 4 is here
-process 5 is here
-process 6 is here
-process 7 is here
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="-Barrier-"><center> Barrier </center><a class="anchor-link" href="#-Barrier-">&#182;</a></h4>
+<center> <img src="pictures/heatexchange2.png" width="700"/> 
+</center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<center> <img src="pictures/heatexchange3.png" width="700"/> 
+</center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<center> <img src="pictures/heatexchange4.png" width="700"/> 
+</center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<center> <img src="pictures/heatexchange5.png" width="700"/> 
+</center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4><center> Row Exchange</h4>
+
 </div>
 </div>
 </div>
@@ -311,101 +246,16 @@ process 7 is here
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>A basic mechanism for synchronizing processes - inserted at the point in each process where it must wait</li>
-<li>All processes can continue from this point when all the processes have reached it. </li>
+<li>All processes interact with adjacent neighbors to exchange <em>ghost row</em> (<em>halo row</em>)</li>
+<li>All processes are to be synchronized such that the next iteration of the computation only happens after all row exchanges are completed</li>
 </ul>
 
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Comm.Barrier()</p>
-<p>Parameters:</p>
-<ul>
-<li>Comm (MPI comm) – communicator on which we are to block processes</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<center> <img src="pictures/treebarrier1.png" width="700"/> 
-<sub>Wilkinson, Barry, and Michael Allen. Parallel programming. 2nd Ed. 2003. </sub>
-</center>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<center> <img src="pictures/treebarrier2.png" width="700"/> 
-<sub>Wilkinson, Barry, and Michael Allen. Parallel programming. 2nd Ed. 2003. </sub>
-</center>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<center> <img src="pictures/butterflybarrier1.png" width="700"/> 
-<sub>Wilkinson, Barry, and Michael Allen. Parallel programming. 2nd Ed. 2003. </sub>
-</center>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="-Prefix-Sum-Problem-"><center> Prefix Sum Problem </center><a class="anchor-link" href="#-Prefix-Sum-Problem-">&#182;</a></h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Given a list of numbers, $x_0, ..., x_{n-1}$, compute all partial summations, i.e:</p>
-<ul>
-<li>$x_0 + x_1$</li>
-<li>$x_0 + x_1 + x_2$</li>
-<li>$x_0 + x_1 + x_2 + x_3$</li>
-<li>$x_0 + x_1 + x_2 + x_3 + x_4$</li>
-<li>...</li>
-</ul>
-<p>Widely studied with practical applications in process allocation, data compaction, sorting, and polynomial evaluation.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<center> <img src="pictures/prefixsum.png" width="700"/> 
-<sub>Wilkinson, Barry, and Michael Allen. Parallel programming. 2nd Ed. 2003. </sub>
-</center>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">ipyparallel</span>
@@ -434,42 +284,35 @@ process 7 is here
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[55]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
 import numpy as np
-import math
 from mpi4py import MPI
 comm = MPI.COMM_WORLD
+rank = comm.Get_rank(); size = comm.Get_size(); N = 24
+status = MPI.Status()
 
-rank = comm.Get_rank(); size = comm.Get_size(); N = 16
+local_array = np.full(shape=(int(N / size) + 2, N), fill_value=rank, dtype=&quot;int&quot;)
+full_array = np.zeros(shape=(N + size * 2, N), dtype=&quot;int&quot;)
 
-local_nums = np.zeros(int(N/size), dtype=&quot;int&quot;)
-recv_sum = np.zeros(1, dtype=&quot;int&quot;)
-local_sums = np.zeros(int(N/size), dtype=&quot;int&quot;)
+comm.Gather(local_array, full_array, root=0)
+if rank == 0:
+    print (full_array)
+if (rank &lt; size - 1):
+    print (rank)
+    comm.Send(local_array[int(N/size),], dest = rank + 1, tag = 0)
+    comm.Recv(local_array[int(N/size) + 1,], source = rank + 1, tag = 0, status = status)
+if (rank &gt; 0):
+    print (rank)
+    comm.Recv(local_array[0,], source = rank - 1, tag = 0, status = status)
+    comm.Send(local_array[1,], dest = rank - 1, tag = 0)
 
-for i in range(0,int(N/size)):
-    local_nums[i] = rank * int(N/size) + i
-    local_sums[i] += np.sum(local_nums[0:(i+1)])
-
-print(&quot;Process &quot;, rank, &quot; has &quot;, local_nums)
-print(&quot;Process &quot;, rank, &quot; has &quot;, local_sums)
-
-for i in range(0, int(math.log2(size))):
-    distance = int(math.pow(2,i))
-    if (rank == 0):
-        print (distance)
-    if (rank &lt; (size - distance)):
-        comm.Send(local_sums[int(N/size) - 1], dest = rank + distance, tag = 0)
-#        print (&quot;Process &quot;, rank, &quot; sends to &quot;, rank + distance)
-    if (rank &gt;= distance):
-        status = MPI.Status()
-        comm.Recv(recv_sum, source = rank - distance, tag = 0, status = status);
-#        print (&quot;Process &quot;, rank, &quot; receives from &quot;, rank - distance, &quot; values &quot;, recv_nums)
-        for j in range(0,int(N/size)):
-            local_sums[j] += recv_sum[0]
-    print(&quot;Process &quot;, rank, &quot; has &quot;, local_sums)
+comm.Barrier()
+comm.Gather(local_array, full_array, root=0)
+if rank == 0:
+    print (full_array)
 </pre></div>
 
 </div>
@@ -483,60 +326,4273 @@ for i in range(0, int(math.log2(size))):
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[stdout:0] 
-Process  3  has  [6 7]
-Process  3  has  [ 6 13]
-Process  3  has  [15 22]
-Process  3  has  [21 28]
-Process  3  has  [21 28]
-[stdout:1] 
-Process  1  has  [2 3]
-Process  1  has  [2 5]
-Process  1  has  [3 6]
-Process  1  has  [3 6]
-Process  1  has  [3 6]
-[stdout:2] 
-Process  7  has  [14 15]
-Process  7  has  [14 29]
-Process  7  has  [39 54]
-Process  7  has  [77 92]
-Process  7  has  [105 120]
-[stdout:3] 
-Process  5  has  [10 11]
-Process  5  has  [10 21]
-Process  5  has  [27 38]
-Process  5  has  [49 60]
-Process  5  has  [55 66]
-[stdout:4] 
-Process  0  has  [0 1]
-Process  0  has  [0 1]
-1
-Process  0  has  [0 1]
-2
-Process  0  has  [0 1]
 4
-Process  0  has  [0 1]
-[stdout:5] 
-Process  2  has  [4 5]
-Process  2  has  [4 9]
-Process  2  has  [ 9 14]
-Process  2  has  [10 15]
-Process  2  has  [10 15]
+4
+[stdout:1] 
+[[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]
+ [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]
+ [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]
+ [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]
+ [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]
+ [2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2]
+ [2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2]
+ [2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2]
+ [2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2]
+ [2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2]
+ [3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3]
+ [3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3]
+ [3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3]
+ [3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3]
+ [3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3]
+ [4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4]
+ [4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4]
+ [4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4]
+ [4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4]
+ [4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4]
+ [5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5]
+ [5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5]
+ [5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5]
+ [5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5]
+ [5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5]
+ [6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6]
+ [6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6]
+ [6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6]
+ [6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6]
+ [6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6]
+ [7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7]
+ [7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7]
+ [7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7]
+ [7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7]
+ [7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7]]
+0
+[[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]
+ [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]
+ [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]
+ [2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2]
+ [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]
+ [2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2]
+ [2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2]
+ [2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2]
+ [3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3]
+ [2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2]
+ [3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3]
+ [3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3]
+ [3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3]
+ [4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4]
+ [3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3]
+ [4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4]
+ [4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4]
+ [4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4]
+ [5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5]
+ [4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4]
+ [5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5]
+ [5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5]
+ [5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5]
+ [6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6]
+ [5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5]
+ [6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6]
+ [6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6]
+ [6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6]
+ [7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7]
+ [6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6]
+ [7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7]
+ [7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7]
+ [7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7]
+ [7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7]]
+[stdout:2] 
+2
+2
+[stdout:3] 
+6
+6
+[stdout:4] 
+1
+1
+[stdout:5] 7
 [stdout:6] 
-Process  6  has  [12 13]
-Process  6  has  [12 25]
-Process  6  has  [33 46]
-Process  6  has  [63 76]
-Process  6  has  [78 91]
+5
+5
 [stdout:7] 
-Process  4  has  [8 9]
-Process  4  has  [ 8 17]
-Process  4  has  [21 30]
-Process  4  has  [35 44]
-Process  4  has  [36 45]
+3
+3
 </pre>
 </div>
 </div>
 
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">ipyparallel</span>
+<span class="n">c</span><span class="o">=</span><span class="n">ipyparallel</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">profile</span><span class="o">=</span><span class="s2">&quot;mpicluster&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">ids</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[0, 1, 2, 3, 4, 5, 6, 7]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[70]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
+import numpy as np
+from mpi4py import MPI
+comm = MPI.COMM_WORLD
+rank = comm.Get_rank(); size = comm.Get_size(); status = MPI.Status();
+
+steps = 50
+room_width = 1024
+room_height = room_width
+
+width = room_width + 2 # account for walls
+
+# initialize room cells at 20 degrees. Each local slice has two additional rows and columns to account for 
+# the ghost rows and the walls. 
+local_slice = np.full(shape=(int(room_height / size) + 2, width), fill_value=20, dtype=&quot;float&quot;)
+old_slice = np.zeros(shape=(int(room_height / size) + 2, width), dtype=&quot;float&quot;)
+room_array = np.zeros(shape=(room_height, width), dtype=&quot;float&quot;)
+
+if rank == 0:
+    # initialize the fire place at the top of the room
+    for i in range (int(width * 3 / 10 + 1), int(width * 7 / 10 + 1)):
+        local_slice[0,i] = 300
+
+# test room temperature print out:
+comm.Gather(local_slice[1:int(room_height / size) + 1,], room_array, root=0)
+if rank == 0:
+    print (room_array)
+
+#print(local_slice)
+
+for step in range (0, steps):
+    old_slice = local_slice
+    if (rank &lt; size - 1):
+        comm.Send(old_slice[int(room_height/size),], dest = rank + 1, tag = 0)
+        comm.Recv(old_slice[int(room_height/size) + 1,], source = rank + 1, tag = 0, status = status)
+    if (rank &gt; 0):
+        comm.Recv(old_slice[0,], source = rank - 1, tag = 0, status = status)
+        comm.Send(old_slice[1,], dest = rank - 1, tag = 0)
+    comm.Barrier()
+    
+    for i in range (1,int(room_height/size) + 1):
+        for j in range (1, room_width + 1):
+            local_slice[i,j] = (old_slice[i - 1,j] + old_slice[i + 1,j] + old_slice[i, j - 1] + old_slice[i, j + 1])/4
+
+comm.Gather(local_slice[1:int(room_height / size) + 1,], room_array, root=0)
+if rank == 0:
+    print (room_array)
+    WHITE = &quot;15 15 15 &quot;
+    RED = &quot;15 00 00 &quot;
+    ORANGE = &quot;15 05 00 &quot;
+    YELLOW = &quot;15 10 00 &quot;
+    LTGREEN = &quot;00 13 00 &quot;
+    GREEN = &quot;05 10 00 &quot;
+    LTBLUE = &quot;00 05 10 &quot;
+    BLUE = &quot;00 00 10 &quot;
+    DARKTEAL = &quot;00 05 05 &quot;
+    BROWN = &quot;03 03 00 &quot;
+    BLACK = &quot;00 00 00 &quot;
+
+    colors = [RED, ORANGE, YELLOW, LTGREEN, GREEN, LTBLUE, BLUE, DARKTEAL, BROWN, BLACK]
+    numcolors = 10
+    linelen = room_width;
+    numlines = room_height;
+
+    pnm_file = open(&quot;/home/lngo/git/cpsc-3620/heat.pnm&quot;, &quot;w&quot;)
+    pnm_file.write(&quot;P3\n%d %d\n15\n&quot; % (linelen, numlines))
+
+    for j in range(0,numlines): 
+        color = int(j/(numlines/numcolors))
+        for i in range(0,linelen):
+            pnm_file.write(&quot;%s &quot; % (colors[color]))
+        pnm_file.write(&quot;\n&quot;)
+
+    pnm_file.close()
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[stdout:0] 
+Process  4  is at step  0
+Process  4  is at step  1
+Process  4  is at step  2
+Process  4  is at step  3
+Process  4  is at step  4
+Process  4  is at step  5
+Process  4  is at step  6
+Process  4  is at step  7
+Process  4  is at step  8
+Process  4  is at step  9
+Process  4  is at step  10
+Process  4  is at step  11
+Process  4  is at step  12
+Process  4  is at step  13
+Process  4  is at step  14
+Process  4  is at step  15
+Process  4  is at step  16
+Process  4  is at step  17
+Process  4  is at step  18
+Process  4  is at step  19
+Process  4  is at step  20
+Process  4  is at step  21
+Process  4  is at step  22
+Process  4  is at step  23
+Process  4  is at step  24
+Process  4  is at step  25
+Process  4  is at step  26
+Process  4  is at step  27
+Process  4  is at step  28
+Process  4  is at step  29
+Process  4  is at step  30
+Process  4  is at step  31
+Process  4  is at step  32
+Process  4  is at step  33
+Process  4  is at step  34
+Process  4  is at step  35
+Process  4  is at step  36
+Process  4  is at step  37
+Process  4  is at step  38
+Process  4  is at step  39
+Process  4  is at step  40
+Process  4  is at step  41
+Process  4  is at step  42
+Process  4  is at step  43
+Process  4  is at step  44
+Process  4  is at step  45
+Process  4  is at step  46
+Process  4  is at step  47
+Process  4  is at step  48
+Process  4  is at step  49
+Process  4  is at step  50
+Process  4  is at step  51
+Process  4  is at step  52
+Process  4  is at step  53
+Process  4  is at step  54
+Process  4  is at step  55
+Process  4  is at step  56
+Process  4  is at step  57
+Process  4  is at step  58
+Process  4  is at step  59
+Process  4  is at step  60
+Process  4  is at step  61
+Process  4  is at step  62
+Process  4  is at step  63
+Process  4  is at step  64
+Process  4  is at step  65
+Process  4  is at step  66
+Process  4  is at step  67
+Process  4  is at step  68
+Process  4  is at step  69
+Process  4  is at step  70
+Process  4  is at step  71
+Process  4  is at step  72
+Process  4  is at step  73
+Process  4  is at step  74
+Process  4  is at step  75
+Process  4  is at step  76
+Process  4  is at step  77
+Process  4  is at step  78
+Process  4  is at step  79
+Process  4  is at step  80
+Process  4  is at step  81
+Process  4  is at step  82
+Process  4  is at step  83
+Process  4  is at step  84
+Process  4  is at step  85
+Process  4  is at step  86
+Process  4  is at step  87
+Process  4  is at step  88
+Process  4  is at step  89
+Process  4  is at step  90
+Process  4  is at step  91
+Process  4  is at step  92
+Process  4  is at step  93
+Process  4  is at step  94
+Process  4  is at step  95
+Process  4  is at step  96
+Process  4  is at step  97
+Process  4  is at step  98
+Process  4  is at step  99
+Process  4  is at step  100
+Process  4  is at step  101
+Process  4  is at step  102
+Process  4  is at step  103
+Process  4  is at step  104
+Process  4  is at step  105
+Process  4  is at step  106
+Process  4  is at step  107
+Process  4  is at step  108
+Process  4  is at step  109
+Process  4  is at step  110
+Process  4  is at step  111
+Process  4  is at step  112
+Process  4  is at step  113
+Process  4  is at step  114
+Process  4  is at step  115
+Process  4  is at step  116
+Process  4  is at step  117
+Process  4  is at step  118
+Process  4  is at step  119
+Process  4  is at step  120
+Process  4  is at step  121
+Process  4  is at step  122
+Process  4  is at step  123
+Process  4  is at step  124
+Process  4  is at step  125
+Process  4  is at step  126
+Process  4  is at step  127
+Process  4  is at step  128
+Process  4  is at step  129
+Process  4  is at step  130
+Process  4  is at step  131
+Process  4  is at step  132
+Process  4  is at step  133
+Process  4  is at step  134
+Process  4  is at step  135
+Process  4  is at step  136
+Process  4  is at step  137
+Process  4  is at step  138
+Process  4  is at step  139
+Process  4  is at step  140
+Process  4  is at step  141
+Process  4  is at step  142
+Process  4  is at step  143
+Process  4  is at step  144
+Process  4  is at step  145
+Process  4  is at step  146
+Process  4  is at step  147
+Process  4  is at step  148
+Process  4  is at step  149
+Process  4  is at step  150
+Process  4  is at step  151
+Process  4  is at step  152
+Process  4  is at step  153
+Process  4  is at step  154
+Process  4  is at step  155
+Process  4  is at step  156
+Process  4  is at step  157
+Process  4  is at step  158
+Process  4  is at step  159
+Process  4  is at step  160
+Process  4  is at step  161
+Process  4  is at step  162
+Process  4  is at step  163
+Process  4  is at step  164
+Process  4  is at step  165
+Process  4  is at step  166
+Process  4  is at step  167
+Process  4  is at step  168
+Process  4  is at step  169
+Process  4  is at step  170
+Process  4  is at step  171
+Process  4  is at step  172
+Process  4  is at step  173
+Process  4  is at step  174
+Process  4  is at step  175
+Process  4  is at step  176
+Process  4  is at step  177
+Process  4  is at step  178
+Process  4  is at step  179
+Process  4  is at step  180
+Process  4  is at step  181
+Process  4  is at step  182
+Process  4  is at step  183
+Process  4  is at step  184
+Process  4  is at step  185
+Process  4  is at step  186
+Process  4  is at step  187
+Process  4  is at step  188
+Process  4  is at step  189
+Process  4  is at step  190
+Process  4  is at step  191
+Process  4  is at step  192
+Process  4  is at step  193
+Process  4  is at step  194
+Process  4  is at step  195
+Process  4  is at step  196
+Process  4  is at step  197
+Process  4  is at step  198
+Process  4  is at step  199
+Process  4  is at step  200
+Process  4  is at step  201
+Process  4  is at step  202
+Process  4  is at step  203
+Process  4  is at step  204
+Process  4  is at step  205
+Process  4  is at step  206
+Process  4  is at step  207
+Process  4  is at step  208
+Process  4  is at step  209
+Process  4  is at step  210
+Process  4  is at step  211
+Process  4  is at step  212
+Process  4  is at step  213
+Process  4  is at step  214
+Process  4  is at step  215
+Process  4  is at step  216
+Process  4  is at step  217
+Process  4  is at step  218
+Process  4  is at step  219
+Process  4  is at step  220
+Process  4  is at step  221
+Process  4  is at step  222
+Process  4  is at step  223
+Process  4  is at step  224
+Process  4  is at step  225
+Process  4  is at step  226
+Process  4  is at step  227
+Process  4  is at step  228
+Process  4  is at step  229
+Process  4  is at step  230
+Process  4  is at step  231
+Process  4  is at step  232
+Process  4  is at step  233
+Process  4  is at step  234
+Process  4  is at step  235
+Process  4  is at step  236
+Process  4  is at step  237
+Process  4  is at step  238
+Process  4  is at step  239
+Process  4  is at step  240
+Process  4  is at step  241
+Process  4  is at step  242
+Process  4  is at step  243
+Process  4  is at step  244
+Process  4  is at step  245
+Process  4  is at step  246
+Process  4  is at step  247
+Process  4  is at step  248
+Process  4  is at step  249
+Process  4  is at step  250
+Process  4  is at step  251
+Process  4  is at step  252
+Process  4  is at step  253
+Process  4  is at step  254
+Process  4  is at step  255
+Process  4  is at step  256
+Process  4  is at step  257
+Process  4  is at step  258
+Process  4  is at step  259
+Process  4  is at step  260
+Process  4  is at step  261
+Process  4  is at step  262
+Process  4  is at step  263
+Process  4  is at step  264
+Process  4  is at step  265
+Process  4  is at step  266
+Process  4  is at step  267
+Process  4  is at step  268
+Process  4  is at step  269
+Process  4  is at step  270
+Process  4  is at step  271
+Process  4  is at step  272
+Process  4  is at step  273
+Process  4  is at step  274
+Process  4  is at step  275
+Process  4  is at step  276
+Process  4  is at step  277
+Process  4  is at step  278
+Process  4  is at step  279
+Process  4  is at step  280
+Process  4  is at step  281
+Process  4  is at step  282
+Process  4  is at step  283
+Process  4  is at step  284
+Process  4  is at step  285
+Process  4  is at step  286
+Process  4  is at step  287
+Process  4  is at step  288
+Process  4  is at step  289
+Process  4  is at step  290
+Process  4  is at step  291
+Process  4  is at step  292
+Process  4  is at step  293
+Process  4  is at step  294
+Process  4  is at step  295
+Process  4  is at step  296
+Process  4  is at step  297
+Process  4  is at step  298
+Process  4  is at step  299
+Process  4  is at step  300
+Process  4  is at step  301
+Process  4  is at step  302
+Process  4  is at step  303
+Process  4  is at step  304
+Process  4  is at step  305
+Process  4  is at step  306
+Process  4  is at step  307
+Process  4  is at step  308
+Process  4  is at step  309
+Process  4  is at step  310
+Process  4  is at step  311
+Process  4  is at step  312
+Process  4  is at step  313
+Process  4  is at step  314
+Process  4  is at step  315
+Process  4  is at step  316
+Process  4  is at step  317
+Process  4  is at step  318
+Process  4  is at step  319
+Process  4  is at step  320
+Process  4  is at step  321
+Process  4  is at step  322
+Process  4  is at step  323
+Process  4  is at step  324
+Process  4  is at step  325
+Process  4  is at step  326
+Process  4  is at step  327
+Process  4  is at step  328
+Process  4  is at step  329
+Process  4  is at step  330
+Process  4  is at step  331
+Process  4  is at step  332
+Process  4  is at step  333
+Process  4  is at step  334
+Process  4  is at step  335
+Process  4  is at step  336
+Process  4  is at step  337
+Process  4  is at step  338
+Process  4  is at step  339
+Process  4  is at step  340
+Process  4  is at step  341
+Process  4  is at step  342
+Process  4  is at step  343
+Process  4  is at step  344
+Process  4  is at step  345
+Process  4  is at step  346
+Process  4  is at step  347
+Process  4  is at step  348
+Process  4  is at step  349
+Process  4  is at step  350
+Process  4  is at step  351
+Process  4  is at step  352
+Process  4  is at step  353
+Process  4  is at step  354
+Process  4  is at step  355
+Process  4  is at step  356
+Process  4  is at step  357
+Process  4  is at step  358
+Process  4  is at step  359
+Process  4  is at step  360
+Process  4  is at step  361
+Process  4  is at step  362
+Process  4  is at step  363
+Process  4  is at step  364
+Process  4  is at step  365
+Process  4  is at step  366
+Process  4  is at step  367
+Process  4  is at step  368
+Process  4  is at step  369
+Process  4  is at step  370
+Process  4  is at step  371
+Process  4  is at step  372
+Process  4  is at step  373
+Process  4  is at step  374
+Process  4  is at step  375
+Process  4  is at step  376
+Process  4  is at step  377
+Process  4  is at step  378
+Process  4  is at step  379
+Process  4  is at step  380
+Process  4  is at step  381
+Process  4  is at step  382
+Process  4  is at step  383
+Process  4  is at step  384
+Process  4  is at step  385
+Process  4  is at step  386
+Process  4  is at step  387
+Process  4  is at step  388
+Process  4  is at step  389
+Process  4  is at step  390
+Process  4  is at step  391
+Process  4  is at step  392
+Process  4  is at step  393
+Process  4  is at step  394
+Process  4  is at step  395
+Process  4  is at step  396
+Process  4  is at step  397
+Process  4  is at step  398
+Process  4  is at step  399
+Process  4  is at step  400
+Process  4  is at step  401
+Process  4  is at step  402
+Process  4  is at step  403
+Process  4  is at step  404
+Process  4  is at step  405
+Process  4  is at step  406
+Process  4  is at step  407
+Process  4  is at step  408
+Process  4  is at step  409
+Process  4  is at step  410
+Process  4  is at step  411
+Process  4  is at step  412
+Process  4  is at step  413
+Process  4  is at step  414
+Process  4  is at step  415
+Process  4  is at step  416
+Process  4  is at step  417
+Process  4  is at step  418
+Process  4  is at step  419
+Process  4  is at step  420
+Process  4  is at step  421
+Process  4  is at step  422
+Process  4  is at step  423
+Process  4  is at step  424
+Process  4  is at step  425
+Process  4  is at step  426
+Process  4  is at step  427
+Process  4  is at step  428
+Process  4  is at step  429
+Process  4  is at step  430
+Process  4  is at step  431
+Process  4  is at step  432
+Process  4  is at step  433
+Process  4  is at step  434
+Process  4  is at step  435
+Process  4  is at step  436
+Process  4  is at step  437
+Process  4  is at step  438
+Process  4  is at step  439
+Process  4  is at step  440
+Process  4  is at step  441
+Process  4  is at step  442
+Process  4  is at step  443
+Process  4  is at step  444
+Process  4  is at step  445
+Process  4  is at step  446
+Process  4  is at step  447
+Process  4  is at step  448
+Process  4  is at step  449
+Process  4  is at step  450
+Process  4  is at step  451
+Process  4  is at step  452
+Process  4  is at step  453
+Process  4  is at step  454
+Process  4  is at step  455
+Process  4  is at step  456
+Process  4  is at step  457
+Process  4  is at step  458
+Process  4  is at step  459
+Process  4  is at step  460
+Process  4  is at step  461
+Process  4  is at step  462
+Process  4  is at step  463
+Process  4  is at step  464
+Process  4  is at step  465
+Process  4  is at step  466
+Process  4  is at step  467
+Process  4  is at step  468
+Process  4  is at step  469
+Process  4  is at step  470
+Process  4  is at step  471
+Process  4  is at step  472
+Process  4  is at step  473
+Process  4  is at step  474
+Process  4  is at step  475
+Process  4  is at step  476
+Process  4  is at step  477
+Process  4  is at step  478
+Process  4  is at step  479
+Process  4  is at step  480
+Process  4  is at step  481
+Process  4  is at step  482
+Process  4  is at step  483
+Process  4  is at step  484
+Process  4  is at step  485
+Process  4  is at step  486
+Process  4  is at step  487
+Process  4  is at step  488
+Process  4  is at step  489
+Process  4  is at step  490
+Process  4  is at step  491
+Process  4  is at step  492
+Process  4  is at step  493
+Process  4  is at step  494
+Process  4  is at step  495
+Process  4  is at step  496
+Process  4  is at step  497
+Process  4  is at step  498
+Process  4  is at step  499
+[stdout:1] 
+[[ 20.  20.  20. ...,  20.  20.  20.]
+ [ 20.  20.  20. ...,  20.  20.  20.]
+ [ 20.  20.  20. ...,  20.  20.  20.]
+ ..., 
+ [ 20.  20.  20. ...,  20.  20.  20.]
+ [ 20.  20.  20. ...,  20.  20.  20.]
+ [ 20.  20.  20. ...,  20.  20.  20.]]
+Process  0  is at step  0
+Process  0  is at step  1
+Process  0  is at step  2
+Process  0  is at step  3
+Process  0  is at step  4
+Process  0  is at step  5
+Process  0  is at step  6
+Process  0  is at step  7
+Process  0  is at step  8
+Process  0  is at step  9
+Process  0  is at step  10
+Process  0  is at step  11
+Process  0  is at step  12
+Process  0  is at step  13
+Process  0  is at step  14
+Process  0  is at step  15
+Process  0  is at step  16
+Process  0  is at step  17
+Process  0  is at step  18
+Process  0  is at step  19
+Process  0  is at step  20
+Process  0  is at step  21
+Process  0  is at step  22
+Process  0  is at step  23
+Process  0  is at step  24
+Process  0  is at step  25
+Process  0  is at step  26
+Process  0  is at step  27
+Process  0  is at step  28
+Process  0  is at step  29
+Process  0  is at step  30
+Process  0  is at step  31
+Process  0  is at step  32
+Process  0  is at step  33
+Process  0  is at step  34
+Process  0  is at step  35
+Process  0  is at step  36
+Process  0  is at step  37
+Process  0  is at step  38
+Process  0  is at step  39
+Process  0  is at step  40
+Process  0  is at step  41
+Process  0  is at step  42
+Process  0  is at step  43
+Process  0  is at step  44
+Process  0  is at step  45
+Process  0  is at step  46
+Process  0  is at step  47
+Process  0  is at step  48
+Process  0  is at step  49
+Process  0  is at step  50
+Process  0  is at step  51
+Process  0  is at step  52
+Process  0  is at step  53
+Process  0  is at step  54
+Process  0  is at step  55
+Process  0  is at step  56
+Process  0  is at step  57
+Process  0  is at step  58
+Process  0  is at step  59
+Process  0  is at step  60
+Process  0  is at step  61
+Process  0  is at step  62
+Process  0  is at step  63
+Process  0  is at step  64
+Process  0  is at step  65
+Process  0  is at step  66
+Process  0  is at step  67
+Process  0  is at step  68
+Process  0  is at step  69
+Process  0  is at step  70
+Process  0  is at step  71
+Process  0  is at step  72
+Process  0  is at step  73
+Process  0  is at step  74
+Process  0  is at step  75
+Process  0  is at step  76
+Process  0  is at step  77
+Process  0  is at step  78
+Process  0  is at step  79
+Process  0  is at step  80
+Process  0  is at step  81
+Process  0  is at step  82
+Process  0  is at step  83
+Process  0  is at step  84
+Process  0  is at step  85
+Process  0  is at step  86
+Process  0  is at step  87
+Process  0  is at step  88
+Process  0  is at step  89
+Process  0  is at step  90
+Process  0  is at step  91
+Process  0  is at step  92
+Process  0  is at step  93
+Process  0  is at step  94
+Process  0  is at step  95
+Process  0  is at step  96
+Process  0  is at step  97
+Process  0  is at step  98
+Process  0  is at step  99
+Process  0  is at step  100
+Process  0  is at step  101
+Process  0  is at step  102
+Process  0  is at step  103
+Process  0  is at step  104
+Process  0  is at step  105
+Process  0  is at step  106
+Process  0  is at step  107
+Process  0  is at step  108
+Process  0  is at step  109
+Process  0  is at step  110
+Process  0  is at step  111
+Process  0  is at step  112
+Process  0  is at step  113
+Process  0  is at step  114
+Process  0  is at step  115
+Process  0  is at step  116
+Process  0  is at step  117
+Process  0  is at step  118
+Process  0  is at step  119
+Process  0  is at step  120
+Process  0  is at step  121
+Process  0  is at step  122
+Process  0  is at step  123
+Process  0  is at step  124
+Process  0  is at step  125
+Process  0  is at step  126
+Process  0  is at step  127
+Process  0  is at step  128
+Process  0  is at step  129
+Process  0  is at step  130
+Process  0  is at step  131
+Process  0  is at step  132
+Process  0  is at step  133
+Process  0  is at step  134
+Process  0  is at step  135
+Process  0  is at step  136
+Process  0  is at step  137
+Process  0  is at step  138
+Process  0  is at step  139
+Process  0  is at step  140
+Process  0  is at step  141
+Process  0  is at step  142
+Process  0  is at step  143
+Process  0  is at step  144
+Process  0  is at step  145
+Process  0  is at step  146
+Process  0  is at step  147
+Process  0  is at step  148
+Process  0  is at step  149
+Process  0  is at step  150
+Process  0  is at step  151
+Process  0  is at step  152
+Process  0  is at step  153
+Process  0  is at step  154
+Process  0  is at step  155
+Process  0  is at step  156
+Process  0  is at step  157
+Process  0  is at step  158
+Process  0  is at step  159
+Process  0  is at step  160
+Process  0  is at step  161
+Process  0  is at step  162
+Process  0  is at step  163
+Process  0  is at step  164
+Process  0  is at step  165
+Process  0  is at step  166
+Process  0  is at step  167
+Process  0  is at step  168
+Process  0  is at step  169
+Process  0  is at step  170
+Process  0  is at step  171
+Process  0  is at step  172
+Process  0  is at step  173
+Process  0  is at step  174
+Process  0  is at step  175
+Process  0  is at step  176
+Process  0  is at step  177
+Process  0  is at step  178
+Process  0  is at step  179
+Process  0  is at step  180
+Process  0  is at step  181
+Process  0  is at step  182
+Process  0  is at step  183
+Process  0  is at step  184
+Process  0  is at step  185
+Process  0  is at step  186
+Process  0  is at step  187
+Process  0  is at step  188
+Process  0  is at step  189
+Process  0  is at step  190
+Process  0  is at step  191
+Process  0  is at step  192
+Process  0  is at step  193
+Process  0  is at step  194
+Process  0  is at step  195
+Process  0  is at step  196
+Process  0  is at step  197
+Process  0  is at step  198
+Process  0  is at step  199
+Process  0  is at step  200
+Process  0  is at step  201
+Process  0  is at step  202
+Process  0  is at step  203
+Process  0  is at step  204
+Process  0  is at step  205
+Process  0  is at step  206
+Process  0  is at step  207
+Process  0  is at step  208
+Process  0  is at step  209
+Process  0  is at step  210
+Process  0  is at step  211
+Process  0  is at step  212
+Process  0  is at step  213
+Process  0  is at step  214
+Process  0  is at step  215
+Process  0  is at step  216
+Process  0  is at step  217
+Process  0  is at step  218
+Process  0  is at step  219
+Process  0  is at step  220
+Process  0  is at step  221
+Process  0  is at step  222
+Process  0  is at step  223
+Process  0  is at step  224
+Process  0  is at step  225
+Process  0  is at step  226
+Process  0  is at step  227
+Process  0  is at step  228
+Process  0  is at step  229
+Process  0  is at step  230
+Process  0  is at step  231
+Process  0  is at step  232
+Process  0  is at step  233
+Process  0  is at step  234
+Process  0  is at step  235
+Process  0  is at step  236
+Process  0  is at step  237
+Process  0  is at step  238
+Process  0  is at step  239
+Process  0  is at step  240
+Process  0  is at step  241
+Process  0  is at step  242
+Process  0  is at step  243
+Process  0  is at step  244
+Process  0  is at step  245
+Process  0  is at step  246
+Process  0  is at step  247
+Process  0  is at step  248
+Process  0  is at step  249
+Process  0  is at step  250
+Process  0  is at step  251
+Process  0  is at step  252
+Process  0  is at step  253
+Process  0  is at step  254
+Process  0  is at step  255
+Process  0  is at step  256
+Process  0  is at step  257
+Process  0  is at step  258
+Process  0  is at step  259
+Process  0  is at step  260
+Process  0  is at step  261
+Process  0  is at step  262
+Process  0  is at step  263
+Process  0  is at step  264
+Process  0  is at step  265
+Process  0  is at step  266
+Process  0  is at step  267
+Process  0  is at step  268
+Process  0  is at step  269
+Process  0  is at step  270
+Process  0  is at step  271
+Process  0  is at step  272
+Process  0  is at step  273
+Process  0  is at step  274
+Process  0  is at step  275
+Process  0  is at step  276
+Process  0  is at step  277
+Process  0  is at step  278
+Process  0  is at step  279
+Process  0  is at step  280
+Process  0  is at step  281
+Process  0  is at step  282
+Process  0  is at step  283
+Process  0  is at step  284
+Process  0  is at step  285
+Process  0  is at step  286
+Process  0  is at step  287
+Process  0  is at step  288
+Process  0  is at step  289
+Process  0  is at step  290
+Process  0  is at step  291
+Process  0  is at step  292
+Process  0  is at step  293
+Process  0  is at step  294
+Process  0  is at step  295
+Process  0  is at step  296
+Process  0  is at step  297
+Process  0  is at step  298
+Process  0  is at step  299
+Process  0  is at step  300
+Process  0  is at step  301
+Process  0  is at step  302
+Process  0  is at step  303
+Process  0  is at step  304
+Process  0  is at step  305
+Process  0  is at step  306
+Process  0  is at step  307
+Process  0  is at step  308
+Process  0  is at step  309
+Process  0  is at step  310
+Process  0  is at step  311
+Process  0  is at step  312
+Process  0  is at step  313
+Process  0  is at step  314
+Process  0  is at step  315
+Process  0  is at step  316
+Process  0  is at step  317
+Process  0  is at step  318
+Process  0  is at step  319
+Process  0  is at step  320
+Process  0  is at step  321
+Process  0  is at step  322
+Process  0  is at step  323
+Process  0  is at step  324
+Process  0  is at step  325
+Process  0  is at step  326
+Process  0  is at step  327
+Process  0  is at step  328
+Process  0  is at step  329
+Process  0  is at step  330
+Process  0  is at step  331
+Process  0  is at step  332
+Process  0  is at step  333
+Process  0  is at step  334
+Process  0  is at step  335
+Process  0  is at step  336
+Process  0  is at step  337
+Process  0  is at step  338
+Process  0  is at step  339
+Process  0  is at step  340
+Process  0  is at step  341
+Process  0  is at step  342
+Process  0  is at step  343
+Process  0  is at step  344
+Process  0  is at step  345
+Process  0  is at step  346
+Process  0  is at step  347
+Process  0  is at step  348
+Process  0  is at step  349
+Process  0  is at step  350
+Process  0  is at step  351
+Process  0  is at step  352
+Process  0  is at step  353
+Process  0  is at step  354
+Process  0  is at step  355
+Process  0  is at step  356
+Process  0  is at step  357
+Process  0  is at step  358
+Process  0  is at step  359
+Process  0  is at step  360
+Process  0  is at step  361
+Process  0  is at step  362
+Process  0  is at step  363
+Process  0  is at step  364
+Process  0  is at step  365
+Process  0  is at step  366
+Process  0  is at step  367
+Process  0  is at step  368
+Process  0  is at step  369
+Process  0  is at step  370
+Process  0  is at step  371
+Process  0  is at step  372
+Process  0  is at step  373
+Process  0  is at step  374
+Process  0  is at step  375
+Process  0  is at step  376
+Process  0  is at step  377
+Process  0  is at step  378
+Process  0  is at step  379
+Process  0  is at step  380
+Process  0  is at step  381
+Process  0  is at step  382
+Process  0  is at step  383
+Process  0  is at step  384
+Process  0  is at step  385
+Process  0  is at step  386
+Process  0  is at step  387
+Process  0  is at step  388
+Process  0  is at step  389
+Process  0  is at step  390
+Process  0  is at step  391
+Process  0  is at step  392
+Process  0  is at step  393
+Process  0  is at step  394
+Process  0  is at step  395
+Process  0  is at step  396
+Process  0  is at step  397
+Process  0  is at step  398
+Process  0  is at step  399
+Process  0  is at step  400
+Process  0  is at step  401
+Process  0  is at step  402
+Process  0  is at step  403
+Process  0  is at step  404
+Process  0  is at step  405
+Process  0  is at step  406
+Process  0  is at step  407
+Process  0  is at step  408
+Process  0  is at step  409
+Process  0  is at step  410
+Process  0  is at step  411
+Process  0  is at step  412
+Process  0  is at step  413
+Process  0  is at step  414
+Process  0  is at step  415
+Process  0  is at step  416
+Process  0  is at step  417
+Process  0  is at step  418
+Process  0  is at step  419
+Process  0  is at step  420
+Process  0  is at step  421
+Process  0  is at step  422
+Process  0  is at step  423
+Process  0  is at step  424
+Process  0  is at step  425
+Process  0  is at step  426
+Process  0  is at step  427
+Process  0  is at step  428
+Process  0  is at step  429
+Process  0  is at step  430
+Process  0  is at step  431
+Process  0  is at step  432
+Process  0  is at step  433
+Process  0  is at step  434
+Process  0  is at step  435
+Process  0  is at step  436
+Process  0  is at step  437
+Process  0  is at step  438
+Process  0  is at step  439
+Process  0  is at step  440
+Process  0  is at step  441
+Process  0  is at step  442
+Process  0  is at step  443
+Process  0  is at step  444
+Process  0  is at step  445
+Process  0  is at step  446
+Process  0  is at step  447
+Process  0  is at step  448
+Process  0  is at step  449
+Process  0  is at step  450
+Process  0  is at step  451
+Process  0  is at step  452
+Process  0  is at step  453
+Process  0  is at step  454
+Process  0  is at step  455
+Process  0  is at step  456
+Process  0  is at step  457
+Process  0  is at step  458
+Process  0  is at step  459
+Process  0  is at step  460
+Process  0  is at step  461
+Process  0  is at step  462
+Process  0  is at step  463
+Process  0  is at step  464
+Process  0  is at step  465
+Process  0  is at step  466
+Process  0  is at step  467
+Process  0  is at step  468
+Process  0  is at step  469
+Process  0  is at step  470
+Process  0  is at step  471
+Process  0  is at step  472
+Process  0  is at step  473
+Process  0  is at step  474
+Process  0  is at step  475
+Process  0  is at step  476
+Process  0  is at step  477
+Process  0  is at step  478
+Process  0  is at step  479
+Process  0  is at step  480
+Process  0  is at step  481
+Process  0  is at step  482
+Process  0  is at step  483
+Process  0  is at step  484
+Process  0  is at step  485
+Process  0  is at step  486
+Process  0  is at step  487
+Process  0  is at step  488
+Process  0  is at step  489
+Process  0  is at step  490
+Process  0  is at step  491
+Process  0  is at step  492
+Process  0  is at step  493
+Process  0  is at step  494
+Process  0  is at step  495
+Process  0  is at step  496
+Process  0  is at step  497
+Process  0  is at step  498
+Process  0  is at step  499
+[[ 20.  20.  20. ...,  20.  20.  20.]
+ [ 20.  20.  20. ...,  20.  20.  20.]
+ [ 20.  20.  20. ...,  20.  20.  20.]
+ ..., 
+ [ 20.  20.  20. ...,  20.  20.  20.]
+ [ 20.  20.  20. ...,  20.  20.  20.]
+ [ 20.  20.  20. ...,  20.  20.  20.]]
+[stdout:2] 
+Process  2  is at step  0
+Process  2  is at step  1
+Process  2  is at step  2
+Process  2  is at step  3
+Process  2  is at step  4
+Process  2  is at step  5
+Process  2  is at step  6
+Process  2  is at step  7
+Process  2  is at step  8
+Process  2  is at step  9
+Process  2  is at step  10
+Process  2  is at step  11
+Process  2  is at step  12
+Process  2  is at step  13
+Process  2  is at step  14
+Process  2  is at step  15
+Process  2  is at step  16
+Process  2  is at step  17
+Process  2  is at step  18
+Process  2  is at step  19
+Process  2  is at step  20
+Process  2  is at step  21
+Process  2  is at step  22
+Process  2  is at step  23
+Process  2  is at step  24
+Process  2  is at step  25
+Process  2  is at step  26
+Process  2  is at step  27
+Process  2  is at step  28
+Process  2  is at step  29
+Process  2  is at step  30
+Process  2  is at step  31
+Process  2  is at step  32
+Process  2  is at step  33
+Process  2  is at step  34
+Process  2  is at step  35
+Process  2  is at step  36
+Process  2  is at step  37
+Process  2  is at step  38
+Process  2  is at step  39
+Process  2  is at step  40
+Process  2  is at step  41
+Process  2  is at step  42
+Process  2  is at step  43
+Process  2  is at step  44
+Process  2  is at step  45
+Process  2  is at step  46
+Process  2  is at step  47
+Process  2  is at step  48
+Process  2  is at step  49
+Process  2  is at step  50
+Process  2  is at step  51
+Process  2  is at step  52
+Process  2  is at step  53
+Process  2  is at step  54
+Process  2  is at step  55
+Process  2  is at step  56
+Process  2  is at step  57
+Process  2  is at step  58
+Process  2  is at step  59
+Process  2  is at step  60
+Process  2  is at step  61
+Process  2  is at step  62
+Process  2  is at step  63
+Process  2  is at step  64
+Process  2  is at step  65
+Process  2  is at step  66
+Process  2  is at step  67
+Process  2  is at step  68
+Process  2  is at step  69
+Process  2  is at step  70
+Process  2  is at step  71
+Process  2  is at step  72
+Process  2  is at step  73
+Process  2  is at step  74
+Process  2  is at step  75
+Process  2  is at step  76
+Process  2  is at step  77
+Process  2  is at step  78
+Process  2  is at step  79
+Process  2  is at step  80
+Process  2  is at step  81
+Process  2  is at step  82
+Process  2  is at step  83
+Process  2  is at step  84
+Process  2  is at step  85
+Process  2  is at step  86
+Process  2  is at step  87
+Process  2  is at step  88
+Process  2  is at step  89
+Process  2  is at step  90
+Process  2  is at step  91
+Process  2  is at step  92
+Process  2  is at step  93
+Process  2  is at step  94
+Process  2  is at step  95
+Process  2  is at step  96
+Process  2  is at step  97
+Process  2  is at step  98
+Process  2  is at step  99
+Process  2  is at step  100
+Process  2  is at step  101
+Process  2  is at step  102
+Process  2  is at step  103
+Process  2  is at step  104
+Process  2  is at step  105
+Process  2  is at step  106
+Process  2  is at step  107
+Process  2  is at step  108
+Process  2  is at step  109
+Process  2  is at step  110
+Process  2  is at step  111
+Process  2  is at step  112
+Process  2  is at step  113
+Process  2  is at step  114
+Process  2  is at step  115
+Process  2  is at step  116
+Process  2  is at step  117
+Process  2  is at step  118
+Process  2  is at step  119
+Process  2  is at step  120
+Process  2  is at step  121
+Process  2  is at step  122
+Process  2  is at step  123
+Process  2  is at step  124
+Process  2  is at step  125
+Process  2  is at step  126
+Process  2  is at step  127
+Process  2  is at step  128
+Process  2  is at step  129
+Process  2  is at step  130
+Process  2  is at step  131
+Process  2  is at step  132
+Process  2  is at step  133
+Process  2  is at step  134
+Process  2  is at step  135
+Process  2  is at step  136
+Process  2  is at step  137
+Process  2  is at step  138
+Process  2  is at step  139
+Process  2  is at step  140
+Process  2  is at step  141
+Process  2  is at step  142
+Process  2  is at step  143
+Process  2  is at step  144
+Process  2  is at step  145
+Process  2  is at step  146
+Process  2  is at step  147
+Process  2  is at step  148
+Process  2  is at step  149
+Process  2  is at step  150
+Process  2  is at step  151
+Process  2  is at step  152
+Process  2  is at step  153
+Process  2  is at step  154
+Process  2  is at step  155
+Process  2  is at step  156
+Process  2  is at step  157
+Process  2  is at step  158
+Process  2  is at step  159
+Process  2  is at step  160
+Process  2  is at step  161
+Process  2  is at step  162
+Process  2  is at step  163
+Process  2  is at step  164
+Process  2  is at step  165
+Process  2  is at step  166
+Process  2  is at step  167
+Process  2  is at step  168
+Process  2  is at step  169
+Process  2  is at step  170
+Process  2  is at step  171
+Process  2  is at step  172
+Process  2  is at step  173
+Process  2  is at step  174
+Process  2  is at step  175
+Process  2  is at step  176
+Process  2  is at step  177
+Process  2  is at step  178
+Process  2  is at step  179
+Process  2  is at step  180
+Process  2  is at step  181
+Process  2  is at step  182
+Process  2  is at step  183
+Process  2  is at step  184
+Process  2  is at step  185
+Process  2  is at step  186
+Process  2  is at step  187
+Process  2  is at step  188
+Process  2  is at step  189
+Process  2  is at step  190
+Process  2  is at step  191
+Process  2  is at step  192
+Process  2  is at step  193
+Process  2  is at step  194
+Process  2  is at step  195
+Process  2  is at step  196
+Process  2  is at step  197
+Process  2  is at step  198
+Process  2  is at step  199
+Process  2  is at step  200
+Process  2  is at step  201
+Process  2  is at step  202
+Process  2  is at step  203
+Process  2  is at step  204
+Process  2  is at step  205
+Process  2  is at step  206
+Process  2  is at step  207
+Process  2  is at step  208
+Process  2  is at step  209
+Process  2  is at step  210
+Process  2  is at step  211
+Process  2  is at step  212
+Process  2  is at step  213
+Process  2  is at step  214
+Process  2  is at step  215
+Process  2  is at step  216
+Process  2  is at step  217
+Process  2  is at step  218
+Process  2  is at step  219
+Process  2  is at step  220
+Process  2  is at step  221
+Process  2  is at step  222
+Process  2  is at step  223
+Process  2  is at step  224
+Process  2  is at step  225
+Process  2  is at step  226
+Process  2  is at step  227
+Process  2  is at step  228
+Process  2  is at step  229
+Process  2  is at step  230
+Process  2  is at step  231
+Process  2  is at step  232
+Process  2  is at step  233
+Process  2  is at step  234
+Process  2  is at step  235
+Process  2  is at step  236
+Process  2  is at step  237
+Process  2  is at step  238
+Process  2  is at step  239
+Process  2  is at step  240
+Process  2  is at step  241
+Process  2  is at step  242
+Process  2  is at step  243
+Process  2  is at step  244
+Process  2  is at step  245
+Process  2  is at step  246
+Process  2  is at step  247
+Process  2  is at step  248
+Process  2  is at step  249
+Process  2  is at step  250
+Process  2  is at step  251
+Process  2  is at step  252
+Process  2  is at step  253
+Process  2  is at step  254
+Process  2  is at step  255
+Process  2  is at step  256
+Process  2  is at step  257
+Process  2  is at step  258
+Process  2  is at step  259
+Process  2  is at step  260
+Process  2  is at step  261
+Process  2  is at step  262
+Process  2  is at step  263
+Process  2  is at step  264
+Process  2  is at step  265
+Process  2  is at step  266
+Process  2  is at step  267
+Process  2  is at step  268
+Process  2  is at step  269
+Process  2  is at step  270
+Process  2  is at step  271
+Process  2  is at step  272
+Process  2  is at step  273
+Process  2  is at step  274
+Process  2  is at step  275
+Process  2  is at step  276
+Process  2  is at step  277
+Process  2  is at step  278
+Process  2  is at step  279
+Process  2  is at step  280
+Process  2  is at step  281
+Process  2  is at step  282
+Process  2  is at step  283
+Process  2  is at step  284
+Process  2  is at step  285
+Process  2  is at step  286
+Process  2  is at step  287
+Process  2  is at step  288
+Process  2  is at step  289
+Process  2  is at step  290
+Process  2  is at step  291
+Process  2  is at step  292
+Process  2  is at step  293
+Process  2  is at step  294
+Process  2  is at step  295
+Process  2  is at step  296
+Process  2  is at step  297
+Process  2  is at step  298
+Process  2  is at step  299
+Process  2  is at step  300
+Process  2  is at step  301
+Process  2  is at step  302
+Process  2  is at step  303
+Process  2  is at step  304
+Process  2  is at step  305
+Process  2  is at step  306
+Process  2  is at step  307
+Process  2  is at step  308
+Process  2  is at step  309
+Process  2  is at step  310
+Process  2  is at step  311
+Process  2  is at step  312
+Process  2  is at step  313
+Process  2  is at step  314
+Process  2  is at step  315
+Process  2  is at step  316
+Process  2  is at step  317
+Process  2  is at step  318
+Process  2  is at step  319
+Process  2  is at step  320
+Process  2  is at step  321
+Process  2  is at step  322
+Process  2  is at step  323
+Process  2  is at step  324
+Process  2  is at step  325
+Process  2  is at step  326
+Process  2  is at step  327
+Process  2  is at step  328
+Process  2  is at step  329
+Process  2  is at step  330
+Process  2  is at step  331
+Process  2  is at step  332
+Process  2  is at step  333
+Process  2  is at step  334
+Process  2  is at step  335
+Process  2  is at step  336
+Process  2  is at step  337
+Process  2  is at step  338
+Process  2  is at step  339
+Process  2  is at step  340
+Process  2  is at step  341
+Process  2  is at step  342
+Process  2  is at step  343
+Process  2  is at step  344
+Process  2  is at step  345
+Process  2  is at step  346
+Process  2  is at step  347
+Process  2  is at step  348
+Process  2  is at step  349
+Process  2  is at step  350
+Process  2  is at step  351
+Process  2  is at step  352
+Process  2  is at step  353
+Process  2  is at step  354
+Process  2  is at step  355
+Process  2  is at step  356
+Process  2  is at step  357
+Process  2  is at step  358
+Process  2  is at step  359
+Process  2  is at step  360
+Process  2  is at step  361
+Process  2  is at step  362
+Process  2  is at step  363
+Process  2  is at step  364
+Process  2  is at step  365
+Process  2  is at step  366
+Process  2  is at step  367
+Process  2  is at step  368
+Process  2  is at step  369
+Process  2  is at step  370
+Process  2  is at step  371
+Process  2  is at step  372
+Process  2  is at step  373
+Process  2  is at step  374
+Process  2  is at step  375
+Process  2  is at step  376
+Process  2  is at step  377
+Process  2  is at step  378
+Process  2  is at step  379
+Process  2  is at step  380
+Process  2  is at step  381
+Process  2  is at step  382
+Process  2  is at step  383
+Process  2  is at step  384
+Process  2  is at step  385
+Process  2  is at step  386
+Process  2  is at step  387
+Process  2  is at step  388
+Process  2  is at step  389
+Process  2  is at step  390
+Process  2  is at step  391
+Process  2  is at step  392
+Process  2  is at step  393
+Process  2  is at step  394
+Process  2  is at step  395
+Process  2  is at step  396
+Process  2  is at step  397
+Process  2  is at step  398
+Process  2  is at step  399
+Process  2  is at step  400
+Process  2  is at step  401
+Process  2  is at step  402
+Process  2  is at step  403
+Process  2  is at step  404
+Process  2  is at step  405
+Process  2  is at step  406
+Process  2  is at step  407
+Process  2  is at step  408
+Process  2  is at step  409
+Process  2  is at step  410
+Process  2  is at step  411
+Process  2  is at step  412
+Process  2  is at step  413
+Process  2  is at step  414
+Process  2  is at step  415
+Process  2  is at step  416
+Process  2  is at step  417
+Process  2  is at step  418
+Process  2  is at step  419
+Process  2  is at step  420
+Process  2  is at step  421
+Process  2  is at step  422
+Process  2  is at step  423
+Process  2  is at step  424
+Process  2  is at step  425
+Process  2  is at step  426
+Process  2  is at step  427
+Process  2  is at step  428
+Process  2  is at step  429
+Process  2  is at step  430
+Process  2  is at step  431
+Process  2  is at step  432
+Process  2  is at step  433
+Process  2  is at step  434
+Process  2  is at step  435
+Process  2  is at step  436
+Process  2  is at step  437
+Process  2  is at step  438
+Process  2  is at step  439
+Process  2  is at step  440
+Process  2  is at step  441
+Process  2  is at step  442
+Process  2  is at step  443
+Process  2  is at step  444
+Process  2  is at step  445
+Process  2  is at step  446
+Process  2  is at step  447
+Process  2  is at step  448
+Process  2  is at step  449
+Process  2  is at step  450
+Process  2  is at step  451
+Process  2  is at step  452
+Process  2  is at step  453
+Process  2  is at step  454
+Process  2  is at step  455
+Process  2  is at step  456
+Process  2  is at step  457
+Process  2  is at step  458
+Process  2  is at step  459
+Process  2  is at step  460
+Process  2  is at step  461
+Process  2  is at step  462
+Process  2  is at step  463
+Process  2  is at step  464
+Process  2  is at step  465
+Process  2  is at step  466
+Process  2  is at step  467
+Process  2  is at step  468
+Process  2  is at step  469
+Process  2  is at step  470
+Process  2  is at step  471
+Process  2  is at step  472
+Process  2  is at step  473
+Process  2  is at step  474
+Process  2  is at step  475
+Process  2  is at step  476
+Process  2  is at step  477
+Process  2  is at step  478
+Process  2  is at step  479
+Process  2  is at step  480
+Process  2  is at step  481
+Process  2  is at step  482
+Process  2  is at step  483
+Process  2  is at step  484
+Process  2  is at step  485
+Process  2  is at step  486
+Process  2  is at step  487
+Process  2  is at step  488
+Process  2  is at step  489
+Process  2  is at step  490
+Process  2  is at step  491
+Process  2  is at step  492
+Process  2  is at step  493
+Process  2  is at step  494
+Process  2  is at step  495
+Process  2  is at step  496
+Process  2  is at step  497
+Process  2  is at step  498
+Process  2  is at step  499
+[stdout:3] 
+Process  6  is at step  0
+Process  6  is at step  1
+Process  6  is at step  2
+Process  6  is at step  3
+Process  6  is at step  4
+Process  6  is at step  5
+Process  6  is at step  6
+Process  6  is at step  7
+Process  6  is at step  8
+Process  6  is at step  9
+Process  6  is at step  10
+Process  6  is at step  11
+Process  6  is at step  12
+Process  6  is at step  13
+Process  6  is at step  14
+Process  6  is at step  15
+Process  6  is at step  16
+Process  6  is at step  17
+Process  6  is at step  18
+Process  6  is at step  19
+Process  6  is at step  20
+Process  6  is at step  21
+Process  6  is at step  22
+Process  6  is at step  23
+Process  6  is at step  24
+Process  6  is at step  25
+Process  6  is at step  26
+Process  6  is at step  27
+Process  6  is at step  28
+Process  6  is at step  29
+Process  6  is at step  30
+Process  6  is at step  31
+Process  6  is at step  32
+Process  6  is at step  33
+Process  6  is at step  34
+Process  6  is at step  35
+Process  6  is at step  36
+Process  6  is at step  37
+Process  6  is at step  38
+Process  6  is at step  39
+Process  6  is at step  40
+Process  6  is at step  41
+Process  6  is at step  42
+Process  6  is at step  43
+Process  6  is at step  44
+Process  6  is at step  45
+Process  6  is at step  46
+Process  6  is at step  47
+Process  6  is at step  48
+Process  6  is at step  49
+Process  6  is at step  50
+Process  6  is at step  51
+Process  6  is at step  52
+Process  6  is at step  53
+Process  6  is at step  54
+Process  6  is at step  55
+Process  6  is at step  56
+Process  6  is at step  57
+Process  6  is at step  58
+Process  6  is at step  59
+Process  6  is at step  60
+Process  6  is at step  61
+Process  6  is at step  62
+Process  6  is at step  63
+Process  6  is at step  64
+Process  6  is at step  65
+Process  6  is at step  66
+Process  6  is at step  67
+Process  6  is at step  68
+Process  6  is at step  69
+Process  6  is at step  70
+Process  6  is at step  71
+Process  6  is at step  72
+Process  6  is at step  73
+Process  6  is at step  74
+Process  6  is at step  75
+Process  6  is at step  76
+Process  6  is at step  77
+Process  6  is at step  78
+Process  6  is at step  79
+Process  6  is at step  80
+Process  6  is at step  81
+Process  6  is at step  82
+Process  6  is at step  83
+Process  6  is at step  84
+Process  6  is at step  85
+Process  6  is at step  86
+Process  6  is at step  87
+Process  6  is at step  88
+Process  6  is at step  89
+Process  6  is at step  90
+Process  6  is at step  91
+Process  6  is at step  92
+Process  6  is at step  93
+Process  6  is at step  94
+Process  6  is at step  95
+Process  6  is at step  96
+Process  6  is at step  97
+Process  6  is at step  98
+Process  6  is at step  99
+Process  6  is at step  100
+Process  6  is at step  101
+Process  6  is at step  102
+Process  6  is at step  103
+Process  6  is at step  104
+Process  6  is at step  105
+Process  6  is at step  106
+Process  6  is at step  107
+Process  6  is at step  108
+Process  6  is at step  109
+Process  6  is at step  110
+Process  6  is at step  111
+Process  6  is at step  112
+Process  6  is at step  113
+Process  6  is at step  114
+Process  6  is at step  115
+Process  6  is at step  116
+Process  6  is at step  117
+Process  6  is at step  118
+Process  6  is at step  119
+Process  6  is at step  120
+Process  6  is at step  121
+Process  6  is at step  122
+Process  6  is at step  123
+Process  6  is at step  124
+Process  6  is at step  125
+Process  6  is at step  126
+Process  6  is at step  127
+Process  6  is at step  128
+Process  6  is at step  129
+Process  6  is at step  130
+Process  6  is at step  131
+Process  6  is at step  132
+Process  6  is at step  133
+Process  6  is at step  134
+Process  6  is at step  135
+Process  6  is at step  136
+Process  6  is at step  137
+Process  6  is at step  138
+Process  6  is at step  139
+Process  6  is at step  140
+Process  6  is at step  141
+Process  6  is at step  142
+Process  6  is at step  143
+Process  6  is at step  144
+Process  6  is at step  145
+Process  6  is at step  146
+Process  6  is at step  147
+Process  6  is at step  148
+Process  6  is at step  149
+Process  6  is at step  150
+Process  6  is at step  151
+Process  6  is at step  152
+Process  6  is at step  153
+Process  6  is at step  154
+Process  6  is at step  155
+Process  6  is at step  156
+Process  6  is at step  157
+Process  6  is at step  158
+Process  6  is at step  159
+Process  6  is at step  160
+Process  6  is at step  161
+Process  6  is at step  162
+Process  6  is at step  163
+Process  6  is at step  164
+Process  6  is at step  165
+Process  6  is at step  166
+Process  6  is at step  167
+Process  6  is at step  168
+Process  6  is at step  169
+Process  6  is at step  170
+Process  6  is at step  171
+Process  6  is at step  172
+Process  6  is at step  173
+Process  6  is at step  174
+Process  6  is at step  175
+Process  6  is at step  176
+Process  6  is at step  177
+Process  6  is at step  178
+Process  6  is at step  179
+Process  6  is at step  180
+Process  6  is at step  181
+Process  6  is at step  182
+Process  6  is at step  183
+Process  6  is at step  184
+Process  6  is at step  185
+Process  6  is at step  186
+Process  6  is at step  187
+Process  6  is at step  188
+Process  6  is at step  189
+Process  6  is at step  190
+Process  6  is at step  191
+Process  6  is at step  192
+Process  6  is at step  193
+Process  6  is at step  194
+Process  6  is at step  195
+Process  6  is at step  196
+Process  6  is at step  197
+Process  6  is at step  198
+Process  6  is at step  199
+Process  6  is at step  200
+Process  6  is at step  201
+Process  6  is at step  202
+Process  6  is at step  203
+Process  6  is at step  204
+Process  6  is at step  205
+Process  6  is at step  206
+Process  6  is at step  207
+Process  6  is at step  208
+Process  6  is at step  209
+Process  6  is at step  210
+Process  6  is at step  211
+Process  6  is at step  212
+Process  6  is at step  213
+Process  6  is at step  214
+Process  6  is at step  215
+Process  6  is at step  216
+Process  6  is at step  217
+Process  6  is at step  218
+Process  6  is at step  219
+Process  6  is at step  220
+Process  6  is at step  221
+Process  6  is at step  222
+Process  6  is at step  223
+Process  6  is at step  224
+Process  6  is at step  225
+Process  6  is at step  226
+Process  6  is at step  227
+Process  6  is at step  228
+Process  6  is at step  229
+Process  6  is at step  230
+Process  6  is at step  231
+Process  6  is at step  232
+Process  6  is at step  233
+Process  6  is at step  234
+Process  6  is at step  235
+Process  6  is at step  236
+Process  6  is at step  237
+Process  6  is at step  238
+Process  6  is at step  239
+Process  6  is at step  240
+Process  6  is at step  241
+Process  6  is at step  242
+Process  6  is at step  243
+Process  6  is at step  244
+Process  6  is at step  245
+Process  6  is at step  246
+Process  6  is at step  247
+Process  6  is at step  248
+Process  6  is at step  249
+Process  6  is at step  250
+Process  6  is at step  251
+Process  6  is at step  252
+Process  6  is at step  253
+Process  6  is at step  254
+Process  6  is at step  255
+Process  6  is at step  256
+Process  6  is at step  257
+Process  6  is at step  258
+Process  6  is at step  259
+Process  6  is at step  260
+Process  6  is at step  261
+Process  6  is at step  262
+Process  6  is at step  263
+Process  6  is at step  264
+Process  6  is at step  265
+Process  6  is at step  266
+Process  6  is at step  267
+Process  6  is at step  268
+Process  6  is at step  269
+Process  6  is at step  270
+Process  6  is at step  271
+Process  6  is at step  272
+Process  6  is at step  273
+Process  6  is at step  274
+Process  6  is at step  275
+Process  6  is at step  276
+Process  6  is at step  277
+Process  6  is at step  278
+Process  6  is at step  279
+Process  6  is at step  280
+Process  6  is at step  281
+Process  6  is at step  282
+Process  6  is at step  283
+Process  6  is at step  284
+Process  6  is at step  285
+Process  6  is at step  286
+Process  6  is at step  287
+Process  6  is at step  288
+Process  6  is at step  289
+Process  6  is at step  290
+Process  6  is at step  291
+Process  6  is at step  292
+Process  6  is at step  293
+Process  6  is at step  294
+Process  6  is at step  295
+Process  6  is at step  296
+Process  6  is at step  297
+Process  6  is at step  298
+Process  6  is at step  299
+Process  6  is at step  300
+Process  6  is at step  301
+Process  6  is at step  302
+Process  6  is at step  303
+Process  6  is at step  304
+Process  6  is at step  305
+Process  6  is at step  306
+Process  6  is at step  307
+Process  6  is at step  308
+Process  6  is at step  309
+Process  6  is at step  310
+Process  6  is at step  311
+Process  6  is at step  312
+Process  6  is at step  313
+Process  6  is at step  314
+Process  6  is at step  315
+Process  6  is at step  316
+Process  6  is at step  317
+Process  6  is at step  318
+Process  6  is at step  319
+Process  6  is at step  320
+Process  6  is at step  321
+Process  6  is at step  322
+Process  6  is at step  323
+Process  6  is at step  324
+Process  6  is at step  325
+Process  6  is at step  326
+Process  6  is at step  327
+Process  6  is at step  328
+Process  6  is at step  329
+Process  6  is at step  330
+Process  6  is at step  331
+Process  6  is at step  332
+Process  6  is at step  333
+Process  6  is at step  334
+Process  6  is at step  335
+Process  6  is at step  336
+Process  6  is at step  337
+Process  6  is at step  338
+Process  6  is at step  339
+Process  6  is at step  340
+Process  6  is at step  341
+Process  6  is at step  342
+Process  6  is at step  343
+Process  6  is at step  344
+Process  6  is at step  345
+Process  6  is at step  346
+Process  6  is at step  347
+Process  6  is at step  348
+Process  6  is at step  349
+Process  6  is at step  350
+Process  6  is at step  351
+Process  6  is at step  352
+Process  6  is at step  353
+Process  6  is at step  354
+Process  6  is at step  355
+Process  6  is at step  356
+Process  6  is at step  357
+Process  6  is at step  358
+Process  6  is at step  359
+Process  6  is at step  360
+Process  6  is at step  361
+Process  6  is at step  362
+Process  6  is at step  363
+Process  6  is at step  364
+Process  6  is at step  365
+Process  6  is at step  366
+Process  6  is at step  367
+Process  6  is at step  368
+Process  6  is at step  369
+Process  6  is at step  370
+Process  6  is at step  371
+Process  6  is at step  372
+Process  6  is at step  373
+Process  6  is at step  374
+Process  6  is at step  375
+Process  6  is at step  376
+Process  6  is at step  377
+Process  6  is at step  378
+Process  6  is at step  379
+Process  6  is at step  380
+Process  6  is at step  381
+Process  6  is at step  382
+Process  6  is at step  383
+Process  6  is at step  384
+Process  6  is at step  385
+Process  6  is at step  386
+Process  6  is at step  387
+Process  6  is at step  388
+Process  6  is at step  389
+Process  6  is at step  390
+Process  6  is at step  391
+Process  6  is at step  392
+Process  6  is at step  393
+Process  6  is at step  394
+Process  6  is at step  395
+Process  6  is at step  396
+Process  6  is at step  397
+Process  6  is at step  398
+Process  6  is at step  399
+Process  6  is at step  400
+Process  6  is at step  401
+Process  6  is at step  402
+Process  6  is at step  403
+Process  6  is at step  404
+Process  6  is at step  405
+Process  6  is at step  406
+Process  6  is at step  407
+Process  6  is at step  408
+Process  6  is at step  409
+Process  6  is at step  410
+Process  6  is at step  411
+Process  6  is at step  412
+Process  6  is at step  413
+Process  6  is at step  414
+Process  6  is at step  415
+Process  6  is at step  416
+Process  6  is at step  417
+Process  6  is at step  418
+Process  6  is at step  419
+Process  6  is at step  420
+Process  6  is at step  421
+Process  6  is at step  422
+Process  6  is at step  423
+Process  6  is at step  424
+Process  6  is at step  425
+Process  6  is at step  426
+Process  6  is at step  427
+Process  6  is at step  428
+Process  6  is at step  429
+Process  6  is at step  430
+Process  6  is at step  431
+Process  6  is at step  432
+Process  6  is at step  433
+Process  6  is at step  434
+Process  6  is at step  435
+Process  6  is at step  436
+Process  6  is at step  437
+Process  6  is at step  438
+Process  6  is at step  439
+Process  6  is at step  440
+Process  6  is at step  441
+Process  6  is at step  442
+Process  6  is at step  443
+Process  6  is at step  444
+Process  6  is at step  445
+Process  6  is at step  446
+Process  6  is at step  447
+Process  6  is at step  448
+Process  6  is at step  449
+Process  6  is at step  450
+Process  6  is at step  451
+Process  6  is at step  452
+Process  6  is at step  453
+Process  6  is at step  454
+Process  6  is at step  455
+Process  6  is at step  456
+Process  6  is at step  457
+Process  6  is at step  458
+Process  6  is at step  459
+Process  6  is at step  460
+Process  6  is at step  461
+Process  6  is at step  462
+Process  6  is at step  463
+Process  6  is at step  464
+Process  6  is at step  465
+Process  6  is at step  466
+Process  6  is at step  467
+Process  6  is at step  468
+Process  6  is at step  469
+Process  6  is at step  470
+Process  6  is at step  471
+Process  6  is at step  472
+Process  6  is at step  473
+Process  6  is at step  474
+Process  6  is at step  475
+Process  6  is at step  476
+Process  6  is at step  477
+Process  6  is at step  478
+Process  6  is at step  479
+Process  6  is at step  480
+Process  6  is at step  481
+Process  6  is at step  482
+Process  6  is at step  483
+Process  6  is at step  484
+Process  6  is at step  485
+Process  6  is at step  486
+Process  6  is at step  487
+Process  6  is at step  488
+Process  6  is at step  489
+Process  6  is at step  490
+Process  6  is at step  491
+Process  6  is at step  492
+Process  6  is at step  493
+Process  6  is at step  494
+Process  6  is at step  495
+Process  6  is at step  496
+Process  6  is at step  497
+Process  6  is at step  498
+Process  6  is at step  499
+[stdout:4] 
+Process  1  is at step  0
+Process  1  is at step  1
+Process  1  is at step  2
+Process  1  is at step  3
+Process  1  is at step  4
+Process  1  is at step  5
+Process  1  is at step  6
+Process  1  is at step  7
+Process  1  is at step  8
+Process  1  is at step  9
+Process  1  is at step  10
+Process  1  is at step  11
+Process  1  is at step  12
+Process  1  is at step  13
+Process  1  is at step  14
+Process  1  is at step  15
+Process  1  is at step  16
+Process  1  is at step  17
+Process  1  is at step  18
+Process  1  is at step  19
+Process  1  is at step  20
+Process  1  is at step  21
+Process  1  is at step  22
+Process  1  is at step  23
+Process  1  is at step  24
+Process  1  is at step  25
+Process  1  is at step  26
+Process  1  is at step  27
+Process  1  is at step  28
+Process  1  is at step  29
+Process  1  is at step  30
+Process  1  is at step  31
+Process  1  is at step  32
+Process  1  is at step  33
+Process  1  is at step  34
+Process  1  is at step  35
+Process  1  is at step  36
+Process  1  is at step  37
+Process  1  is at step  38
+Process  1  is at step  39
+Process  1  is at step  40
+Process  1  is at step  41
+Process  1  is at step  42
+Process  1  is at step  43
+Process  1  is at step  44
+Process  1  is at step  45
+Process  1  is at step  46
+Process  1  is at step  47
+Process  1  is at step  48
+Process  1  is at step  49
+Process  1  is at step  50
+Process  1  is at step  51
+Process  1  is at step  52
+Process  1  is at step  53
+Process  1  is at step  54
+Process  1  is at step  55
+Process  1  is at step  56
+Process  1  is at step  57
+Process  1  is at step  58
+Process  1  is at step  59
+Process  1  is at step  60
+Process  1  is at step  61
+Process  1  is at step  62
+Process  1  is at step  63
+Process  1  is at step  64
+Process  1  is at step  65
+Process  1  is at step  66
+Process  1  is at step  67
+Process  1  is at step  68
+Process  1  is at step  69
+Process  1  is at step  70
+Process  1  is at step  71
+Process  1  is at step  72
+Process  1  is at step  73
+Process  1  is at step  74
+Process  1  is at step  75
+Process  1  is at step  76
+Process  1  is at step  77
+Process  1  is at step  78
+Process  1  is at step  79
+Process  1  is at step  80
+Process  1  is at step  81
+Process  1  is at step  82
+Process  1  is at step  83
+Process  1  is at step  84
+Process  1  is at step  85
+Process  1  is at step  86
+Process  1  is at step  87
+Process  1  is at step  88
+Process  1  is at step  89
+Process  1  is at step  90
+Process  1  is at step  91
+Process  1  is at step  92
+Process  1  is at step  93
+Process  1  is at step  94
+Process  1  is at step  95
+Process  1  is at step  96
+Process  1  is at step  97
+Process  1  is at step  98
+Process  1  is at step  99
+Process  1  is at step  100
+Process  1  is at step  101
+Process  1  is at step  102
+Process  1  is at step  103
+Process  1  is at step  104
+Process  1  is at step  105
+Process  1  is at step  106
+Process  1  is at step  107
+Process  1  is at step  108
+Process  1  is at step  109
+Process  1  is at step  110
+Process  1  is at step  111
+Process  1  is at step  112
+Process  1  is at step  113
+Process  1  is at step  114
+Process  1  is at step  115
+Process  1  is at step  116
+Process  1  is at step  117
+Process  1  is at step  118
+Process  1  is at step  119
+Process  1  is at step  120
+Process  1  is at step  121
+Process  1  is at step  122
+Process  1  is at step  123
+Process  1  is at step  124
+Process  1  is at step  125
+Process  1  is at step  126
+Process  1  is at step  127
+Process  1  is at step  128
+Process  1  is at step  129
+Process  1  is at step  130
+Process  1  is at step  131
+Process  1  is at step  132
+Process  1  is at step  133
+Process  1  is at step  134
+Process  1  is at step  135
+Process  1  is at step  136
+Process  1  is at step  137
+Process  1  is at step  138
+Process  1  is at step  139
+Process  1  is at step  140
+Process  1  is at step  141
+Process  1  is at step  142
+Process  1  is at step  143
+Process  1  is at step  144
+Process  1  is at step  145
+Process  1  is at step  146
+Process  1  is at step  147
+Process  1  is at step  148
+Process  1  is at step  149
+Process  1  is at step  150
+Process  1  is at step  151
+Process  1  is at step  152
+Process  1  is at step  153
+Process  1  is at step  154
+Process  1  is at step  155
+Process  1  is at step  156
+Process  1  is at step  157
+Process  1  is at step  158
+Process  1  is at step  159
+Process  1  is at step  160
+Process  1  is at step  161
+Process  1  is at step  162
+Process  1  is at step  163
+Process  1  is at step  164
+Process  1  is at step  165
+Process  1  is at step  166
+Process  1  is at step  167
+Process  1  is at step  168
+Process  1  is at step  169
+Process  1  is at step  170
+Process  1  is at step  171
+Process  1  is at step  172
+Process  1  is at step  173
+Process  1  is at step  174
+Process  1  is at step  175
+Process  1  is at step  176
+Process  1  is at step  177
+Process  1  is at step  178
+Process  1  is at step  179
+Process  1  is at step  180
+Process  1  is at step  181
+Process  1  is at step  182
+Process  1  is at step  183
+Process  1  is at step  184
+Process  1  is at step  185
+Process  1  is at step  186
+Process  1  is at step  187
+Process  1  is at step  188
+Process  1  is at step  189
+Process  1  is at step  190
+Process  1  is at step  191
+Process  1  is at step  192
+Process  1  is at step  193
+Process  1  is at step  194
+Process  1  is at step  195
+Process  1  is at step  196
+Process  1  is at step  197
+Process  1  is at step  198
+Process  1  is at step  199
+Process  1  is at step  200
+Process  1  is at step  201
+Process  1  is at step  202
+Process  1  is at step  203
+Process  1  is at step  204
+Process  1  is at step  205
+Process  1  is at step  206
+Process  1  is at step  207
+Process  1  is at step  208
+Process  1  is at step  209
+Process  1  is at step  210
+Process  1  is at step  211
+Process  1  is at step  212
+Process  1  is at step  213
+Process  1  is at step  214
+Process  1  is at step  215
+Process  1  is at step  216
+Process  1  is at step  217
+Process  1  is at step  218
+Process  1  is at step  219
+Process  1  is at step  220
+Process  1  is at step  221
+Process  1  is at step  222
+Process  1  is at step  223
+Process  1  is at step  224
+Process  1  is at step  225
+Process  1  is at step  226
+Process  1  is at step  227
+Process  1  is at step  228
+Process  1  is at step  229
+Process  1  is at step  230
+Process  1  is at step  231
+Process  1  is at step  232
+Process  1  is at step  233
+Process  1  is at step  234
+Process  1  is at step  235
+Process  1  is at step  236
+Process  1  is at step  237
+Process  1  is at step  238
+Process  1  is at step  239
+Process  1  is at step  240
+Process  1  is at step  241
+Process  1  is at step  242
+Process  1  is at step  243
+Process  1  is at step  244
+Process  1  is at step  245
+Process  1  is at step  246
+Process  1  is at step  247
+Process  1  is at step  248
+Process  1  is at step  249
+Process  1  is at step  250
+Process  1  is at step  251
+Process  1  is at step  252
+Process  1  is at step  253
+Process  1  is at step  254
+Process  1  is at step  255
+Process  1  is at step  256
+Process  1  is at step  257
+Process  1  is at step  258
+Process  1  is at step  259
+Process  1  is at step  260
+Process  1  is at step  261
+Process  1  is at step  262
+Process  1  is at step  263
+Process  1  is at step  264
+Process  1  is at step  265
+Process  1  is at step  266
+Process  1  is at step  267
+Process  1  is at step  268
+Process  1  is at step  269
+Process  1  is at step  270
+Process  1  is at step  271
+Process  1  is at step  272
+Process  1  is at step  273
+Process  1  is at step  274
+Process  1  is at step  275
+Process  1  is at step  276
+Process  1  is at step  277
+Process  1  is at step  278
+Process  1  is at step  279
+Process  1  is at step  280
+Process  1  is at step  281
+Process  1  is at step  282
+Process  1  is at step  283
+Process  1  is at step  284
+Process  1  is at step  285
+Process  1  is at step  286
+Process  1  is at step  287
+Process  1  is at step  288
+Process  1  is at step  289
+Process  1  is at step  290
+Process  1  is at step  291
+Process  1  is at step  292
+Process  1  is at step  293
+Process  1  is at step  294
+Process  1  is at step  295
+Process  1  is at step  296
+Process  1  is at step  297
+Process  1  is at step  298
+Process  1  is at step  299
+Process  1  is at step  300
+Process  1  is at step  301
+Process  1  is at step  302
+Process  1  is at step  303
+Process  1  is at step  304
+Process  1  is at step  305
+Process  1  is at step  306
+Process  1  is at step  307
+Process  1  is at step  308
+Process  1  is at step  309
+Process  1  is at step  310
+Process  1  is at step  311
+Process  1  is at step  312
+Process  1  is at step  313
+Process  1  is at step  314
+Process  1  is at step  315
+Process  1  is at step  316
+Process  1  is at step  317
+Process  1  is at step  318
+Process  1  is at step  319
+Process  1  is at step  320
+Process  1  is at step  321
+Process  1  is at step  322
+Process  1  is at step  323
+Process  1  is at step  324
+Process  1  is at step  325
+Process  1  is at step  326
+Process  1  is at step  327
+Process  1  is at step  328
+Process  1  is at step  329
+Process  1  is at step  330
+Process  1  is at step  331
+Process  1  is at step  332
+Process  1  is at step  333
+Process  1  is at step  334
+Process  1  is at step  335
+Process  1  is at step  336
+Process  1  is at step  337
+Process  1  is at step  338
+Process  1  is at step  339
+Process  1  is at step  340
+Process  1  is at step  341
+Process  1  is at step  342
+Process  1  is at step  343
+Process  1  is at step  344
+Process  1  is at step  345
+Process  1  is at step  346
+Process  1  is at step  347
+Process  1  is at step  348
+Process  1  is at step  349
+Process  1  is at step  350
+Process  1  is at step  351
+Process  1  is at step  352
+Process  1  is at step  353
+Process  1  is at step  354
+Process  1  is at step  355
+Process  1  is at step  356
+Process  1  is at step  357
+Process  1  is at step  358
+Process  1  is at step  359
+Process  1  is at step  360
+Process  1  is at step  361
+Process  1  is at step  362
+Process  1  is at step  363
+Process  1  is at step  364
+Process  1  is at step  365
+Process  1  is at step  366
+Process  1  is at step  367
+Process  1  is at step  368
+Process  1  is at step  369
+Process  1  is at step  370
+Process  1  is at step  371
+Process  1  is at step  372
+Process  1  is at step  373
+Process  1  is at step  374
+Process  1  is at step  375
+Process  1  is at step  376
+Process  1  is at step  377
+Process  1  is at step  378
+Process  1  is at step  379
+Process  1  is at step  380
+Process  1  is at step  381
+Process  1  is at step  382
+Process  1  is at step  383
+Process  1  is at step  384
+Process  1  is at step  385
+Process  1  is at step  386
+Process  1  is at step  387
+Process  1  is at step  388
+Process  1  is at step  389
+Process  1  is at step  390
+Process  1  is at step  391
+Process  1  is at step  392
+Process  1  is at step  393
+Process  1  is at step  394
+Process  1  is at step  395
+Process  1  is at step  396
+Process  1  is at step  397
+Process  1  is at step  398
+Process  1  is at step  399
+Process  1  is at step  400
+Process  1  is at step  401
+Process  1  is at step  402
+Process  1  is at step  403
+Process  1  is at step  404
+Process  1  is at step  405
+Process  1  is at step  406
+Process  1  is at step  407
+Process  1  is at step  408
+Process  1  is at step  409
+Process  1  is at step  410
+Process  1  is at step  411
+Process  1  is at step  412
+Process  1  is at step  413
+Process  1  is at step  414
+Process  1  is at step  415
+Process  1  is at step  416
+Process  1  is at step  417
+Process  1  is at step  418
+Process  1  is at step  419
+Process  1  is at step  420
+Process  1  is at step  421
+Process  1  is at step  422
+Process  1  is at step  423
+Process  1  is at step  424
+Process  1  is at step  425
+Process  1  is at step  426
+Process  1  is at step  427
+Process  1  is at step  428
+Process  1  is at step  429
+Process  1  is at step  430
+Process  1  is at step  431
+Process  1  is at step  432
+Process  1  is at step  433
+Process  1  is at step  434
+Process  1  is at step  435
+Process  1  is at step  436
+Process  1  is at step  437
+Process  1  is at step  438
+Process  1  is at step  439
+Process  1  is at step  440
+Process  1  is at step  441
+Process  1  is at step  442
+Process  1  is at step  443
+Process  1  is at step  444
+Process  1  is at step  445
+Process  1  is at step  446
+Process  1  is at step  447
+Process  1  is at step  448
+Process  1  is at step  449
+Process  1  is at step  450
+Process  1  is at step  451
+Process  1  is at step  452
+Process  1  is at step  453
+Process  1  is at step  454
+Process  1  is at step  455
+Process  1  is at step  456
+Process  1  is at step  457
+Process  1  is at step  458
+Process  1  is at step  459
+Process  1  is at step  460
+Process  1  is at step  461
+Process  1  is at step  462
+Process  1  is at step  463
+Process  1  is at step  464
+Process  1  is at step  465
+Process  1  is at step  466
+Process  1  is at step  467
+Process  1  is at step  468
+Process  1  is at step  469
+Process  1  is at step  470
+Process  1  is at step  471
+Process  1  is at step  472
+Process  1  is at step  473
+Process  1  is at step  474
+Process  1  is at step  475
+Process  1  is at step  476
+Process  1  is at step  477
+Process  1  is at step  478
+Process  1  is at step  479
+Process  1  is at step  480
+Process  1  is at step  481
+Process  1  is at step  482
+Process  1  is at step  483
+Process  1  is at step  484
+Process  1  is at step  485
+Process  1  is at step  486
+Process  1  is at step  487
+Process  1  is at step  488
+Process  1  is at step  489
+Process  1  is at step  490
+Process  1  is at step  491
+Process  1  is at step  492
+Process  1  is at step  493
+Process  1  is at step  494
+Process  1  is at step  495
+Process  1  is at step  496
+Process  1  is at step  497
+Process  1  is at step  498
+Process  1  is at step  499
+[stdout:5] 
+Process  7  is at step  0
+Process  7  is at step  1
+Process  7  is at step  2
+Process  7  is at step  3
+Process  7  is at step  4
+Process  7  is at step  5
+Process  7  is at step  6
+Process  7  is at step  7
+Process  7  is at step  8
+Process  7  is at step  9
+Process  7  is at step  10
+Process  7  is at step  11
+Process  7  is at step  12
+Process  7  is at step  13
+Process  7  is at step  14
+Process  7  is at step  15
+Process  7  is at step  16
+Process  7  is at step  17
+Process  7  is at step  18
+Process  7  is at step  19
+Process  7  is at step  20
+Process  7  is at step  21
+Process  7  is at step  22
+Process  7  is at step  23
+Process  7  is at step  24
+Process  7  is at step  25
+Process  7  is at step  26
+Process  7  is at step  27
+Process  7  is at step  28
+Process  7  is at step  29
+Process  7  is at step  30
+Process  7  is at step  31
+Process  7  is at step  32
+Process  7  is at step  33
+Process  7  is at step  34
+Process  7  is at step  35
+Process  7  is at step  36
+Process  7  is at step  37
+Process  7  is at step  38
+Process  7  is at step  39
+Process  7  is at step  40
+Process  7  is at step  41
+Process  7  is at step  42
+Process  7  is at step  43
+Process  7  is at step  44
+Process  7  is at step  45
+Process  7  is at step  46
+Process  7  is at step  47
+Process  7  is at step  48
+Process  7  is at step  49
+Process  7  is at step  50
+Process  7  is at step  51
+Process  7  is at step  52
+Process  7  is at step  53
+Process  7  is at step  54
+Process  7  is at step  55
+Process  7  is at step  56
+Process  7  is at step  57
+Process  7  is at step  58
+Process  7  is at step  59
+Process  7  is at step  60
+Process  7  is at step  61
+Process  7  is at step  62
+Process  7  is at step  63
+Process  7  is at step  64
+Process  7  is at step  65
+Process  7  is at step  66
+Process  7  is at step  67
+Process  7  is at step  68
+Process  7  is at step  69
+Process  7  is at step  70
+Process  7  is at step  71
+Process  7  is at step  72
+Process  7  is at step  73
+Process  7  is at step  74
+Process  7  is at step  75
+Process  7  is at step  76
+Process  7  is at step  77
+Process  7  is at step  78
+Process  7  is at step  79
+Process  7  is at step  80
+Process  7  is at step  81
+Process  7  is at step  82
+Process  7  is at step  83
+Process  7  is at step  84
+Process  7  is at step  85
+Process  7  is at step  86
+Process  7  is at step  87
+Process  7  is at step  88
+Process  7  is at step  89
+Process  7  is at step  90
+Process  7  is at step  91
+Process  7  is at step  92
+Process  7  is at step  93
+Process  7  is at step  94
+Process  7  is at step  95
+Process  7  is at step  96
+Process  7  is at step  97
+Process  7  is at step  98
+Process  7  is at step  99
+Process  7  is at step  100
+Process  7  is at step  101
+Process  7  is at step  102
+Process  7  is at step  103
+Process  7  is at step  104
+Process  7  is at step  105
+Process  7  is at step  106
+Process  7  is at step  107
+Process  7  is at step  108
+Process  7  is at step  109
+Process  7  is at step  110
+Process  7  is at step  111
+Process  7  is at step  112
+Process  7  is at step  113
+Process  7  is at step  114
+Process  7  is at step  115
+Process  7  is at step  116
+Process  7  is at step  117
+Process  7  is at step  118
+Process  7  is at step  119
+Process  7  is at step  120
+Process  7  is at step  121
+Process  7  is at step  122
+Process  7  is at step  123
+Process  7  is at step  124
+Process  7  is at step  125
+Process  7  is at step  126
+Process  7  is at step  127
+Process  7  is at step  128
+Process  7  is at step  129
+Process  7  is at step  130
+Process  7  is at step  131
+Process  7  is at step  132
+Process  7  is at step  133
+Process  7  is at step  134
+Process  7  is at step  135
+Process  7  is at step  136
+Process  7  is at step  137
+Process  7  is at step  138
+Process  7  is at step  139
+Process  7  is at step  140
+Process  7  is at step  141
+Process  7  is at step  142
+Process  7  is at step  143
+Process  7  is at step  144
+Process  7  is at step  145
+Process  7  is at step  146
+Process  7  is at step  147
+Process  7  is at step  148
+Process  7  is at step  149
+Process  7  is at step  150
+Process  7  is at step  151
+Process  7  is at step  152
+Process  7  is at step  153
+Process  7  is at step  154
+Process  7  is at step  155
+Process  7  is at step  156
+Process  7  is at step  157
+Process  7  is at step  158
+Process  7  is at step  159
+Process  7  is at step  160
+Process  7  is at step  161
+Process  7  is at step  162
+Process  7  is at step  163
+Process  7  is at step  164
+Process  7  is at step  165
+Process  7  is at step  166
+Process  7  is at step  167
+Process  7  is at step  168
+Process  7  is at step  169
+Process  7  is at step  170
+Process  7  is at step  171
+Process  7  is at step  172
+Process  7  is at step  173
+Process  7  is at step  174
+Process  7  is at step  175
+Process  7  is at step  176
+Process  7  is at step  177
+Process  7  is at step  178
+Process  7  is at step  179
+Process  7  is at step  180
+Process  7  is at step  181
+Process  7  is at step  182
+Process  7  is at step  183
+Process  7  is at step  184
+Process  7  is at step  185
+Process  7  is at step  186
+Process  7  is at step  187
+Process  7  is at step  188
+Process  7  is at step  189
+Process  7  is at step  190
+Process  7  is at step  191
+Process  7  is at step  192
+Process  7  is at step  193
+Process  7  is at step  194
+Process  7  is at step  195
+Process  7  is at step  196
+Process  7  is at step  197
+Process  7  is at step  198
+Process  7  is at step  199
+Process  7  is at step  200
+Process  7  is at step  201
+Process  7  is at step  202
+Process  7  is at step  203
+Process  7  is at step  204
+Process  7  is at step  205
+Process  7  is at step  206
+Process  7  is at step  207
+Process  7  is at step  208
+Process  7  is at step  209
+Process  7  is at step  210
+Process  7  is at step  211
+Process  7  is at step  212
+Process  7  is at step  213
+Process  7  is at step  214
+Process  7  is at step  215
+Process  7  is at step  216
+Process  7  is at step  217
+Process  7  is at step  218
+Process  7  is at step  219
+Process  7  is at step  220
+Process  7  is at step  221
+Process  7  is at step  222
+Process  7  is at step  223
+Process  7  is at step  224
+Process  7  is at step  225
+Process  7  is at step  226
+Process  7  is at step  227
+Process  7  is at step  228
+Process  7  is at step  229
+Process  7  is at step  230
+Process  7  is at step  231
+Process  7  is at step  232
+Process  7  is at step  233
+Process  7  is at step  234
+Process  7  is at step  235
+Process  7  is at step  236
+Process  7  is at step  237
+Process  7  is at step  238
+Process  7  is at step  239
+Process  7  is at step  240
+Process  7  is at step  241
+Process  7  is at step  242
+Process  7  is at step  243
+Process  7  is at step  244
+Process  7  is at step  245
+Process  7  is at step  246
+Process  7  is at step  247
+Process  7  is at step  248
+Process  7  is at step  249
+Process  7  is at step  250
+Process  7  is at step  251
+Process  7  is at step  252
+Process  7  is at step  253
+Process  7  is at step  254
+Process  7  is at step  255
+Process  7  is at step  256
+Process  7  is at step  257
+Process  7  is at step  258
+Process  7  is at step  259
+Process  7  is at step  260
+Process  7  is at step  261
+Process  7  is at step  262
+Process  7  is at step  263
+Process  7  is at step  264
+Process  7  is at step  265
+Process  7  is at step  266
+Process  7  is at step  267
+Process  7  is at step  268
+Process  7  is at step  269
+Process  7  is at step  270
+Process  7  is at step  271
+Process  7  is at step  272
+Process  7  is at step  273
+Process  7  is at step  274
+Process  7  is at step  275
+Process  7  is at step  276
+Process  7  is at step  277
+Process  7  is at step  278
+Process  7  is at step  279
+Process  7  is at step  280
+Process  7  is at step  281
+Process  7  is at step  282
+Process  7  is at step  283
+Process  7  is at step  284
+Process  7  is at step  285
+Process  7  is at step  286
+Process  7  is at step  287
+Process  7  is at step  288
+Process  7  is at step  289
+Process  7  is at step  290
+Process  7  is at step  291
+Process  7  is at step  292
+Process  7  is at step  293
+Process  7  is at step  294
+Process  7  is at step  295
+Process  7  is at step  296
+Process  7  is at step  297
+Process  7  is at step  298
+Process  7  is at step  299
+Process  7  is at step  300
+Process  7  is at step  301
+Process  7  is at step  302
+Process  7  is at step  303
+Process  7  is at step  304
+Process  7  is at step  305
+Process  7  is at step  306
+Process  7  is at step  307
+Process  7  is at step  308
+Process  7  is at step  309
+Process  7  is at step  310
+Process  7  is at step  311
+Process  7  is at step  312
+Process  7  is at step  313
+Process  7  is at step  314
+Process  7  is at step  315
+Process  7  is at step  316
+Process  7  is at step  317
+Process  7  is at step  318
+Process  7  is at step  319
+Process  7  is at step  320
+Process  7  is at step  321
+Process  7  is at step  322
+Process  7  is at step  323
+Process  7  is at step  324
+Process  7  is at step  325
+Process  7  is at step  326
+Process  7  is at step  327
+Process  7  is at step  328
+Process  7  is at step  329
+Process  7  is at step  330
+Process  7  is at step  331
+Process  7  is at step  332
+Process  7  is at step  333
+Process  7  is at step  334
+Process  7  is at step  335
+Process  7  is at step  336
+Process  7  is at step  337
+Process  7  is at step  338
+Process  7  is at step  339
+Process  7  is at step  340
+Process  7  is at step  341
+Process  7  is at step  342
+Process  7  is at step  343
+Process  7  is at step  344
+Process  7  is at step  345
+Process  7  is at step  346
+Process  7  is at step  347
+Process  7  is at step  348
+Process  7  is at step  349
+Process  7  is at step  350
+Process  7  is at step  351
+Process  7  is at step  352
+Process  7  is at step  353
+Process  7  is at step  354
+Process  7  is at step  355
+Process  7  is at step  356
+Process  7  is at step  357
+Process  7  is at step  358
+Process  7  is at step  359
+Process  7  is at step  360
+Process  7  is at step  361
+Process  7  is at step  362
+Process  7  is at step  363
+Process  7  is at step  364
+Process  7  is at step  365
+Process  7  is at step  366
+Process  7  is at step  367
+Process  7  is at step  368
+Process  7  is at step  369
+Process  7  is at step  370
+Process  7  is at step  371
+Process  7  is at step  372
+Process  7  is at step  373
+Process  7  is at step  374
+Process  7  is at step  375
+Process  7  is at step  376
+Process  7  is at step  377
+Process  7  is at step  378
+Process  7  is at step  379
+Process  7  is at step  380
+Process  7  is at step  381
+Process  7  is at step  382
+Process  7  is at step  383
+Process  7  is at step  384
+Process  7  is at step  385
+Process  7  is at step  386
+Process  7  is at step  387
+Process  7  is at step  388
+Process  7  is at step  389
+Process  7  is at step  390
+Process  7  is at step  391
+Process  7  is at step  392
+Process  7  is at step  393
+Process  7  is at step  394
+Process  7  is at step  395
+Process  7  is at step  396
+Process  7  is at step  397
+Process  7  is at step  398
+Process  7  is at step  399
+Process  7  is at step  400
+Process  7  is at step  401
+Process  7  is at step  402
+Process  7  is at step  403
+Process  7  is at step  404
+Process  7  is at step  405
+Process  7  is at step  406
+Process  7  is at step  407
+Process  7  is at step  408
+Process  7  is at step  409
+Process  7  is at step  410
+Process  7  is at step  411
+Process  7  is at step  412
+Process  7  is at step  413
+Process  7  is at step  414
+Process  7  is at step  415
+Process  7  is at step  416
+Process  7  is at step  417
+Process  7  is at step  418
+Process  7  is at step  419
+Process  7  is at step  420
+Process  7  is at step  421
+Process  7  is at step  422
+Process  7  is at step  423
+Process  7  is at step  424
+Process  7  is at step  425
+Process  7  is at step  426
+Process  7  is at step  427
+Process  7  is at step  428
+Process  7  is at step  429
+Process  7  is at step  430
+Process  7  is at step  431
+Process  7  is at step  432
+Process  7  is at step  433
+Process  7  is at step  434
+Process  7  is at step  435
+Process  7  is at step  436
+Process  7  is at step  437
+Process  7  is at step  438
+Process  7  is at step  439
+Process  7  is at step  440
+Process  7  is at step  441
+Process  7  is at step  442
+Process  7  is at step  443
+Process  7  is at step  444
+Process  7  is at step  445
+Process  7  is at step  446
+Process  7  is at step  447
+Process  7  is at step  448
+Process  7  is at step  449
+Process  7  is at step  450
+Process  7  is at step  451
+Process  7  is at step  452
+Process  7  is at step  453
+Process  7  is at step  454
+Process  7  is at step  455
+Process  7  is at step  456
+Process  7  is at step  457
+Process  7  is at step  458
+Process  7  is at step  459
+Process  7  is at step  460
+Process  7  is at step  461
+Process  7  is at step  462
+Process  7  is at step  463
+Process  7  is at step  464
+Process  7  is at step  465
+Process  7  is at step  466
+Process  7  is at step  467
+Process  7  is at step  468
+Process  7  is at step  469
+Process  7  is at step  470
+Process  7  is at step  471
+Process  7  is at step  472
+Process  7  is at step  473
+Process  7  is at step  474
+Process  7  is at step  475
+Process  7  is at step  476
+Process  7  is at step  477
+Process  7  is at step  478
+Process  7  is at step  479
+Process  7  is at step  480
+Process  7  is at step  481
+Process  7  is at step  482
+Process  7  is at step  483
+Process  7  is at step  484
+Process  7  is at step  485
+Process  7  is at step  486
+Process  7  is at step  487
+Process  7  is at step  488
+Process  7  is at step  489
+Process  7  is at step  490
+Process  7  is at step  491
+Process  7  is at step  492
+Process  7  is at step  493
+Process  7  is at step  494
+Process  7  is at step  495
+Process  7  is at step  496
+Process  7  is at step  497
+Process  7  is at step  498
+Process  7  is at step  499
+[stdout:6] 
+Process  5  is at step  0
+Process  5  is at step  1
+Process  5  is at step  2
+Process  5  is at step  3
+Process  5  is at step  4
+Process  5  is at step  5
+Process  5  is at step  6
+Process  5  is at step  7
+Process  5  is at step  8
+Process  5  is at step  9
+Process  5  is at step  10
+Process  5  is at step  11
+Process  5  is at step  12
+Process  5  is at step  13
+Process  5  is at step  14
+Process  5  is at step  15
+Process  5  is at step  16
+Process  5  is at step  17
+Process  5  is at step  18
+Process  5  is at step  19
+Process  5  is at step  20
+Process  5  is at step  21
+Process  5  is at step  22
+Process  5  is at step  23
+Process  5  is at step  24
+Process  5  is at step  25
+Process  5  is at step  26
+Process  5  is at step  27
+Process  5  is at step  28
+Process  5  is at step  29
+Process  5  is at step  30
+Process  5  is at step  31
+Process  5  is at step  32
+Process  5  is at step  33
+Process  5  is at step  34
+Process  5  is at step  35
+Process  5  is at step  36
+Process  5  is at step  37
+Process  5  is at step  38
+Process  5  is at step  39
+Process  5  is at step  40
+Process  5  is at step  41
+Process  5  is at step  42
+Process  5  is at step  43
+Process  5  is at step  44
+Process  5  is at step  45
+Process  5  is at step  46
+Process  5  is at step  47
+Process  5  is at step  48
+Process  5  is at step  49
+Process  5  is at step  50
+Process  5  is at step  51
+Process  5  is at step  52
+Process  5  is at step  53
+Process  5  is at step  54
+Process  5  is at step  55
+Process  5  is at step  56
+Process  5  is at step  57
+Process  5  is at step  58
+Process  5  is at step  59
+Process  5  is at step  60
+Process  5  is at step  61
+Process  5  is at step  62
+Process  5  is at step  63
+Process  5  is at step  64
+Process  5  is at step  65
+Process  5  is at step  66
+Process  5  is at step  67
+Process  5  is at step  68
+Process  5  is at step  69
+Process  5  is at step  70
+Process  5  is at step  71
+Process  5  is at step  72
+Process  5  is at step  73
+Process  5  is at step  74
+Process  5  is at step  75
+Process  5  is at step  76
+Process  5  is at step  77
+Process  5  is at step  78
+Process  5  is at step  79
+Process  5  is at step  80
+Process  5  is at step  81
+Process  5  is at step  82
+Process  5  is at step  83
+Process  5  is at step  84
+Process  5  is at step  85
+Process  5  is at step  86
+Process  5  is at step  87
+Process  5  is at step  88
+Process  5  is at step  89
+Process  5  is at step  90
+Process  5  is at step  91
+Process  5  is at step  92
+Process  5  is at step  93
+Process  5  is at step  94
+Process  5  is at step  95
+Process  5  is at step  96
+Process  5  is at step  97
+Process  5  is at step  98
+Process  5  is at step  99
+Process  5  is at step  100
+Process  5  is at step  101
+Process  5  is at step  102
+Process  5  is at step  103
+Process  5  is at step  104
+Process  5  is at step  105
+Process  5  is at step  106
+Process  5  is at step  107
+Process  5  is at step  108
+Process  5  is at step  109
+Process  5  is at step  110
+Process  5  is at step  111
+Process  5  is at step  112
+Process  5  is at step  113
+Process  5  is at step  114
+Process  5  is at step  115
+Process  5  is at step  116
+Process  5  is at step  117
+Process  5  is at step  118
+Process  5  is at step  119
+Process  5  is at step  120
+Process  5  is at step  121
+Process  5  is at step  122
+Process  5  is at step  123
+Process  5  is at step  124
+Process  5  is at step  125
+Process  5  is at step  126
+Process  5  is at step  127
+Process  5  is at step  128
+Process  5  is at step  129
+Process  5  is at step  130
+Process  5  is at step  131
+Process  5  is at step  132
+Process  5  is at step  133
+Process  5  is at step  134
+Process  5  is at step  135
+Process  5  is at step  136
+Process  5  is at step  137
+Process  5  is at step  138
+Process  5  is at step  139
+Process  5  is at step  140
+Process  5  is at step  141
+Process  5  is at step  142
+Process  5  is at step  143
+Process  5  is at step  144
+Process  5  is at step  145
+Process  5  is at step  146
+Process  5  is at step  147
+Process  5  is at step  148
+Process  5  is at step  149
+Process  5  is at step  150
+Process  5  is at step  151
+Process  5  is at step  152
+Process  5  is at step  153
+Process  5  is at step  154
+Process  5  is at step  155
+Process  5  is at step  156
+Process  5  is at step  157
+Process  5  is at step  158
+Process  5  is at step  159
+Process  5  is at step  160
+Process  5  is at step  161
+Process  5  is at step  162
+Process  5  is at step  163
+Process  5  is at step  164
+Process  5  is at step  165
+Process  5  is at step  166
+Process  5  is at step  167
+Process  5  is at step  168
+Process  5  is at step  169
+Process  5  is at step  170
+Process  5  is at step  171
+Process  5  is at step  172
+Process  5  is at step  173
+Process  5  is at step  174
+Process  5  is at step  175
+Process  5  is at step  176
+Process  5  is at step  177
+Process  5  is at step  178
+Process  5  is at step  179
+Process  5  is at step  180
+Process  5  is at step  181
+Process  5  is at step  182
+Process  5  is at step  183
+Process  5  is at step  184
+Process  5  is at step  185
+Process  5  is at step  186
+Process  5  is at step  187
+Process  5  is at step  188
+Process  5  is at step  189
+Process  5  is at step  190
+Process  5  is at step  191
+Process  5  is at step  192
+Process  5  is at step  193
+Process  5  is at step  194
+Process  5  is at step  195
+Process  5  is at step  196
+Process  5  is at step  197
+Process  5  is at step  198
+Process  5  is at step  199
+Process  5  is at step  200
+Process  5  is at step  201
+Process  5  is at step  202
+Process  5  is at step  203
+Process  5  is at step  204
+Process  5  is at step  205
+Process  5  is at step  206
+Process  5  is at step  207
+Process  5  is at step  208
+Process  5  is at step  209
+Process  5  is at step  210
+Process  5  is at step  211
+Process  5  is at step  212
+Process  5  is at step  213
+Process  5  is at step  214
+Process  5  is at step  215
+Process  5  is at step  216
+Process  5  is at step  217
+Process  5  is at step  218
+Process  5  is at step  219
+Process  5  is at step  220
+Process  5  is at step  221
+Process  5  is at step  222
+Process  5  is at step  223
+Process  5  is at step  224
+Process  5  is at step  225
+Process  5  is at step  226
+Process  5  is at step  227
+Process  5  is at step  228
+Process  5  is at step  229
+Process  5  is at step  230
+Process  5  is at step  231
+Process  5  is at step  232
+Process  5  is at step  233
+Process  5  is at step  234
+Process  5  is at step  235
+Process  5  is at step  236
+Process  5  is at step  237
+Process  5  is at step  238
+Process  5  is at step  239
+Process  5  is at step  240
+Process  5  is at step  241
+Process  5  is at step  242
+Process  5  is at step  243
+Process  5  is at step  244
+Process  5  is at step  245
+Process  5  is at step  246
+Process  5  is at step  247
+Process  5  is at step  248
+Process  5  is at step  249
+Process  5  is at step  250
+Process  5  is at step  251
+Process  5  is at step  252
+Process  5  is at step  253
+Process  5  is at step  254
+Process  5  is at step  255
+Process  5  is at step  256
+Process  5  is at step  257
+Process  5  is at step  258
+Process  5  is at step  259
+Process  5  is at step  260
+Process  5  is at step  261
+Process  5  is at step  262
+Process  5  is at step  263
+Process  5  is at step  264
+Process  5  is at step  265
+Process  5  is at step  266
+Process  5  is at step  267
+Process  5  is at step  268
+Process  5  is at step  269
+Process  5  is at step  270
+Process  5  is at step  271
+Process  5  is at step  272
+Process  5  is at step  273
+Process  5  is at step  274
+Process  5  is at step  275
+Process  5  is at step  276
+Process  5  is at step  277
+Process  5  is at step  278
+Process  5  is at step  279
+Process  5  is at step  280
+Process  5  is at step  281
+Process  5  is at step  282
+Process  5  is at step  283
+Process  5  is at step  284
+Process  5  is at step  285
+Process  5  is at step  286
+Process  5  is at step  287
+Process  5  is at step  288
+Process  5  is at step  289
+Process  5  is at step  290
+Process  5  is at step  291
+Process  5  is at step  292
+Process  5  is at step  293
+Process  5  is at step  294
+Process  5  is at step  295
+Process  5  is at step  296
+Process  5  is at step  297
+Process  5  is at step  298
+Process  5  is at step  299
+Process  5  is at step  300
+Process  5  is at step  301
+Process  5  is at step  302
+Process  5  is at step  303
+Process  5  is at step  304
+Process  5  is at step  305
+Process  5  is at step  306
+Process  5  is at step  307
+Process  5  is at step  308
+Process  5  is at step  309
+Process  5  is at step  310
+Process  5  is at step  311
+Process  5  is at step  312
+Process  5  is at step  313
+Process  5  is at step  314
+Process  5  is at step  315
+Process  5  is at step  316
+Process  5  is at step  317
+Process  5  is at step  318
+Process  5  is at step  319
+Process  5  is at step  320
+Process  5  is at step  321
+Process  5  is at step  322
+Process  5  is at step  323
+Process  5  is at step  324
+Process  5  is at step  325
+Process  5  is at step  326
+Process  5  is at step  327
+Process  5  is at step  328
+Process  5  is at step  329
+Process  5  is at step  330
+Process  5  is at step  331
+Process  5  is at step  332
+Process  5  is at step  333
+Process  5  is at step  334
+Process  5  is at step  335
+Process  5  is at step  336
+Process  5  is at step  337
+Process  5  is at step  338
+Process  5  is at step  339
+Process  5  is at step  340
+Process  5  is at step  341
+Process  5  is at step  342
+Process  5  is at step  343
+Process  5  is at step  344
+Process  5  is at step  345
+Process  5  is at step  346
+Process  5  is at step  347
+Process  5  is at step  348
+Process  5  is at step  349
+Process  5  is at step  350
+Process  5  is at step  351
+Process  5  is at step  352
+Process  5  is at step  353
+Process  5  is at step  354
+Process  5  is at step  355
+Process  5  is at step  356
+Process  5  is at step  357
+Process  5  is at step  358
+Process  5  is at step  359
+Process  5  is at step  360
+Process  5  is at step  361
+Process  5  is at step  362
+Process  5  is at step  363
+Process  5  is at step  364
+Process  5  is at step  365
+Process  5  is at step  366
+Process  5  is at step  367
+Process  5  is at step  368
+Process  5  is at step  369
+Process  5  is at step  370
+Process  5  is at step  371
+Process  5  is at step  372
+Process  5  is at step  373
+Process  5  is at step  374
+Process  5  is at step  375
+Process  5  is at step  376
+Process  5  is at step  377
+Process  5  is at step  378
+Process  5  is at step  379
+Process  5  is at step  380
+Process  5  is at step  381
+Process  5  is at step  382
+Process  5  is at step  383
+Process  5  is at step  384
+Process  5  is at step  385
+Process  5  is at step  386
+Process  5  is at step  387
+Process  5  is at step  388
+Process  5  is at step  389
+Process  5  is at step  390
+Process  5  is at step  391
+Process  5  is at step  392
+Process  5  is at step  393
+Process  5  is at step  394
+Process  5  is at step  395
+Process  5  is at step  396
+Process  5  is at step  397
+Process  5  is at step  398
+Process  5  is at step  399
+Process  5  is at step  400
+Process  5  is at step  401
+Process  5  is at step  402
+Process  5  is at step  403
+Process  5  is at step  404
+Process  5  is at step  405
+Process  5  is at step  406
+Process  5  is at step  407
+Process  5  is at step  408
+Process  5  is at step  409
+Process  5  is at step  410
+Process  5  is at step  411
+Process  5  is at step  412
+Process  5  is at step  413
+Process  5  is at step  414
+Process  5  is at step  415
+Process  5  is at step  416
+Process  5  is at step  417
+Process  5  is at step  418
+Process  5  is at step  419
+Process  5  is at step  420
+Process  5  is at step  421
+Process  5  is at step  422
+Process  5  is at step  423
+Process  5  is at step  424
+Process  5  is at step  425
+Process  5  is at step  426
+Process  5  is at step  427
+Process  5  is at step  428
+Process  5  is at step  429
+Process  5  is at step  430
+Process  5  is at step  431
+Process  5  is at step  432
+Process  5  is at step  433
+Process  5  is at step  434
+Process  5  is at step  435
+Process  5  is at step  436
+Process  5  is at step  437
+Process  5  is at step  438
+Process  5  is at step  439
+Process  5  is at step  440
+Process  5  is at step  441
+Process  5  is at step  442
+Process  5  is at step  443
+Process  5  is at step  444
+Process  5  is at step  445
+Process  5  is at step  446
+Process  5  is at step  447
+Process  5  is at step  448
+Process  5  is at step  449
+Process  5  is at step  450
+Process  5  is at step  451
+Process  5  is at step  452
+Process  5  is at step  453
+Process  5  is at step  454
+Process  5  is at step  455
+Process  5  is at step  456
+Process  5  is at step  457
+Process  5  is at step  458
+Process  5  is at step  459
+Process  5  is at step  460
+Process  5  is at step  461
+Process  5  is at step  462
+Process  5  is at step  463
+Process  5  is at step  464
+Process  5  is at step  465
+Process  5  is at step  466
+Process  5  is at step  467
+Process  5  is at step  468
+Process  5  is at step  469
+Process  5  is at step  470
+Process  5  is at step  471
+Process  5  is at step  472
+Process  5  is at step  473
+Process  5  is at step  474
+Process  5  is at step  475
+Process  5  is at step  476
+Process  5  is at step  477
+Process  5  is at step  478
+Process  5  is at step  479
+Process  5  is at step  480
+Process  5  is at step  481
+Process  5  is at step  482
+Process  5  is at step  483
+Process  5  is at step  484
+Process  5  is at step  485
+Process  5  is at step  486
+Process  5  is at step  487
+Process  5  is at step  488
+Process  5  is at step  489
+Process  5  is at step  490
+Process  5  is at step  491
+Process  5  is at step  492
+Process  5  is at step  493
+Process  5  is at step  494
+Process  5  is at step  495
+Process  5  is at step  496
+Process  5  is at step  497
+Process  5  is at step  498
+Process  5  is at step  499
+[stdout:7] 
+Process  3  is at step  0
+Process  3  is at step  1
+Process  3  is at step  2
+Process  3  is at step  3
+Process  3  is at step  4
+Process  3  is at step  5
+Process  3  is at step  6
+Process  3  is at step  7
+Process  3  is at step  8
+Process  3  is at step  9
+Process  3  is at step  10
+Process  3  is at step  11
+Process  3  is at step  12
+Process  3  is at step  13
+Process  3  is at step  14
+Process  3  is at step  15
+Process  3  is at step  16
+Process  3  is at step  17
+Process  3  is at step  18
+Process  3  is at step  19
+Process  3  is at step  20
+Process  3  is at step  21
+Process  3  is at step  22
+Process  3  is at step  23
+Process  3  is at step  24
+Process  3  is at step  25
+Process  3  is at step  26
+Process  3  is at step  27
+Process  3  is at step  28
+Process  3  is at step  29
+Process  3  is at step  30
+Process  3  is at step  31
+Process  3  is at step  32
+Process  3  is at step  33
+Process  3  is at step  34
+Process  3  is at step  35
+Process  3  is at step  36
+Process  3  is at step  37
+Process  3  is at step  38
+Process  3  is at step  39
+Process  3  is at step  40
+Process  3  is at step  41
+Process  3  is at step  42
+Process  3  is at step  43
+Process  3  is at step  44
+Process  3  is at step  45
+Process  3  is at step  46
+Process  3  is at step  47
+Process  3  is at step  48
+Process  3  is at step  49
+Process  3  is at step  50
+Process  3  is at step  51
+Process  3  is at step  52
+Process  3  is at step  53
+Process  3  is at step  54
+Process  3  is at step  55
+Process  3  is at step  56
+Process  3  is at step  57
+Process  3  is at step  58
+Process  3  is at step  59
+Process  3  is at step  60
+Process  3  is at step  61
+Process  3  is at step  62
+Process  3  is at step  63
+Process  3  is at step  64
+Process  3  is at step  65
+Process  3  is at step  66
+Process  3  is at step  67
+Process  3  is at step  68
+Process  3  is at step  69
+Process  3  is at step  70
+Process  3  is at step  71
+Process  3  is at step  72
+Process  3  is at step  73
+Process  3  is at step  74
+Process  3  is at step  75
+Process  3  is at step  76
+Process  3  is at step  77
+Process  3  is at step  78
+Process  3  is at step  79
+Process  3  is at step  80
+Process  3  is at step  81
+Process  3  is at step  82
+Process  3  is at step  83
+Process  3  is at step  84
+Process  3  is at step  85
+Process  3  is at step  86
+Process  3  is at step  87
+Process  3  is at step  88
+Process  3  is at step  89
+Process  3  is at step  90
+Process  3  is at step  91
+Process  3  is at step  92
+Process  3  is at step  93
+Process  3  is at step  94
+Process  3  is at step  95
+Process  3  is at step  96
+Process  3  is at step  97
+Process  3  is at step  98
+Process  3  is at step  99
+Process  3  is at step  100
+Process  3  is at step  101
+Process  3  is at step  102
+Process  3  is at step  103
+Process  3  is at step  104
+Process  3  is at step  105
+Process  3  is at step  106
+Process  3  is at step  107
+Process  3  is at step  108
+Process  3  is at step  109
+Process  3  is at step  110
+Process  3  is at step  111
+Process  3  is at step  112
+Process  3  is at step  113
+Process  3  is at step  114
+Process  3  is at step  115
+Process  3  is at step  116
+Process  3  is at step  117
+Process  3  is at step  118
+Process  3  is at step  119
+Process  3  is at step  120
+Process  3  is at step  121
+Process  3  is at step  122
+Process  3  is at step  123
+Process  3  is at step  124
+Process  3  is at step  125
+Process  3  is at step  126
+Process  3  is at step  127
+Process  3  is at step  128
+Process  3  is at step  129
+Process  3  is at step  130
+Process  3  is at step  131
+Process  3  is at step  132
+Process  3  is at step  133
+Process  3  is at step  134
+Process  3  is at step  135
+Process  3  is at step  136
+Process  3  is at step  137
+Process  3  is at step  138
+Process  3  is at step  139
+Process  3  is at step  140
+Process  3  is at step  141
+Process  3  is at step  142
+Process  3  is at step  143
+Process  3  is at step  144
+Process  3  is at step  145
+Process  3  is at step  146
+Process  3  is at step  147
+Process  3  is at step  148
+Process  3  is at step  149
+Process  3  is at step  150
+Process  3  is at step  151
+Process  3  is at step  152
+Process  3  is at step  153
+Process  3  is at step  154
+Process  3  is at step  155
+Process  3  is at step  156
+Process  3  is at step  157
+Process  3  is at step  158
+Process  3  is at step  159
+Process  3  is at step  160
+Process  3  is at step  161
+Process  3  is at step  162
+Process  3  is at step  163
+Process  3  is at step  164
+Process  3  is at step  165
+Process  3  is at step  166
+Process  3  is at step  167
+Process  3  is at step  168
+Process  3  is at step  169
+Process  3  is at step  170
+Process  3  is at step  171
+Process  3  is at step  172
+Process  3  is at step  173
+Process  3  is at step  174
+Process  3  is at step  175
+Process  3  is at step  176
+Process  3  is at step  177
+Process  3  is at step  178
+Process  3  is at step  179
+Process  3  is at step  180
+Process  3  is at step  181
+Process  3  is at step  182
+Process  3  is at step  183
+Process  3  is at step  184
+Process  3  is at step  185
+Process  3  is at step  186
+Process  3  is at step  187
+Process  3  is at step  188
+Process  3  is at step  189
+Process  3  is at step  190
+Process  3  is at step  191
+Process  3  is at step  192
+Process  3  is at step  193
+Process  3  is at step  194
+Process  3  is at step  195
+Process  3  is at step  196
+Process  3  is at step  197
+Process  3  is at step  198
+Process  3  is at step  199
+Process  3  is at step  200
+Process  3  is at step  201
+Process  3  is at step  202
+Process  3  is at step  203
+Process  3  is at step  204
+Process  3  is at step  205
+Process  3  is at step  206
+Process  3  is at step  207
+Process  3  is at step  208
+Process  3  is at step  209
+Process  3  is at step  210
+Process  3  is at step  211
+Process  3  is at step  212
+Process  3  is at step  213
+Process  3  is at step  214
+Process  3  is at step  215
+Process  3  is at step  216
+Process  3  is at step  217
+Process  3  is at step  218
+Process  3  is at step  219
+Process  3  is at step  220
+Process  3  is at step  221
+Process  3  is at step  222
+Process  3  is at step  223
+Process  3  is at step  224
+Process  3  is at step  225
+Process  3  is at step  226
+Process  3  is at step  227
+Process  3  is at step  228
+Process  3  is at step  229
+Process  3  is at step  230
+Process  3  is at step  231
+Process  3  is at step  232
+Process  3  is at step  233
+Process  3  is at step  234
+Process  3  is at step  235
+Process  3  is at step  236
+Process  3  is at step  237
+Process  3  is at step  238
+Process  3  is at step  239
+Process  3  is at step  240
+Process  3  is at step  241
+Process  3  is at step  242
+Process  3  is at step  243
+Process  3  is at step  244
+Process  3  is at step  245
+Process  3  is at step  246
+Process  3  is at step  247
+Process  3  is at step  248
+Process  3  is at step  249
+Process  3  is at step  250
+Process  3  is at step  251
+Process  3  is at step  252
+Process  3  is at step  253
+Process  3  is at step  254
+Process  3  is at step  255
+Process  3  is at step  256
+Process  3  is at step  257
+Process  3  is at step  258
+Process  3  is at step  259
+Process  3  is at step  260
+Process  3  is at step  261
+Process  3  is at step  262
+Process  3  is at step  263
+Process  3  is at step  264
+Process  3  is at step  265
+Process  3  is at step  266
+Process  3  is at step  267
+Process  3  is at step  268
+Process  3  is at step  269
+Process  3  is at step  270
+Process  3  is at step  271
+Process  3  is at step  272
+Process  3  is at step  273
+Process  3  is at step  274
+Process  3  is at step  275
+Process  3  is at step  276
+Process  3  is at step  277
+Process  3  is at step  278
+Process  3  is at step  279
+Process  3  is at step  280
+Process  3  is at step  281
+Process  3  is at step  282
+Process  3  is at step  283
+Process  3  is at step  284
+Process  3  is at step  285
+Process  3  is at step  286
+Process  3  is at step  287
+Process  3  is at step  288
+Process  3  is at step  289
+Process  3  is at step  290
+Process  3  is at step  291
+Process  3  is at step  292
+Process  3  is at step  293
+Process  3  is at step  294
+Process  3  is at step  295
+Process  3  is at step  296
+Process  3  is at step  297
+Process  3  is at step  298
+Process  3  is at step  299
+Process  3  is at step  300
+Process  3  is at step  301
+Process  3  is at step  302
+Process  3  is at step  303
+Process  3  is at step  304
+Process  3  is at step  305
+Process  3  is at step  306
+Process  3  is at step  307
+Process  3  is at step  308
+Process  3  is at step  309
+Process  3  is at step  310
+Process  3  is at step  311
+Process  3  is at step  312
+Process  3  is at step  313
+Process  3  is at step  314
+Process  3  is at step  315
+Process  3  is at step  316
+Process  3  is at step  317
+Process  3  is at step  318
+Process  3  is at step  319
+Process  3  is at step  320
+Process  3  is at step  321
+Process  3  is at step  322
+Process  3  is at step  323
+Process  3  is at step  324
+Process  3  is at step  325
+Process  3  is at step  326
+Process  3  is at step  327
+Process  3  is at step  328
+Process  3  is at step  329
+Process  3  is at step  330
+Process  3  is at step  331
+Process  3  is at step  332
+Process  3  is at step  333
+Process  3  is at step  334
+Process  3  is at step  335
+Process  3  is at step  336
+Process  3  is at step  337
+Process  3  is at step  338
+Process  3  is at step  339
+Process  3  is at step  340
+Process  3  is at step  341
+Process  3  is at step  342
+Process  3  is at step  343
+Process  3  is at step  344
+Process  3  is at step  345
+Process  3  is at step  346
+Process  3  is at step  347
+Process  3  is at step  348
+Process  3  is at step  349
+Process  3  is at step  350
+Process  3  is at step  351
+Process  3  is at step  352
+Process  3  is at step  353
+Process  3  is at step  354
+Process  3  is at step  355
+Process  3  is at step  356
+Process  3  is at step  357
+Process  3  is at step  358
+Process  3  is at step  359
+Process  3  is at step  360
+Process  3  is at step  361
+Process  3  is at step  362
+Process  3  is at step  363
+Process  3  is at step  364
+Process  3  is at step  365
+Process  3  is at step  366
+Process  3  is at step  367
+Process  3  is at step  368
+Process  3  is at step  369
+Process  3  is at step  370
+Process  3  is at step  371
+Process  3  is at step  372
+Process  3  is at step  373
+Process  3  is at step  374
+Process  3  is at step  375
+Process  3  is at step  376
+Process  3  is at step  377
+Process  3  is at step  378
+Process  3  is at step  379
+Process  3  is at step  380
+Process  3  is at step  381
+Process  3  is at step  382
+Process  3  is at step  383
+Process  3  is at step  384
+Process  3  is at step  385
+Process  3  is at step  386
+Process  3  is at step  387
+Process  3  is at step  388
+Process  3  is at step  389
+Process  3  is at step  390
+Process  3  is at step  391
+Process  3  is at step  392
+Process  3  is at step  393
+Process  3  is at step  394
+Process  3  is at step  395
+Process  3  is at step  396
+Process  3  is at step  397
+Process  3  is at step  398
+Process  3  is at step  399
+Process  3  is at step  400
+Process  3  is at step  401
+Process  3  is at step  402
+Process  3  is at step  403
+Process  3  is at step  404
+Process  3  is at step  405
+Process  3  is at step  406
+Process  3  is at step  407
+Process  3  is at step  408
+Process  3  is at step  409
+Process  3  is at step  410
+Process  3  is at step  411
+Process  3  is at step  412
+Process  3  is at step  413
+Process  3  is at step  414
+Process  3  is at step  415
+Process  3  is at step  416
+Process  3  is at step  417
+Process  3  is at step  418
+Process  3  is at step  419
+Process  3  is at step  420
+Process  3  is at step  421
+Process  3  is at step  422
+Process  3  is at step  423
+Process  3  is at step  424
+Process  3  is at step  425
+Process  3  is at step  426
+Process  3  is at step  427
+Process  3  is at step  428
+Process  3  is at step  429
+Process  3  is at step  430
+Process  3  is at step  431
+Process  3  is at step  432
+Process  3  is at step  433
+Process  3  is at step  434
+Process  3  is at step  435
+Process  3  is at step  436
+Process  3  is at step  437
+Process  3  is at step  438
+Process  3  is at step  439
+Process  3  is at step  440
+Process  3  is at step  441
+Process  3  is at step  442
+Process  3  is at step  443
+Process  3  is at step  444
+Process  3  is at step  445
+Process  3  is at step  446
+Process  3  is at step  447
+Process  3  is at step  448
+Process  3  is at step  449
+Process  3  is at step  450
+Process  3  is at step  451
+Process  3  is at step  452
+Process  3  is at step  453
+Process  3  is at step  454
+Process  3  is at step  455
+Process  3  is at step  456
+Process  3  is at step  457
+Process  3  is at step  458
+Process  3  is at step  459
+Process  3  is at step  460
+Process  3  is at step  461
+Process  3  is at step  462
+Process  3  is at step  463
+Process  3  is at step  464
+Process  3  is at step  465
+Process  3  is at step  466
+Process  3  is at step  467
+Process  3  is at step  468
+Process  3  is at step  469
+Process  3  is at step  470
+Process  3  is at step  471
+Process  3  is at step  472
+Process  3  is at step  473
+Process  3  is at step  474
+Process  3  is at step  475
+Process  3  is at step  476
+Process  3  is at step  477
+Process  3  is at step  478
+Process  3  is at step  479
+Process  3  is at step  480
+Process  3  is at step  481
+Process  3  is at step  482
+Process  3  is at step  483
+Process  3  is at step  484
+Process  3  is at step  485
+Process  3  is at step  486
+Process  3  is at step  487
+Process  3  is at step  488
+Process  3  is at step  489
+Process  3  is at step  490
+Process  3  is at step  491
+Process  3  is at step  492
+Process  3  is at step  493
+Process  3  is at step  494
+Process  3  is at step  495
+Process  3  is at step  496
+Process  3  is at step  497
+Process  3  is at step  498
+Process  3  is at step  499
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[71]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="o">!</span>convert heat.pnm heat.gif
+</pre></div>
+
+</div>
 </div>
 </div>
 
