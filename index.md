@@ -173,6 +173,7 @@ Students with disabilities needing accommodations should make an appointment wit
 
 16. Wednesday, September 21:
 -   [Parallel Sorting: Quick Sort]()
+
 17. [Friday, September 23]()
 18. [Monday, September 26: Distributed File Systems]()
 19. [Wednesday, September 28: Scheduling on cluster of computers]()
