@@ -174,8 +174,11 @@ Students with disabilities needing accommodations should make an appointment wit
 16. Wednesday, September 21:
 -   [Parallel Sorting: Quick Sort]()
 
-17. [Friday, September 23]()
-18. [Monday, September 26: Distributed File Systems]()
+17. Friday, September 23:
+-   CloudLab Chef/MPI Lab
+
+18. Monday, September 26:
+-   [Distributed File Systems](lecture17-pfs-sam-lang.pdf)
 19. [Wednesday, September 28: Scheduling on cluster of computers]()
 20. [Friday, September 30]()
 -   **Assignment 4 Due**
