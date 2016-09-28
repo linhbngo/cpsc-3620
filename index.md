@@ -181,16 +181,25 @@ Students with disabilities needing accommodations should make an appointment wit
 18. Monday, September 26:
 -   [Distributed File Systems](lecture17-pfs-sam-lang.pdf)
 
-19. [Wednesday, September 28: Scheduling on cluster of computers]()
+19. Wednesday, September 28:
+-   Distributed File Systems (continue)
+-   [Scheduling on cluster of computers](L23_Scheduling.pdf)
 
 20. [Friday, September 30]()
 -   **Assignment 4 Due**
+
 21. [Monday, October 3: Review]()
+
 22. **Wednesday, October 5: Midterm Exam**
+
 23. [Friday, October 7: Introduction to Big Data and Data Intensive Computing]()
+
 24. [Monday, October 10: Hadoop Distributed File System (HDFS)]()
+
 25. [Wednesday, October 12: Introduction to Cypress]()
+
 26. [Friday, October 14: HDFS Lab]()
+
 27. [Monday, October 17: Introduction to MapReduce Programming Paradigm]()
 28. [Wednesday, October 19: MapReduce Design Pattern]()
 29. [Friday, October 21]()
