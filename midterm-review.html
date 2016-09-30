@@ -90,11 +90,26 @@ if rank == 2:
   comm.Recv(x, source = 0, tag = 43, status=status)
   comm.Bcast(y, root = 1)</code></pre>
 <ol start="30" style="list-style-type: decimal">
-<li><p>Explain if the following MPI code segment is correct or not, and why: Process 0 executes: <sub>~</sub> comm.Bcast(mydata, root = 0) <sub>~</sub> All other processes: <sub>~</sub> comm.Bcast(yourdata, root = 0) <sub>~</sub></p></li>
-<li><p>Explain if the following MPI code segment is correct or not, and why: Process 0 executes: <sub>~</sub> comm.Bcast(mydata, root = 0) <sub>~</sub> All other processes: <sub>~</sub> comm.Recv(mydata, source = 0, MPI.ANY_TAG, status = status) <sub>~</sub></p></li>
-<li><p>Explain if the following MPI code segment is correct or not, and why:</p></li>
+<li>Explain if the following MPI code segment is correct or not, and why: Process 0 executes:</li>
 </ol>
-<p>Process 0 executes: <sub>~</sub> comm.Recv(yourdata, source = 1, tag = 0, status = status) comm.Send(mydata, des = 1, tag = 0) <sub>~</sub> Process 1 executes: <sub>~</sub> comm.Recv(yourdata, source = 0, tag = 0, status = status) comm.Send(mydata, des = 0, tag = 0) <sub>~</sub></p>
+<pre><code>comm.Bcast(mydata, root = 0)</code></pre>
+<p>All other processes:</p>
+<pre><code>comm.Bcast(yourdata, root = 0)</code></pre>
+<ol start="31" style="list-style-type: decimal">
+<li>Explain if the following MPI code segment is correct or not, and why: Process 0 executes:</li>
+</ol>
+<pre><code>comm.Bcast(mydata, root = 0)</code></pre>
+<p>All other processes:</p>
+<pre><code>comm.Recv(mydata, source = 0, MPI.ANY_TAG, status = status)</code></pre>
+<ol start="32" style="list-style-type: decimal">
+<li>Explain if the following MPI code segment is correct or not, and why:</li>
+</ol>
+<p>Process 0 executes:</p>
+<pre><code>comm.Recv(yourdata, source = 1, tag = 0, status = status)
+comm.Send(mydata, des = 1, tag = 0)</code></pre>
+<p>Process 1 executes:</p>
+<pre><code>comm.Recv(yourdata, source = 0, tag = 0, status = status)
+comm.Send(mydata, des = 0, tag = 0)</code></pre>
 <ol start="33" style="list-style-type: decimal">
 <li><p>Give an example of a master/slave computation using MPI-like pseudocode.</p></li>
 <li><p>Understand and be able to read/trace through all codes discussed in class lectures.</p></li>

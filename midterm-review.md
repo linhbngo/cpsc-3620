@@ -85,20 +85,26 @@ if rank == 2:
 
 30. Explain if the following MPI code segment is correct or not, and why:
 Process 0 executes:
+
 ~~~
 comm.Bcast(mydata, root = 0)
 ~~~
+
 All other processes:
+
 ~~~
 comm.Bcast(yourdata, root = 0)
 ~~~
 
 31. Explain if the following MPI code segment is correct or not, and why:
 Process 0 executes:
+
 ~~~
 comm.Bcast(mydata, root = 0)
 ~~~
+
 All other processes:
+
 ~~~
 comm.Recv(mydata, source = 0, MPI.ANY_TAG, status = status)
 ~~~
@@ -106,11 +112,14 @@ comm.Recv(mydata, source = 0, MPI.ANY_TAG, status = status)
 32. Explain if the following MPI code segment is correct or not, and why:
 
 Process 0 executes:
+
 ~~~
 comm.Recv(yourdata, source = 1, tag = 0, status = status)
 comm.Send(mydata, des = 1, tag = 0)
 ~~~
+
 Process 1 executes:
+
 ~~~
 comm.Recv(yourdata, source = 0, tag = 0, status = status)
 comm.Send(mydata, des = 0, tag = 0)
@@ -120,4 +129,4 @@ comm.Send(mydata, des = 0, tag = 0)
 
 34. Understand and be able to read/trace through all codes discussed in class lectures.
 
-35. Understand the principles of the communication tree among the processes in divide-and-conquer problems. 
+35. Understand the principles of the communication tree among the processes in divide-and-conquer problems.
