@@ -186,9 +186,11 @@ Students with disabilities needing accommodations should make an appointment wit
 -   [Scheduling on cluster of computers](L23_Scheduling.pdf)
 
 20. [Friday, September 30]()
+-   [Introduction to Big Data and Data Intensive Computing](BigData_Overview_FA2016.pdf)
 -   **Assignment 4 Due**
 
-21. [Monday, October 3: Review]()
+21. Monday, October 3:
+-   [Midterm Review](midterm-review.html)
 
 22. **Wednesday, October 5: Midterm Exam**
 

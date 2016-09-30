@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <title></title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
+    <meta charset="UTF-8" />
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body class="lesson">
+    <div class="container card">
+      <div class="banner">
+        <a href="http://citi.clemson.edu" title="Software Carpentry">
+          <img alt="Software Carpentry banner" src="img/paw.gif" width="100px" height="auto" />
+        </a>
+      </div>
+      <article>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+                    <h1 class="title"></h1>
+          <ol style="list-style-type: decimal">
+<li><p>Give an example of demand for computation speed</p></li>
+<li><p>In a sentence, define speedup</p></li>
+<li><p>In a sentence, define efficiency</p></li>
+<li><p>Describe two limiting factors in achieving maximum parallelism</p></li>
+<li><p>Describe linear speedup? What types of applications will exhibit linear speedup?</p></li>
+<li><p>What is superlinear speedup? What can cause superlinear speedup?</p></li>
+<li><p>In a sentence, define Amdahl’s Law. Give the equation for Amdahl’s Law.</p></li>
+<li><p>Suppose that I get a speedup of 8 when I run my application on 10 processors. According to Amdahl’s Law, what portion is serial? What is the speedup on 20 processors? What is the efficiency? What is the best speedup that I could hope for?</p></li>
+<li><p>Suppose that 4% of my application is serial. What is my predicted speedup according to Amdahl’s Law on 5 processors?</p></li>
+<li>For each of the following type of parallel computers, briefly describe its architecture, provide its schematic, and name a programming model</li>
+</ol>
+<ul>
+<li>SIMD</li>
+<li>Shared memory</li>
+<li>Distributed memory – message passing</li>
+<li>Distributed shared memory</li>
+</ul>
+<ol start="11" style="list-style-type: decimal">
+<li><p>Briefly describe the three benchmarking procedures: LINPACK, HPCC, SHOC</p></li>
+<li><p>Briefly describe the three supercomputing rankings: TOP500, GREEN500, GRAPH500</p></li>
+<li><p>Give the command to load the gcc compiler version 5.3.0 and the openmpi library version 10.3.1 into your environment</p></li>
+<li><p>In MPI, a blocking message returns when?</p></li>
+<li><p>How can a message-passing routine return before the message transfer is complete?</p></li>
+<li><p>What is a message tag?</p></li>
+<li><p>What is an MPI communicator? What is the purpose of the communicator?</p></li>
+<li><p>In MPI, what is a process rank? What routine do you use to determine a process rank?</p></li>
+<li><p>True or false: In MPI you set the number of processes when you write the source code.</p></li>
+<li><p>Explain the basic functionality of the collective calls Bcast, Scatter, Gather, Barrier, Reduce, and how they are the same or different from each other.</p></li>
+<li><p>With a short sentence, describe the role of MPI.COMM_WORLD</p></li>
+<li><p>What is “Pleasantly Parallel?” List two characteristics of pleasantly parallel</p></li>
+<li><p>Describe three workload assignment approaches for pleasantly parallel using a few sentences for each approach</p></li>
+<li><p>How do the worker processes know when to terminate in the dynamic workload assignment model?</p></li>
+<li><p>With a short sentence each, describe the two basic partitioning approaches in parallel programming.</p></li>
+<li><p>A scientist wants to calculate the sum of 8,192 integers. The scientist has a 16-cores CPU that takes 0.1ns to transfer one integer from one core to another. Construct a tree that describes the divide-and-conquer process to calculate the sum. Calculate the communication time the “divide” period and the communication time for the “conquer” period.</p></li>
+<li><p>Given 8 processes ranked 0 through 7, sort the following array of integers in ascending order using the odd-even transposition sorting process. You should clearly indicate which integers belong to which process at every single stage of the sorting process. [13, 7, 14, 11, 10, 4, 15, 12, 3, 6, 16, 1, 2, 8, 9, 5]</p></li>
+<li><p>Be prepared to answer programming questions of the following type:</p></li>
+</ol>
+<ul>
+<li>Using only MPI_Send and MPI_Recv, implement MPI_Reduce.</li>
+<li>Using only MPI_Send and MPI_Recv, implement MPI_Scatter.</li>
+<li>Using only MPI_Send and MPI_Recv, implement MPI_Gather.</li>
+<li>Using only MPI_Send and MPI_Recv, implement MPI_Alltoall.</li>
+</ul>
+<ol start="29" style="list-style-type: decimal">
+<li>Suppose the following is run with 3 processes, with rank 0, 1, and 2, respectively. What are the values of x, y, and z in each process after the code has been executed?</li>
+</ol>
+<pre><code>comm = MPI.COMM_WORLD
+if rank == 0:
+  x=0; y=1; z=2;
+  comm.Bcast(x, root = 0)
+  comm.Send(y, des = 2, tag = 43)
+  comm.Bcast(z, root = 1)
+if rank == 1:  
+  x=3, y=4, z=5;
+  comm.Bcast(x, root = 0)
+  comm.Bcast(y, root = 1)
+if rank == 2:
+  x=6; y=7; z=8;
+  comm.Bcast(z, root = 0)
+  comm.Recv(x, source = 0, tag = 43, status=status)
+  comm.Bcast(y, root = 1)</code></pre>
+<ol start="30" style="list-style-type: decimal">
+<li><p>Explain if the following MPI code segment is correct or not, and why: Process 0 executes: <sub>~</sub> comm.Bcast(mydata, root = 0) <sub>~</sub> All other processes: <sub>~</sub> comm.Bcast(yourdata, root = 0) <sub>~</sub></p></li>
+<li><p>Explain if the following MPI code segment is correct or not, and why: Process 0 executes: <sub>~</sub> comm.Bcast(mydata, root = 0) <sub>~</sub> All other processes: <sub>~</sub> comm.Recv(mydata, source = 0, MPI.ANY_TAG, status = status) <sub>~</sub></p></li>
+<li><p>Explain if the following MPI code segment is correct or not, and why:</p></li>
+</ol>
+<p>Process 0 executes: <sub>~</sub> comm.Recv(yourdata, source = 1, tag = 0, status = status) comm.Send(mydata, des = 1, tag = 0) <sub>~</sub> Process 1 executes: <sub>~</sub> comm.Recv(yourdata, source = 0, tag = 0, status = status) comm.Send(mydata, des = 0, tag = 0) <sub>~</sub></p>
+<ol start="33" style="list-style-type: decimal">
+<li><p>Give an example of a master/slave computation using MPI-like pseudocode.</p></li>
+<li><p>Understand and be able to read/trace through all codes discussed in class lectures.</p></li>
+<li><p>Understand the principles of the communication tree among the processes in divide-and-conquer problems.</p></li>
+</ol>
+        </div>
+      </div>
+      </article>
+      <div class="footer">
+        <a class="label clemson-orange" href="http://citi.clemson.edu">CITI</a>
+        <a class="label clemson-orange" href="https://github.com/clemsoncoe/hpc-workshop">Source</a>
+        <a class="label clemson-orange" href="mailto:atrikut@clemson.edu">Contact</a>
+        <a class="label clemson-orange" href="LICENSE.html">License</a>
+      </div>
+    </div>
+    <!-- Javascript placed at the end of the document so the pages load faster -->
+    <script src="http://software-carpentry.org/v5/js/jquery-1.9.1.min.js"></script>
+    <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
+  </body>
+</html>
