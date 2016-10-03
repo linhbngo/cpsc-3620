@@ -49,8 +49,6 @@
 <li><p>Briefly describe the three benchmarking procedures: LINPACK, HPCC, SHOC</p></li>
 <li><p>Briefly describe the three supercomputing rankings: TOP500, GREEN500, GRAPH500</p></li>
 <li><p>Give the command to load the gcc compiler version 5.3.0 and the openmpi library version 10.3.1 into your environment</p></li>
-<li><p>In MPI, a blocking message returns when?</p></li>
-<li><p>How can a message-passing routine return before the message transfer is complete?</p></li>
 <li><p>What is a message tag?</p></li>
 <li><p>What is an MPI communicator? What is the purpose of the communicator?</p></li>
 <li><p>In MPI, what is a process rank? What routine do you use to determine a process rank?</p></li>
@@ -71,7 +69,7 @@
 <li>Using only MPI_Send and MPI_Recv, implement MPI_Gather.</li>
 <li>Using only MPI_Send and MPI_Recv, implement MPI_Alltoall.</li>
 </ul>
-<ol start="29" style="list-style-type: decimal">
+<ol start="27" style="list-style-type: decimal">
 <li>Suppose the following is run with 3 processes, with rank 0, 1, and 2, respectively. What are the values of x, y, and z in each process after the code has been executed?</li>
 </ol>
 <pre><code>comm = MPI.COMM_WORLD
@@ -89,19 +87,19 @@ if rank == 2:
   comm.Bcast(z, root = 0)
   comm.Recv(x, source = 0, tag = 43, status=status)
   comm.Bcast(y, root = 1)</code></pre>
-<ol start="30" style="list-style-type: decimal">
+<ol start="28" style="list-style-type: decimal">
 <li>Explain if the following MPI code segment is correct or not, and why: Process 0 executes:</li>
 </ol>
 <pre><code>comm.Bcast(mydata, root = 0)</code></pre>
 <p>All other processes:</p>
 <pre><code>comm.Bcast(yourdata, root = 0)</code></pre>
-<ol start="31" style="list-style-type: decimal">
+<ol start="29" style="list-style-type: decimal">
 <li>Explain if the following MPI code segment is correct or not, and why: Process 0 executes:</li>
 </ol>
 <pre><code>comm.Bcast(mydata, root = 0)</code></pre>
 <p>All other processes:</p>
 <pre><code>comm.Recv(mydata, source = 0, MPI.ANY_TAG, status = status)</code></pre>
-<ol start="32" style="list-style-type: decimal">
+<ol start="30" style="list-style-type: decimal">
 <li>Explain if the following MPI code segment is correct or not, and why:</li>
 </ol>
 <p>Process 0 executes:</p>
@@ -110,10 +108,12 @@ comm.Send(mydata, des = 1, tag = 0)</code></pre>
 <p>Process 1 executes:</p>
 <pre><code>comm.Recv(yourdata, source = 0, tag = 0, status = status)
 comm.Send(mydata, des = 0, tag = 0)</code></pre>
-<ol start="33" style="list-style-type: decimal">
+<ol start="31" style="list-style-type: decimal">
 <li><p>Give an example of a master/slave computation using MPI-like pseudocode.</p></li>
 <li><p>Understand and be able to read/trace through all codes discussed in class lectures.</p></li>
 <li><p>Understand the principles of the communication tree among the processes in divide-and-conquer problems.</p></li>
+<li><p>What are the four main characteristics of Parallel File Systems?</p></li>
+<li><p>What are the two main differences between block-based and object-based parallel file systems?</p></li>
 </ol>
         </div>
       </div>

@@ -28,42 +28,38 @@
 
 13. Give the command to load the gcc compiler version 5.3.0 and the openmpi library version 10.3.1 into your environment
 
-14. In MPI, a blocking message returns when?
+14. What is a message tag?
 
-15. How can a message-passing routine return before the message transfer is complete?
+15. What is an MPI communicator?  What is the purpose of the communicator?
 
-16. What is a message tag?
+16. In MPI, what is a process rank? What routine do you use to determine a process rank?
 
-17. What is an MPI communicator?  What is the purpose of the communicator?
+17. True or false:  In MPI you set the number of processes when you write the source code.
 
-18. In MPI, what is a process rank? What routine do you use to determine a process rank?
+18. Explain the basic functionality of the collective calls Bcast, Scatter, Gather, Barrier, Reduce, and how they are the same or different from each other.
 
-19. True or false:  In MPI you set the number of processes when you write the source code.
+19. With a short sentence, describe the role of MPI.COMM_WORLD
 
-20. Explain the basic functionality of the collective calls Bcast, Scatter, Gather, Barrier, Reduce, and how they are the same or different from each other.
+20. What is “Pleasantly Parallel?” List two characteristics of pleasantly parallel
 
-21. With a short sentence, describe the role of MPI.COMM_WORLD
+21. Describe three workload assignment approaches for pleasantly parallel using a few sentences for each approach
 
-22. What is “Pleasantly Parallel?” List two characteristics of pleasantly parallel
+22. How do the worker processes know when to terminate in the dynamic workload assignment model?
 
-23. Describe three workload assignment approaches for pleasantly parallel using a few sentences for each approach
+23. With a short sentence each, describe the two basic partitioning approaches in parallel programming.
 
-24. How do the worker processes know when to terminate in the dynamic workload assignment model?
+24. A scientist wants to calculate the sum of 8,192 integers. The scientist has a 16-cores CPU that takes 0.1ns to transfer one integer from one core to another. Construct a tree that describes the divide-and-conquer process to calculate the sum. Calculate the communication time the “divide” period and the communication time for the “conquer” period.
 
-25. With a short sentence each, describe the two basic partitioning approaches in parallel programming.
+25. Given 8 processes ranked 0 through 7, sort the following array of integers in ascending order using the odd-even transposition sorting process. You should clearly indicate which integers belong to which process at every single stage of the sorting process. [13, 7, 14, 11, 10, 4, 15, 12, 3, 6, 16, 1, 2, 8, 9, 5]
 
-26. A scientist wants to calculate the sum of 8,192 integers. The scientist has a 16-cores CPU that takes 0.1ns to transfer one integer from one core to another. Construct a tree that describes the divide-and-conquer process to calculate the sum. Calculate the communication time the “divide” period and the communication time for the “conquer” period.
-
-27. Given 8 processes ranked 0 through 7, sort the following array of integers in ascending order using the odd-even transposition sorting process. You should clearly indicate which integers belong to which process at every single stage of the sorting process. [13, 7, 14, 11, 10, 4, 15, 12, 3, 6, 16, 1, 2, 8, 9, 5]
-
-28. Be prepared to answer programming questions of the following type:       
+26. Be prepared to answer programming questions of the following type:       
 
 - Using only MPI_Send and MPI_Recv, implement MPI_Reduce.
 - Using only MPI_Send and MPI_Recv, implement MPI_Scatter.
 - Using only MPI_Send and MPI_Recv, implement MPI_Gather.
 - Using only MPI_Send and MPI_Recv, implement MPI_Alltoall.
 
-29. Suppose the following is run with 3 processes, with rank 0, 1, and 2, respectively. What are the values of x, y, and z in each process after the code has been executed?
+27. Suppose the following is run with 3 processes, with rank 0, 1, and 2, respectively. What are the values of x, y, and z in each process after the code has been executed?
 
 ~~~
 comm = MPI.COMM_WORLD
@@ -83,7 +79,7 @@ if rank == 2:
   comm.Bcast(y, root = 1)
 ~~~
 
-30. Explain if the following MPI code segment is correct or not, and why:
+28. Explain if the following MPI code segment is correct or not, and why:
 Process 0 executes:
 
 ~~~
@@ -96,7 +92,7 @@ All other processes:
 comm.Bcast(yourdata, root = 0)
 ~~~
 
-31. Explain if the following MPI code segment is correct or not, and why:
+29. Explain if the following MPI code segment is correct or not, and why:
 Process 0 executes:
 
 ~~~
@@ -109,7 +105,7 @@ All other processes:
 comm.Recv(mydata, source = 0, MPI.ANY_TAG, status = status)
 ~~~
 
-32. Explain if the following MPI code segment is correct or not, and why:
+30. Explain if the following MPI code segment is correct or not, and why:
 
 Process 0 executes:
 
@@ -125,8 +121,12 @@ comm.Recv(yourdata, source = 0, tag = 0, status = status)
 comm.Send(mydata, des = 0, tag = 0)
 ~~~
 
-33. Give an example of a master/slave computation using MPI-like pseudocode.
+31. Give an example of a master/slave computation using MPI-like pseudocode.
 
-34. Understand and be able to read/trace through all codes discussed in class lectures.
+32. Understand and be able to read/trace through all codes discussed in class lectures.
 
-35. Understand the principles of the communication tree among the processes in divide-and-conquer problems.
+33. Understand the principles of the communication tree among the processes in divide-and-conquer problems.
+
+34. What are the four main characteristics of Parallel File Systems?
+
+35. What are the two main differences between block-based and object-based parallel file systems?
