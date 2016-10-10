@@ -194,9 +194,11 @@ Students with disabilities needing accommodations should make an appointment wit
 
 22. **Wednesday, October 5: Midterm Exam**
 
-23. [Friday, October 7: Introduction to Big Data and Data Intensive Computing]()
+23. Friday, October 7:
+-   Assignment Discussion
 
-24. [Monday, October 10: Hadoop Distributed File System (HDFS)]()
+24. Monday, October 10:
+-   [Hadoop Distributed File System (HDFS)](hadoop-hdfs.html)
 
 25. [Wednesday, October 12: Introduction to Cypress]()
 
