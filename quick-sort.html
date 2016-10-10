@@ -171,9 +171,50 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Quick-Sort"><center>Quick Sort</center><a class="anchor-link" href="#Quick-Sort">&#182;</a></h2><h3 id="-Linh-B.-Ngo-"><center> Linh B. Ngo </center><a class="anchor-link" href="#-Linh-B.-Ngo-">&#182;</a></h3><h3 id="-CPSC-3620-"><center> CPSC 3620 </center><a class="anchor-link" href="#-CPSC-3620-">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>Very popular sequential sorting algorithm that performs well with average sequential time complexity of O(nlogn).</p>
+</li>
+<li><p>First list divided into two sublists.</p>
+</li>
+<li><p>All numbers in one sublist arranged to be smaller than all numbers in other sublist.</p>
+</li>
+<li><p>Achieved by first selecting one number, called a pivot, against which every other number is compared. If number less than pivot, it is placed in one sublist,  otherwise, placed in other sublist.</p>
+</li>
+<li><p>Pivot could be any number in list, but often first number chosen. Pivot itself placed in one sublist, or separated and placed in its final position.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<center> <img src="pictures/quicksort1.png" width="700"/> 
+<sub>Wilkinson, Barry, and Michael Allen. Parallel programming. 2nd Ed. 2003. </sub>
+</center>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">ipyparallel</span>
@@ -191,7 +232,7 @@ div#notebook {
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[0, 1, 2, 3]
+<pre>[0, 1, 2, 3, 4, 5, 6, 7]
 </pre>
 </div>
 </div>
@@ -202,7 +243,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
@@ -211,156 +252,126 @@ from mpi4py import MPI
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank(); size = comm.Get_size(); status = MPI.Status();
 N = 16
+HAS = 1
+HASNOT = 0
 unsorted = np.zeros(N, dtype=&quot;int&quot;)
 final_sorted = np.zeros(N, dtype=&quot;int&quot;)
-local_array = np.zeros(int(N / size), dtype=&quot;int&quot;)
-local_tmp = np.zeros(int(N / size), dtype=&quot;int&quot;)
-local_remain = np.zeros(2 * int(N / size), dtype=&quot;int&quot;)
+local_array = None
+local_tmp = None
+local_tmp_size = np.zeros(1,dtype=&quot;int&quot;)
 
 if rank == 0:
     unsorted = np.random.randint(low=0,high=N,size=N)
     print (unsorted)
-comm.Scatter(unsorted, local_array, root = 0)
+    local_array = unsorted
 
-
-
-int * merge(int *v1, int n1, int *v2, int n2);
-void swap(int *v, int i, int j);
-void qsort(int *v, int left, int right);
-
-
-void swap(int *v, int i, int j)
-{
-	int t;
-	t = v[i];
-	v[i] = v[j];
-	v[j] = t;
-}
-
-void qsort(int *v, int left, int right)
-{
-	int i,last;
-	if(left&gt;=right)
-		return;
-	swap(v,left,(left+right)/2);
-	last = left;
-	for(i=left+1;i&lt;=right;i++)
-		if(v[i]&lt;v[left])
-			swap(v,++last,i);
-	swap(v,left,last);
-	qsort(v,left,last-1);
-	qsort(v,last+1,right);
-}
-
-main(int argc, char **argv)
-{
-	int * data;
-	int * chunk;
-	int * other;
-	int m,n=N;
-	int id,p;
-	int s;
-	int i;
-	int step;
-	MPI_Status status;
-
-	startTime = clock();
-
-	MPI_Init(&amp;argc,&amp;argv);
-	MPI_Comm_rank(MPI_COMM_WORLD,&amp;id);
-	MPI_Comm_size(MPI_COMM_WORLD,&amp;p);
-
-	showElapsed(id,&quot;MPI setup complete&quot;);
-
-	if(id==0)
-	{
-		int r;
-		srandom(clock());
-		
-		s = n/p;
-		r = n%p;
-		data = (int *)malloc((n+s-r)*sizeof(int));
-		for(i=0;i&lt;n;i++)
-			data[i] = random();
-		if(r!=0)
-		{
-			for(i=n;i&lt;n+s-r;i++)
-				data[i]=0;
-			s=s+1;
-		}
-		showElapsed(id,&quot;generated the random numbers&quot;);
-
-		MPI_Bcast(&amp;s,1,MPI_INT,0,MPI_COMM_WORLD);
-		chunk = (int *)malloc(s*sizeof(int));
-		MPI_Scatter(data,s,MPI_INT,chunk,s,MPI_INT,0,MPI_COMM_WORLD);
-
-		showElapsed(id,&quot;scattered data&quot;);
-
-		qsort(chunk,0,s-1);
-
-		showElapsed(id,&quot;sorted&quot;);
-	}
-	else
-	{
-		MPI_Bcast(&amp;s,1,MPI_INT,0,MPI_COMM_WORLD);
-		chunk = (int *)malloc(s*sizeof(int));
-		MPI_Scatter(data,s,MPI_INT,chunk,s,MPI_INT,0,MPI_COMM_WORLD);
-
-		showElapsed(id,&quot;got data&quot;);
-
-		qsort(chunk,0,s-1);
-
-		showElapsed(id,&quot;sorted&quot;);
-	}
-
-	step = 1;
-	while(step&lt;p)
-	{
-		if(id%(2*step)==0)
-		{
-			if(id+step&lt;p)
-			{
-				MPI_Recv(&amp;m,1,MPI_INT,id+step,0,MPI_COMM_WORLD,&amp;status);
-				other = (int *)malloc(m*sizeof(int));
-				MPI_Recv(other,m,MPI_INT,id+step,0,MPI_COMM_WORLD,&amp;status);
-				showElapsed(id,&quot;got merge data&quot;);
-				chunk = merge(chunk,s,other,m);
-				showElapsed(id,&quot;merged data&quot;);
-				s = s+m;
-			} 
-		}
-		else
-		{
-			int near = id-step;
-			MPI_Send(&amp;s,1,MPI_INT,near,0,MPI_COMM_WORLD);
-			MPI_Send(chunk,s,MPI_INT,near,0,MPI_COMM_WORLD);
-			showElapsed(id,&quot;sent merge data&quot;);
-			break;
-		}
-		step = step*2;
-	}
-	if(id==0)
-	{
-		FILE * fout;
-
-		stopTime = clock();
-		printf(&quot;%d; %d processors; %f secs\n&quot;, s,p,(stopTime-startTime)/CLOCKS_PER_SEC);
-
-		showElapsed(id,&quot;opening out file&quot;);
-		fout = fopen(&quot;result&quot;,&quot;w&quot;);
-		for(i=0;i&lt;s;i++)
-			fprintf(fout,&quot;%d\n&quot;,chunk[i]);
-		fclose(fout);
-		showElapsed(id,&quot;closed out file&quot;);
-	}
-	MPI_Finalize();
-}
+distance = size / 2
+print (&quot;Rank: &quot;, rank)
+while (distance &gt;= 1):
+    if (rank % distance == 0 and (rank / distance) % 2 == 0):
+        print (&quot;Rank &quot;, rank, &quot; send to &quot;, rank + distance)
+        if (local_array is not None):
+            if local_array.size == 1 or np.unique(local_array).size == 1:
+                comm.Send(local_array[0], dest = rank + distance, tag = HASNOT)
+            else:
+            #    print (&quot;median is &quot;, np.median(local.array))
+                local_tmp = local_array[local_array &gt; np.median(local_array)]
+                comm.Send(np.full(shape = 1, fill_value = local_tmp.size, dtype=&quot;int&quot;), dest = rank + distance, tag = HAS)
+                comm.Send(local_tmp, dest = rank + distance, tag = HAS)
+                local_array = local_array[local_array &lt;= np.median(local_array)]
+        else:
+            comm.Send(np.zeros(1,dtype=&quot;int&quot;), rank + distance, tag = HASNOT)
+    elif (rank % distance == 0 and (rank / distance) % 2 == 1):
+        comm.Recv(local_tmp_size, source = rank - distance, tag = MPI.ANY_TAG, status = status)
+        if status.Get_tag() == HASNOT:
+            continue
+        else:
+            local_array = np.zeros(local_tmp_size[0], dtype=&quot;int&quot;)
+            comm.Recv(local_array, source = rank - distance, tag = MPI.ANY_TAG, status = status)
+    distance /= 2
+#    print (local_array)
+    
+local_array.sort()
+print (local_array)
 </pre></div>
 
 </div>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[stdout:0] 
+Rank:  5
+[10 10]
+[stdout:1] 
+Rank:  1
+[3 3]
+[stdout:2] 
+Rank:  7
+[15]
+[stdout:3] 
+Rank:  3
+[]
+[stdout:4] 
+[ 2  5  6  4 10  3  5  9 12 10  3 15  5  2  0  0]
+Rank:  0
+Rank  0  send to  4.0
+Rank  0  send to  2.0
+Rank  0  send to  1.0
+[0 0 2 2]
+[stdout:5] 
+Rank:  2
+Rank  2  send to  3.0
+[4 5 5 5]
+[stdout:6] 
+Rank:  6
+Rank  6  send to  7.0
+[12]
+[stdout:7] 
+Rank:  4
+Rank  4  send to  6.0
+Rank  4  send to  5.0
+[6 9]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4><center> Sorting Conclusions</h4>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Computational time complexity using n processors</strong></p>
+<ul>
+<li><p>Odd-even transposition sort - O(n)</p>
+</li>
+<li><p>Parallel mergesort - O(n) but unbalanced processor load and communication</p>
+</li>
+<li><p>Parallel quicksort - O(n) but unbalanced processor load, and communication, can degenerate to O(n2)</p>
+</li>
+</ul>
+
+</div>
+</div>
 </div>
     </div>
   </div>

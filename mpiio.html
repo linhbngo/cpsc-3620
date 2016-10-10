@@ -180,6 +180,371 @@ div#notebook {
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="-Common-Ways-of-Doing-I/O-in-Parallel-Programs-"><center> Common Ways of Doing I/O in Parallel Programs </center><a class="anchor-link" href="#-Common-Ways-of-Doing-I/O-in-Parallel-Programs-">&#182;</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>All processes send data to rank 0, and 0 writes it to the file</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<center> <img src="pictures/mpiio1.png" width="700"/> 
+</center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Pros:<ul>
+<li>parallel machine may support I/O from only one process (e.g., no common file system)</li>
+<li>some I/O libraries (e.g. HDF-4, NetCDF) not parallel</li>
+<li>resulting single file is handy for ftp, mv</li>
+<li>big blocks improve performance</li>
+<li>short distance from original, serial code</li>
+</ul>
+</li>
+<li>Cons:<ul>
+<li>lack of parallelism limits scalability, performance (single node bottleneck)</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Each process writes to a separate file</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<center> <img src="pictures/mpiio2.png" width="700"/> 
+</center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Pros: <ul>
+<li>parallelism, high performance</li>
+</ul>
+</li>
+<li>Cons:  <ul>
+<li>lots of small files to manage</li>
+<li>difficult to read back data from different number of processes</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="MPI-IO-Approach"><center>MPI-IO Approach</center><a class="anchor-link" href="#MPI-IO-Approach">&#182;</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong> What is Parallel I/O? </strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Multiple processes of a parallel program accessing data (reading or writing) from a common file</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<center> <img src="pictures/mpiio3.png" width="700"/> 
+</center>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong> Why Parallel I/O? </strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Non-parallel I/O is simple but<ul>
+<li>Poor performance (single process writes to one file) or</li>
+<li>Awkward and not interoperable with other tools (each process writes a separate file)</li>
+</ul>
+</li>
+<li>Parallel I/O<ul>
+<li>Provides high performance</li>
+<li>Can provide a single file that can be used with other tools (such as visualization programs)</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong> Why is MPI a good setting for Parallel I/O? </strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Writing is like sending a message and reading is like receiving</li>
+<li>Any parallel I/O system will need a mechanism to<ul>
+<li>define collective operations (MPI communicators)</li>
+<li>define noncontiguous data layout in memory and file (MPI datatypes)</li>
+<li>test completion of nonblocking operations (MPI request objects)</li>
+</ul>
+</li>
+<li>i.e., lots of MPI-like machinery</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Four stages<ul>
+<li>Open File</li>
+<li>Set File View (optional)</li>
+<li>Read or Write Data</li>
+<li>Close File</li>
+</ul>
+</li>
+<li>All the complexity is hidden in setting the file view</li>
+<li>Write is probably more important in practice than read</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong> Opening a File (C Syntax) </strong></p>
+
+<pre><code>int MPI_File_open(MPI_Comm comm, const char *filename, int amode, MPI_Info info, MPI_File *fh)</code></pre>
+<ul>
+<li>amode     File access mode (integer)</li>
+<li>info         Info object (handle)</li>
+<li>fh         New file handle (handle)</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>MPI_File_open opens the file identified by the filename filename on all processes in the comm communicator group. </li>
+<li>MPI_File_open is a collective routine; all processes must provide the same value for amode, and all processes must provide filenames that reference the same file and which are textually identical. A process can open a file independently of other processes by using the MPI_COMM_SELF communicator. </li>
+<li>The file handle returned, fh, can be subsequently used to access the file until the file is closed using MPI_File_close. Before calling MPI_Finalize, the user is required to close (via MPI_File_close) all files that were opened with MPI_File_open. </li>
+<li>Initially, all processes view the file as a linear byte stream; that is, the etype and filetype are both MPI_BYTE. The file view can be changed via the MPI_File_set_view routine.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>MPI_MODE_APPEND </li>
+<li>MPI_MODE_CREATE -- Create the file if it does not exist. </li>
+<li>MPI_MODE_DELETE_ON_CLOSE </li>
+<li>MPI_MODE_EXCL -- Error creating a file that already exists. </li>
+<li>MPI_MODE_RDONLY -- Read only. </li>
+<li>MPI_MODE_RDWR -- Reading and writing. </li>
+<li>MPI_MODE_SEQUENTIAL </li>
+<li>MPI_MODE_WRONLY -- Write only. </li>
+<li>MPI_MODE_UNIQUE_OPEN</li>
+</ul>
+<p>The modes MPI_MODE_RDONLY, MPI_MODE_RDWR, MPI_MODE_WRONLY, and MPI_MODE_CREATE have identical semantics to their POSIX counterparts. It is erroneous to specify MPI_MODE_CREATE in conjunction with MPI_MODE_RDONLY. Errors related to the access mode are raised in the class MPI_ERR_AMODE.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong> Set File View (C Syntax) </strong></p>
+
+<pre><code>int MPI_File_set_view(MPI_File fh, MPI_Offset disp, MPI_Datatype etype, MPI_Datatype filetype, const char *datarep, MPI_Info info)</code></pre>
+<ul>
+<li>disp Displacement (integer).</li>
+<li>etype Elementary data type (handle).</li>
+<li>filetype File type (handle). See Restrictions, below.</li>
+<li>datarep Data representation (string).</li>
+<li>info Info object (handle).</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The MPI_File_set_view routine changes the process’s view of the data in the file:</p>
+<ul>
+<li>the beginning of the data accessible in the file through that view is set to disp</li>
+<li>the type of data is set to etype; and the distribution of data to processes is set to filetype. </li>
+<li>resets the independent file pointers and the shared file pointer to zero. </li>
+<li>is collective across the fh; all processes in the group must pass identical values for datarep and provide an etype with an identical extent. </li>
+<li>the values for disp, filetype, and info may vary. </li>
+<li>he disp displacement argument specifies the position (absolute offset in bytes from the beginning of the file) where the view begins.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong> Reading a File (C Syntax) </strong></p>
+
+<pre><code>int MPI_File_read(MPI_File fh, void *buf,  int count, MPI_Datatype datatype, MPI_Status *status)</code></pre>
+<ul>
+<li>fh File handle (handle).</li>
+<li>count Number of elements in buffer (integer).</li>
+<li>datatype Data type of each buffer element (handle).</li>
+<li>buf Initial address of buffer (integer).</li>
+<li>status Status object (status).</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong> Reading a File (C Syntax) </strong></p>
+
+<pre><code>int MPI_File_seek(MPI_File fh, MPI_Offset offset, int whence)</code></pre>
+<ul>
+<li>fh File handle (handle).</li>
+<li>offset File offset (integer).</li>
+<li>whence Update mode (integer).</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>MPI_File_seek updates the individual file pointer according to whence, which could have the following possible values:</p>
+<ul>
+<li>MPI_SEEK_SET - The pointer is set to offset. </li>
+<li>MPI_SEEK_CUR - The pointer is set to the current pointer position plus offset. </li>
+<li>MPI_SEEK_END - The pointer is set to the end of the file plus offset.</li>
+</ul>
+<p>The offset can be negative, which allows seeking backwards. It is erroneous to seek to a negative position in the file. The end of the file is defined to be the location of the next elementary data item immediately after the last accessed data item, even if that location is a hole.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong> Closing a File (C Syntax) </strong></p>
+
+<pre><code>MPI_File_close(MPI_File *fh)</code></pre>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
@@ -269,16 +634,12 @@ if (rank == 0):
 <div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">px</span>
 from mpi4py import MPI
 import numpy as np
-
 comm = MPI.COMM_WORLD
-rank = comm.Get_rank()
-size = comm.Get_size()
+rank = comm.Get_rank();size = comm.Get_size();
 
 amode = MPI.MODE_WRONLY|MPI.MODE_CREATE
 fh = MPI.File.Open(comm, &quot;./datafile.noncontig&quot;, amode)
-
 item_count = 10
-
 buffer = np.empty(item_count, dtype=&#39;i&#39;)
 buffer[:] = rank
 print (buffer)
@@ -322,18 +683,64 @@ if (rank == 0):
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="-Under-the-Covers-of-MPI-IO-"><center> Under the Covers of MPI-IO </center><a class="anchor-link" href="#-Under-the-Covers-of-MPI-IO-">&#182;</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>MPI-IO implementation is given a lot of information in this case:<ul>
+<li>Collection of processes reading data</li>
+<li>Structured description of the regions</li>
+</ul>
+</li>
+<li>Implementation has some options for how to obtain this data<ul>
+<li>Noncontiguous data access optimizations</li>
+<li>Collective I/O optimizations</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre> 
+<div class=" highlight hl-ipython3"><pre><span class="c1">#### &lt;center&gt; General Guidelines for Achieving High I/O Performance &lt;/center&gt;</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Buy sufficient I/O hardware for the machine</li>
+<li>Use fast file systems, not NFS-mounted home directories</li>
+<li>Do not perform I/O from one process only</li>
+<li>Make large requests wherever possible</li>
+<li>For noncontiguous requests, use derived datatypes and a single collective I/O call</li>
+</ul>
+
+</div>
+</div>
 </div>
     </div>
   </div>
