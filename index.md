@@ -200,7 +200,8 @@ Students with disabilities needing accommodations should make an appointment wit
 24. Monday, October 10:
 -   [Hadoop Distributed File System (HDFS)](hadoop-hdfs.html)
 
-25. [Wednesday, October 12: Introduction to Cypress]()
+25. Wednesday, October 12:
+-   [Lab: Installing Hortonworks HDP on Cypress](HDFS_Palmetto.pdf)
 
 26. [Friday, October 14: HDFS Lab]()
 
