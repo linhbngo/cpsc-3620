@@ -203,27 +203,44 @@ Students with disabilities needing accommodations should make an appointment wit
 25. Wednesday, October 12:
 -   [Lab: Installing Hortonworks HDP on Cypress](HDFS_Palmetto.pdf)
 
-26. [Friday, October 14: HDFS Lab]()
+26. Friday, October 14:
+-   HDFS Lab on Cypress
 
-27. [Monday, October 17: Introduction to MapReduce Programming Paradigm]()
-28. [Wednesday, October 19: MapReduce Design Pattern]()
-29. [Friday, October 21]()
-30. [Monday, October 24: MapReduce Lab]()
-31. [Wednesday, October 26: MapReduce Lab]()
+27. Monday, October 17:
+-   HDFS Lab on Cypress (continue)
+
+28. Wednesday, October 19:
+-   Introduction to MapReduce Programming Paradigm
+
+29. Friday, October 21:
+-   Introduction to MapReduce Programming Paradigm (continue)
+
+30. Monday, October 24:
+-   Introduction to MapReduce Programming Paradigm (continue)
+
+31. Wednesday, October 26:
+-   Introduction to MapReduce Programming Paradigm (continue)
+
 32. [Friday, October 28]()
-33. [Monday, October 31: Memory-centric Distributed Computing]()
-34. [Wednesday, November 2: Spark Lab]()
-35. [Friday, November 4]()
-36. **Monday, November 7: Fall Break**
-37. [Wednesday, November 9: The Hadoop Ecosystem]()
-38. [Friday, November 11:]()
-39. Monday, November 14:
+-   MapReduce Design Pattern
 
+33. [Monday, October 31: Memory-centric Distributed Computing]()
+
+34. [Wednesday, November 2: Spark Lab]()
+
+35. [Friday, November 4]()
+
+36. **Monday, November 7: Fall Break**
+
+37. [Wednesday, November 9: The Hadoop Ecosystem]()
+
+38. [Friday, November 11:]()
+
+39. Monday, November 14:
 -   Supercomputing 2016
 -   [HPCCSystems]()
 
 40. Wednesday, November 16:
-
 -   Supercomputing 2016
 -   [HPCCSystems Lab]()
 
@@ -231,10 +248,15 @@ Students with disabilities needing accommodations should make an appointment wit
 -   Supercomputing 2016
 
 42. [Monday, November 21: Message-Oriented Middleware]()
+
 43. **Wednesday, November 23: Thanksgiving**
+
 44. **Friday, November 25: Thanksgiving**
+
 45. [Monday, November 28: Distributed Stream Processing]()
+
 46. [Wednesday, November 30]()
+
 47. [Friday, December 2: Review]()
 
 ## Acknowledgement
