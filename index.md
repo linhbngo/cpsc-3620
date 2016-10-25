@@ -220,6 +220,7 @@ Students with disabilities needing accommodations should make an appointment wit
 
 31. Wednesday, October 26:
 -   Introduction to MapReduce Programming Paradigm (continue)
+-   [Assignment 5](assignment-5.html)
 
 32. [Friday, October 28]()
 -   MapReduce Design Pattern
@@ -228,7 +229,8 @@ Students with disabilities needing accommodations should make an appointment wit
 
 34. [Wednesday, November 2: Spark Lab]()
 
-35. [Friday, November 4]()
+35. Friday, November 4:
+-   **Assignment 5 Due**
 
 36. **Monday, November 7: Fall Break**
 
