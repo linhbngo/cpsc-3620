@@ -223,7 +223,7 @@ Students with disabilities needing accommodations should make an appointment wit
 -   [Assignment 5](assignment-5.html)
 
 32. [Friday, October 28]()
--   MapReduce Design Pattern
+-   [MapReduce Design Pattern](MapReduce_DesignPatterns.pdf)
 
 33. [Monday, October 31: Memory-centric Distributed Computing]()
 
