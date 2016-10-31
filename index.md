@@ -225,7 +225,8 @@ Students with disabilities needing accommodations should make an appointment wit
 32. [Friday, October 28]()
 -   [MapReduce Design Pattern](MapReduce_DesignPatterns.pdf)
 
-33. [Monday, October 31: Memory-centric Distributed Computing]()
+33. Monday, October 31
+-   [Memory-centric Distributed Computing](Memory-centric-distrited-computing-20161030.pdf)
 
 34. [Wednesday, November 2: Spark Lab]()
 
