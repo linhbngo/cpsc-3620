@@ -228,35 +228,41 @@ Students with disabilities needing accommodations should make an appointment wit
 33. Monday, October 31
 -   [Memory-centric Distributed Computing](Memory-centric-distributed-computing-20161030.pdf)
 
-34. [Wednesday, November 2: Spark Lab]()
+34. Wednesday, November 2:
+-   Spark Lab
 
 35. Friday, November 4:
+-   Spark Lab
 -   **Assignment 5 Due**
 
 36. **Monday, November 7: Fall Break**
 
-37. [Wednesday, November 9: The Hadoop Ecosystem]()
+37. Wednesday, November 9:
+-   Spark Lab
 
 38. [Friday, November 11:]()
+-   Supercomputing 2016
+-   [HPCCSystems](HPCCSystems.pdf)
 
 39. Monday, November 14:
 -   Supercomputing 2016
--   [HPCCSystems]()
+-   [Message-oriented Middleware](CITI_MessageOrientedMiddleware.pdf)
 
 40. Wednesday, November 16:
 -   Supercomputing 2016
--   [HPCCSystems Lab]()
+-   TBD
 
-41. [Friday, November 18]()
--   Supercomputing 2016
+41. Friday, November 18:
+-   [Distributed Stream Processing]()
 
-42. [Monday, November 21: Message-Oriented Middleware]()
+42. Monday, November 21:
+-   []()
 
 43. **Wednesday, November 23: Thanksgiving**
 
 44. **Friday, November 25: Thanksgiving**
 
-45. [Monday, November 28: Distributed Stream Processing]()
+45. [Monday, November 28: ]()
 
 46. [Wednesday, November 30]()
 
