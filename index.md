@@ -239,6 +239,7 @@ Students with disabilities needing accommodations should make an appointment wit
 
 37. Wednesday, November 9:
 -   Spark Lab
+-   [Assignment 6](assignment-6.html)
 
 38. [Friday, November 11:]()
 -   Supercomputing 2016
