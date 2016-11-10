@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Assignment 6 (40 points) - Due on Friday November 23rd
+title: Assignment 6 (40 points) - Due on Wednesday November 23rd
 ---
 
 **You can work as a two-member team for this assignment**
@@ -23,4 +23,4 @@ Submission for this assignment is a compressed file containing:
 - A README document containing any assumptions that have been made for the answers.
 - If working as a team, a document that describes how the work is divided between the members of the team with justification (e.g., what each member knows and does not know about the assignment) is also required for the final email.
 
-For each group, only one submission is needed. 
+For each group, only one submission is needed.

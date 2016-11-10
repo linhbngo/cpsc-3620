@@ -247,11 +247,11 @@ Students with disabilities needing accommodations should make an appointment wit
 
 39. Monday, November 14:
 -   Supercomputing 2016
--   [Message-oriented Middleware](CITI_MessageOrientedMiddleware.pdf)
+-   Self-study day: Do your homework!
 
 40. Wednesday, November 16:
 -   Supercomputing 2016
--   TBD
+-   [Message-oriented Middleware](CITI_MessageOrientedMiddleware.pdf)
 
 41. Friday, November 18:
 -   [Distributed Stream Processing]()

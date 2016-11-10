@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="generator" content="pandoc">
-    <title>Assignment 6 (40 points) - Due on Wednesday November 23rd</title>
+    <title>Assignment 7 (30 points) - Due on Friday December 2nd</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
@@ -26,17 +26,17 @@
       <article>
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
-                    <h1 class="title">Assignment 6 (40 points) - Due on Wednesday November 23rd</h1>
+                    <h1 class="title">Assignment 7 (30 points) - Due on Friday December 2nd</h1>
           <p><strong>You can work as a two-member team for this assignment</strong></p>
-<p>For this assignment, you are to develop solutions for the following challenges that were described in the intro-to-hadoop.ipynb notebook.</p>
+<p>For this assignment, you are to develop solutions for the following challenges using a Cypress Spark notebook. Each application can be developed as a series of Jupyter cells. Make sure that you properly separate different applications via Markdown cells.</p>
+<p><strong>For all applications, demonstrate the final results by displaying the first 20 output records</strong></p>
 <ol style="list-style-type: decimal">
-<li><p>Modify the wordcount application so that punctuations and capitalization are no longer factors in determining unique words. Name the map and reduce files <em>wordcountEnhancedMapper.py</em> and <em>wordcountEnhancedReducer.py</em>.</p></li>
-<li><p>Modify the average rating application so that only movies with averaged ratings higher than 3.75 and rated at least 5000 times are collected. Name the map and reduce files <em>avgRatingFilteredMapper.py</em> and <em>avgRatingFilteredReducer.py</em>.</p></li>
-<li><p>Modify the user application to correct the error in calculating the users that that rate movies most frequently. Name the map and reduce files <em>userCorrectMapper.py</em> and <em>userCorrectReducer.py</em>.</p></li>
-<li><p>Enhance the user study from question 3 so that only users who provide frequent reviews on movies contain the genre with the highest rating (as calculated from section 2.2 in the intro-to-hadoop.ipynb notebook) are selected. Name the map and reduce files <em>userGenreMapper.py</em> and <em>userGenreReducer.py</em>.</p></li>
+<li><p>Write a WordCount application so that punctuations and capitalization are no longer factors in determining unique words.</p></li>
+<li><p>Write an application to calculate the average rating of all movies over time and filter out any movie with averaged ratings less than 3.75 or rated less than 5000 times.</p></li>
+<li><p>From the output movies of challenge 2, count the genre distribution and place these counts in descending order.</p></li>
 </ol>
 <h3 id="submission-instructions">Submission instructions:</h3>
-<p>Submission for this assignment is a compressed file containing: - The four map/reduce pairs for the questions listed above. - A README document containing any assumptions that have been made for the answers. - If working as a team, a document that describes how the work is divided between the members of the team with justification (e.g., what each member knows and does not know about the assignment) is also required for the final email.</p>
+<p>Submission for this assignment is a Cypress Spark notebook containing: - Coding cells for each application with all output displayed - If there is any README information, it should be included in a Markdown cell at the top of the notebook. - If working as a team, a final Markdown cell that describes how the work is divided between the members of the team with justification (e.g., what each member knows and does not know about the assignment) must be added to the end of the notebook.</p>
 <p>For each group, only one submission is needed.</p>
         </div>
       </div>
