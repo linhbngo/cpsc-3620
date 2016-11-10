@@ -244,6 +244,8 @@ Students with disabilities needing accommodations should make an appointment wit
 38. [Friday, November 11:]()
 -   Supercomputing 2016
 -   [HPCCSystems](HPCCSystems.pdf)
+-   [Assignment 7](assignment-7.html)
+
 
 39. Monday, November 14:
 -   Supercomputing 2016
@@ -260,6 +262,8 @@ Students with disabilities needing accommodations should make an appointment wit
 -   []()
 
 43. **Wednesday, November 23: Thanksgiving**
+-   **Assignment 6 Due**
+
 
 44. **Friday, November 25: Thanksgiving**
 
@@ -268,6 +272,7 @@ Students with disabilities needing accommodations should make an appointment wit
 46. [Wednesday, November 30]()
 
 47. [Friday, December 2: Review]()
+-   **Assignment 7 Due**
 
 ## Acknowledgement
 
