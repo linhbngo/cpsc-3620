@@ -23,7 +23,7 @@ Python's matplotlib to display a speedup graph.
 3. The original heat exchange MPI program partitions the room through a single
 dimension (room_height). Modify the code such that the room can be partitioned
 through both dimensions of the room. Repeat task 2 using the new heat exchange
-program with the two-dimensional partitioning scheme.
+program with the two-dimensional partitioning scheme and 1, 4, 16, 64 for the number of cores.
 
 4. Overlay the speedup from task 2 and 3 on the same graph. Discuss the
 differences in performance between the two partitioning schemes regarding
@@ -34,4 +34,4 @@ Submit this version of the program by emailing the notebook containing the
 all source codes and the resulting output to the TA. If you work on this assignment
 as a team, you must also include a document that describes how the work is
 divided between the members of the team (e.g., what each member knows and does
-  not know about the assignment). 
+  not know about the assignment).

@@ -33,7 +33,7 @@
 <ol style="list-style-type: decimal">
 <li><p>Modify the color printing code segment to demonstrate the dissipation of heat throughout the room over time. More specifically, modify the code such that a graphical presentation of the room’s temperature is created every 500 steps.</p></li>
 <li><p>Add timing call to the heat exchange program. Run the heat exchange program with a 2048x2048 room size and 5,000 steps on 1, 2, 4, 8, 16, 32, and 64 cores and collect the run times. Calculate the speedup for each core count and use Python’s matplotlib to display a speedup graph.</p></li>
-<li><p>The original heat exchange MPI program partitions the room through a single dimension (room_height). Modify the code such that the room can be partitioned through both dimensions of the room. Repeat task 2 using the new heat exchange program with the two-dimensional partitioning scheme.</p></li>
+<li><p>The original heat exchange MPI program partitions the room through a single dimension (room_height). Modify the code such that the room can be partitioned through both dimensions of the room. Repeat task 2 using the new heat exchange program with the two-dimensional partitioning scheme and 1, 4, 16, 64 for the number of cores.</p></li>
 <li><p>Overlay the speedup from task 2 and 3 on the same graph. Discuss the differences in performance between the two partitioning schemes regarding workload division and communication overhead.  </p></li>
 </ol>
 <h3 id="submission-instructions">Submission instructions:</h3>
