@@ -256,10 +256,10 @@ Students with disabilities needing accommodations should make an appointment wit
 -   [Message-oriented Middleware](CITI_MessageOrientedMiddleware.pdf)
 
 41. Friday, November 18:
--   [Distributed Stream Processing]()
+-   Spark Lab: SQLContext
 
 42. Monday, November 21:
--   []()
+-   [Distributed Stream Processing](distributed-stream-processing.pdf)
 
 43. **Wednesday, November 23: Thanksgiving**
 -   **Assignment 6 Due**
