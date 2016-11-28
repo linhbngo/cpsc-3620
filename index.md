@@ -267,11 +267,14 @@ Students with disabilities needing accommodations should make an appointment wit
 
 44. **Friday, November 25: Thanksgiving**
 
-45. [Monday, November 28: ]()
+45. Monday, November 28:
+-   [Data Engineering: A Hadoop-based Ecosystem](HadoopEcoSystem.pdf)
 
-46. [Wednesday, November 30]()
+46. Wednesday, November 30
+-   Assignment Discussion
 
-47. [Friday, December 2: Review]()
+47. Friday, December 2:
+-   [Review]()
 -   **Assignment 7 Due**
 
 ## Acknowledgement
