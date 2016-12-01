@@ -210,7 +210,7 @@ Students with disabilities needing accommodations should make an appointment wit
 -   HDFS Lab on Cypress (continue)
 
 28. Wednesday, October 19:
--   Introduction to MapReduce Programming Paradigm
+-   [Introduction to MapReduce Programming Paradigm](MapReduce_Lecture_FA2016.pdf)
 
 29. Friday, October 21:
 -   Introduction to MapReduce Programming Paradigm (continue)
