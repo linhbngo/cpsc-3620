@@ -274,7 +274,7 @@ Students with disabilities needing accommodations should make an appointment wit
 -   Assignment Discussion
 
 47. Friday, December 2:
--   [Review]()
+-   [Review](final-review.html)
 -   **Assignment 7 Due**
 
 ## Acknowledgement
