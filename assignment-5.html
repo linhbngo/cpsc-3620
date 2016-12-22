@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <title>Assignment 5 (40 points) - Due on Friday November 4th</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
+    <meta charset="UTF-8" />
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body class="lesson">
+    <div class="container card">
+      <div class="banner">
+        <a href="http://citi.clemson.edu" title="Software Carpentry">
+          <img alt="Software Carpentry banner" src="img/paw.gif" width="100px" height="auto" />
+        </a>
+      </div>
+      <article>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+                    <h1 class="title">Assignment 5 (40 points) - Due on Friday November 4th</h1>
+          <p><strong>You can work as a two-member team for this assignment</strong></p>
+<p>For this assignment, you are to deploy, observe, and record the behavior of Hadoop in the event of node failure.</p>
+<ol style="list-style-type: decimal">
+<li><p>Deploy a 4-node Hadoop cluster on CloudLab using instructions to setup Hortonworks’ Hadoop distribution. This Hadoop cluster will have one namenode and four datanodes. There should be no datanode-related services running on the namenode. Hadoop components to be installed include HDFS, YARN+MapReduce2, Tez, Zookeeper, and Ambari Metrics.</p></li>
+<li><p>Copy the <strong>movielens</strong> data set from the MapReduce lectures to the namenode on your Hadoop cluster and upload this dataset onto HDFS.</p></li>
+</ol>
+<p>Once this second step is completed, email the link of the Ambari Server page to the TA.</p>
+<ol start="3" style="list-style-type: decimal">
+<li><p>Using a local terminal (not the in-browser one accompanied with CloudLab), run <em>hdfs fsck</em> on the ratings.csv file and record the result on a log file.</p></li>
+<li><p>Using the Ambari interface, shut down all Hadoop services on one of the <strong>datanode</strong>. Wait for at least five minutes, then rerun <em>hdfs fsck</em> on the ratings.csv file and record the result on a second log file.  </p></li>
+</ol>
+<h3 id="submission-instructions">Submission instructions:</h3>
+<p>Submissions for this assignment include: - Initial email with link to Ambari server after steps 1 and 2 are completed. - Final email containing the two log files for steps 3 and 4. The log files should be prefixed with the last names of the members of the team (or of the submitter). - If working as a team, a document that describes how the work is divided between the members of the team with justification (e.g., what each member knows and does not know about the assignment) is also required for the final email.</p>
+<p>For each group, only one set of submissions is needed.</p>
+<h4 id="there-is-absolutely-no-late-submission-for-this-assignment.">There is absolutely no late submission for this assignment.</h4>
+        </div>
+      </div>
+      </article>
+      <div class="footer">
+        <a class="label clemson-orange" href="http://citi.clemson.edu">CITI</a>
+        <a class="label clemson-orange" href="https://github.com/clemsoncoe/hpc-workshop">Source</a>
+        <a class="label clemson-orange" href="mailto:atrikut@clemson.edu">Contact</a>
+        <a class="label clemson-orange" href="LICENSE.html">License</a>
+      </div>
+    </div>
+    <!-- Javascript placed at the end of the document so the pages load faster -->
+    <script src="http://software-carpentry.org/v5/js/jquery-1.9.1.min.js"></script>
+    <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
+  </body>
+</html>

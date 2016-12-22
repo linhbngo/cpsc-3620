@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <title></title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
+    <meta charset="UTF-8" />
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body class="lesson">
+    <div class="container card">
+      <div class="banner">
+        <a href="http://citi.clemson.edu" title="Software Carpentry">
+          <img alt="Software Carpentry banner" src="img/paw.gif" width="100px" height="auto" />
+        </a>
+      </div>
+      <article>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+                    <h1 class="title"></h1>
+          <ol style="list-style-type: decimal">
+<li><p>In a few sentences, describe a motivating example of Big Data usage in industry.</p></li>
+<li><p>In a few sentences, describe two differences between big data and data intensive computing?</p></li>
+<li><p>With a few sentences each, describe the 5Vs of Big Data.</p></li>
+<li><p>What are the five steps in parallel programming for large data?</p></li>
+<li><p>Describe the four key points in a data-intensive approach.</p></li>
+<li><p>In a few sentences, define the concept of “map” in MapReduce. What is the equivalent procedure in MPI?</p></li>
+<li><p>In a few sentences, define the concept of “reduce” in MapReduce. What is the equivalent procedure in MPI?</p></li>
+<li><p>What are the four basic functions that a programmer can implement in MapReduce Programming paradigm?</p></li>
+<li><p>Draw the diagram for MapReduce’s architectural design.</p></li>
+<li><p>What are the four hidden items that MapReduce handles for the programmer?</p></li>
+<li><p>With a few sentences, describe the two main challenges in working with the MapReduce programming paradigm.</p></li>
+<li><p>What are the three main application areas for MapReduce?</p></li>
+<li><p>What are the six design assumptions/goals of HDFS?</p></li>
+<li><p>True or False. Explain your answer.</p></li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><p>HDFS is a distributed file system with no bottleneck</p></li>
+<li><p>The Datanodes store and replicate the individual files</p></li>
+<li><p>Only the NameNode has the knowledge about where the blocks of the files are stored</p></li>
+<li><p>The NameNode populates the namespace by contacting the Datanodes and acquiring the metadata</p></li>
+<li><p>The NameNode periodically contacts the DataNodes to make sure that the DataNodes are active.</p></li>
+<li><p>Data blocks are replicated multiple times on a single Datanode with RAID support to avoid failure.</p></li>
+<li><p>When data blocks are written to HDFS, all replications of each block are written at the same time to improve performance.</p></li>
+</ol>
+<ol start="15" style="list-style-type: decimal">
+<li><p>Draw the diagram that shows the integrated relationships between NameNode, DataNodes, Resource Manager, and Node Manager.</p></li>
+<li><p>What are the five basic programming patterns for MapReduce?</p></li>
+<li><p>In a few sentences each, describe Partitioning and Binning. What is the tradeoff between these two approaches?</p></li>
+<li><p>Describe the three techniques for chain-folding.</p></li>
+<li><p>What are the target systems and target applications for Spark?</p></li>
+<li><p>What is resilient distributed dataset (RDD)? What are the three characteristics of RDD</p></li>
+<li><p>Describe two applications that are not suitable for Spark and two application that are.</p></li>
+<li><p>With a few sentences each, describe the underlying architectural concepts for Apache Tez, Apache Spark, and Tachyon.</p></li>
+<li><p>What are the performance challenges in distributed data-intensive computing that Apache Tez, Apache Spark, and Tachyon address?</p></li>
+<li><p>What are the five design assumptions for Tachyon?</p></li>
+<li><p>What are the seven key architectural details for Tachyon?</p></li>
+<li><p>What are the four major components of HPCC?</p></li>
+<li><p>What are the roles of Thor and Roxie in HPCC?</p></li>
+<li><p>List the respected components for Hadoop and HPCC regarding: a) Distributed File System, b) Database capability, c) Data warehouse, and d) Programming languages</p></li>
+<li><p>How can we differentiate between a traditional high performance computing infrastructure (e.g., Beowulf/Palmetto) and a data-intensive computing infrastructure (e.g., Hadoop)</p></li>
+<li><p>What are the seven requirements of Stream Processing Engine?</p></li>
+<li><p>Draw a figure that describes the LAMBDA architecture</p></li>
+</ol>
+<p>Be prepared to answer programming questions based on data sets and applications discussed in class for MapReduce and Spark programming models (see the codes in the notebooks and accompanying python files)</p>
+        </div>
+      </div>
+      </article>
+      <div class="footer">
+        <a class="label clemson-orange" href="http://citi.clemson.edu">CITI</a>
+        <a class="label clemson-orange" href="https://github.com/clemsoncoe/hpc-workshop">Source</a>
+        <a class="label clemson-orange" href="mailto:atrikut@clemson.edu">Contact</a>
+        <a class="label clemson-orange" href="LICENSE.html">License</a>
+      </div>
+    </div>
+    <!-- Javascript placed at the end of the document so the pages load faster -->
+    <script src="http://software-carpentry.org/v5/js/jquery-1.9.1.min.js"></script>
+    <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
+  </body>
+</html>
