@@ -13,7 +13,7 @@ The objectives of this course are to investigate issues in modern distributed pl
 >
 > 1. apply mathematical foundations, algorithmic principles, and computer science theory in the modeling and design of computer-based systems in a way that demonstrates comprehension of the tradeoffs involved in design choices,
 > 2. analyze a problem, and identify and define the computing requirements appropriate to its solution,
-> 3. apply design and development principles in the construction of software systems, and
+> 3. apply design and development principles in the construction of distributed computing systems, and
 > 4. function effectively on teams to accomplish a common goal.
 
 > ## Prerequesites {.prereq}
@@ -23,35 +23,58 @@ The objectives of this course are to investigate issues in modern distributed pl
 > 2. Familiarity with C/C++/Java.
 > 3. Introduction to Python.
 
+## Course Topics
+
+1. Introduction to Distributed Computing
+
+2. Distributed and Parallel File Systems
+
+3. Message-Passing Computing 
+
+4. Scheduling on Cluster of Computers
+
+5. Big Data and Data Intensive Computing
+
+6. Hadoop Distributed File System (HDFS)
+
+7. MapReduce Programming Paradigm
+
+8. Memory-centric Distributed Computing
+
+9. Message-oriented Middleware
+
+10. Distributed Stream Processing
+
 ## Instructional Staff
 
 -   **Instructor of Record:** Dr. Linh B. Ngo
 -   Office: 2091 Barre Hall
--   Office Hours: Wednesday 2:00 - 4:00PM or by appointment
+-   Office Hours: by appointment
 -   Email: LNGO [at] CLEMSON [dot] EDU
 
--   **Teaching Assistant:** Lili Xu
+-   **Teaching Assistant:** Dung T. Nguyen
 -   Office: 222A McAdams Hall
 -   Office Hours: TBD
--   Email: LILIX [at] CLEMSON [dot] EDU
+-   Email: DUNGN [at] CLEMSON [dot] EDU
 
 ## Time and Location
 
--   MWF 08:00AM - 08:50AM
--   McAdams 119
+-   MWF 12:20PM - 01:10PM
+-   Daniel Hall 413
 
-## Course Management system
+## Course Management System
 
 For this semester, we will use the new Canvas Course Management System. This is
-located at [https://clemson.instructure.com/courses/2061](https://clemson.instructure.com/courses/2061).
+located at [https://clemson.instructure.com/courses/18788](https://clemson.instructure.com/courses/18788).
 
 ## Important Dates
 
--   August 30: Last day to drop a class without a “W”
--   October 21: Last day to drop a class
--   November 7-8: Fall Break
--   November 23-25: Thanksgiving
--   December 8: Final Exam (11:30AM – 02:00PM)
+- Jan 11, W Classes begin
+- Jan 16, M Martin Luther King Jr. holiday
+- Jan 25, W Last day to drop a class or withdraw without a W grade
+- Mar 17, F Last day to drop a class or withdraw from the University without final grades
+- Mar 20-24, M-F Spring break
+- May 1, M 8:00AM - 10:30AM - FINAL EXAM
 
 ## Reference Book (Optional)
 
@@ -81,9 +104,10 @@ Without prior approval from the instructors, late homework assignments will not 
 
 ## Attendance Policy
 
-Attendance will not be graded, but we will take note of who attends, including occasionally circulating a sign-up sheet during class. If you miss a class, you are responsible for obtaining lecture notes, handouts, and homework assignments from fellow students.
-In the event that you are truly sick with a contagious condition such as the flu, please do not expose your fellow students and instructors to such illnesses.
-If the instructor is late for class, please wait 20 minutes before leaving.
+- Attendance is critical to the success of students in this class.
+- We will take note of who attends, including occasionally using attendance check in place of a quiz score.
+- If you miss a class, you are responsible for obtaining lecture notes, handouts, and homework assignments from fellow students.
+- If the instructor is late for class, please wait 20 minutes before leaving.
 
 ## Academic Integrity
 
@@ -111,174 +135,14 @@ Any assignment that does not include a collaboration statement will not receive 
 
 ## Disability Accommodations
 
-Students with disabilities needing accommodations should make an appointment with Dr. Arlene Stewart, Director of Disability Services, to discuss specific needs within the first month of classes. Student should present a Faculty Accommodation Letter from Student Disability Services when they meet with instructors. The Office of Student Disability Services in Suite 239, Academic Success Building (864-656-6848; sds-l@clemson.edu). Please be aware that accommodations are not retroactive and new Faculty Accommodation Letters must be presented each semester.
+Students with disabilities needing accommodations should make an appointment with Margaret M. Camp, Director of Student Accessibility Services, to discuss specific needs within the first month of classes. Student should present a Faculty Accommodation Letter from Student Disability Services when they meet with instructors. The Office of Student Disability Services in Suite 239, Academic Success Building (864-656-6848; sds-l@clemson.edu). Please be aware that accommodations are not retroactive and new Faculty Accommodation Letters must be presented each semester.
 
-## Schedule
+## Title IX Statement
 
-1. Wednesday, August 17:
--   [Introduction to Class](intro-to-cpsc-3620.html)
--   [Survey](https://goo.gl/forms/I9aJw7OptDeIotx73)
--   [Assignment 1](assignment-1.html)
+Clemson University is committed to a policy of equal opportunity for all persons and does not discriminate on the basis of race, color, religion, sex, sexual orientation, gender, pregnancy, national origin, age, disability, veterans status, genetic information or protected activity (e.g., opposition to prohibited discrimination or participation in any complaint process, etc.) in employment, educational programs and activities, admissions and financial aid. This includes a prohibition against sexual harassment and sexual violence as mandated by Title IX of the Education Amendments of 1972.
 
-2. Friday, August 19:
--   [Introduction to Distributed Computing](intro-to-parallel-distributed-computing.html)
+This policy is located at http://www.clemson.edu/campuslife/campus-services/access/title-ix/.
 
-3. Monday, August 22:
--   [Introduction to Clemson Computing Resources: Palmetto](intro-to-clemson-computing-resources.html)
+Mr. Jerry Knighton is the Clemson University Title IX Coordinator. He also is the Director of Access and Equity. His office is located at 111 Holtzendorff Hall, 864.656.3181 (voice) or 864.565.0899 (TDD).
 
 
-4. Wednesday, August 24:
--   Introduction to Clemson Computing Resources: Palmetto (continue)
--   [Introduction to Clemson Computing Resources: CloudLab](intro-to-clemson-computing-resources.html)
--   [Assignment 2](assignment-2.html)
-
-5. Friday, August 26:
--   [Introduction to Message-Passing Computing](introduction-to-MPI.html)
--   **Assignment 1 Due**
-
-6. Monday, August 29:
--   Introduction to Message-Passing Computing (continue)
-
-7. Wednesday, August 31:
--   Introduction to Message-Passing Computing (continue)
-
-8. Friday, September 2:
--   Introduction to Message-Passing Computing (continue)   
--   [Assignment 3](assignment-3.html)
--   **Assignment 2 Due**
-
-
-9. Monday, September 5:
--   [Pleasantly Parallel Computation](pleasantly-parallel.html)
-
-10. Wednesday, September 7:
--   [Pleasantly Parallel Computing: Workload Assignment](pleasantly-parallel.html)
-
-11. Friday, September 9:
--   [Partitioning and Divide-and-Conquer](divide-and-conquer.html)
-
-12. Monday, September 12:
--   [Partitioning and Divide-and-Conquer: Bucket Sorts](divide-and-conquer.html)
-
-13. Wednesday, September 14:
--   [Synchronous Computing: Barrier](synchronous-computing.html)
-
-14. Friday, September 16:
--   [Synchronous Computing: Row Exchange](heat-exchange.html)
--   [Assignment 4](assignment-4.html)
--   **Assignment 3 Due**
-
-15. Monday, September 19:
--   [Parallel Sorting: Transposition and Merge](transposition-merge.html)
-
-16. Wednesday, September 21:
--   [Parallel Sorting: Quick Sort](quick-sort.html)
--   [MPI-IO](mpiio.html)
-
-17. Friday, September 23:
--   CloudLab Chef/MPI Lab
-
-18. Monday, September 26:
--   [Distributed File Systems](lecture17-pfs-sam-lang.pdf)
-
-19. Wednesday, September 28:
--   Distributed File Systems (continue)
--   [Scheduling on cluster of computers](L23_Scheduling.pdf)
-
-20. [Friday, September 30]()
--   [Introduction to Big Data and Data Intensive Computing](BigData_Overview_FA2016.pdf)
--   **Assignment 4 Due**
-
-21. Monday, October 3:
--   [Midterm Review](midterm-review.html)
-
-22. **Wednesday, October 5: Midterm Exam**
-
-23. Friday, October 7:
--   Assignment Discussion
-
-24. Monday, October 10:
--   [Hadoop Distributed File System (HDFS)](hadoop-hdfs.html)
-
-25. Wednesday, October 12:
--   [Lab: Installing Hortonworks HDP on Cypress](HDFS_Palmetto.pdf)
-
-26. Friday, October 14:
--   HDFS Lab on Cypress
-
-27. Monday, October 17:
--   HDFS Lab on Cypress (continue)
-
-28. Wednesday, October 19:
--   [Introduction to MapReduce Programming Paradigm](MapReduce_Lecture_FA2016.pdf)
-
-29. Friday, October 21:
--   Introduction to MapReduce Programming Paradigm (continue)
-
-30. Monday, October 24:
--   Introduction to MapReduce Programming Paradigm (continue)
-
-31. Wednesday, October 26:
--   Introduction to MapReduce Programming Paradigm (continue)
--   [Assignment 5](assignment-5.html)
-
-32. [Friday, October 28]()
--   [MapReduce Design Pattern](MapReduce_DesignPatterns.pdf)
-
-33. Monday, October 31
--   [Memory-centric Distributed Computing](Memory-centric-distributed-computing-20161030.pdf)
-
-34. Wednesday, November 2:
--   Spark Lab
-
-35. Friday, November 4:
--   Spark Lab
--   **Assignment 5 Due**
-
-36. **Monday, November 7: Fall Break**
-
-37. Wednesday, November 9:
--   Spark Lab
--   [Assignment 6](assignment-6.html)
-
-38. [Friday, November 11:]()
--   Supercomputing 2016
--   [HPCCSystems](HPCCSystems.pdf)
--   [Assignment 7](assignment-7.html)
-
-
-39. Monday, November 14:
--   Supercomputing 2016
--   Self-study day: Do your homework!
-
-40. Wednesday, November 16:
--   Supercomputing 2016
--   [Message-oriented Middleware](CITI_MessageOrientedMiddleware.pdf)
-
-41. Friday, November 18:
--   Spark Lab: SQLContext
-
-42. Monday, November 21:
--   [Distributed Stream Processing](distributed-stream-processing.pdf)
-
-43. **Wednesday, November 23: Thanksgiving**
--   **Assignment 6 Due**
-
-
-44. **Friday, November 25: Thanksgiving**
-
-45. Monday, November 28:
--   [Data Engineering: A Hadoop-based Ecosystem](HadoopEcoSystem.pdf)
-
-46. Wednesday, November 30
--   Assignment Discussion
-
-47. Friday, December 2:
--   [Review](final-review.html)
--   **Assignment 7 Due**
-
-## Acknowledgement
-
-The framework for  this website and its lectures are modeled after the structure of [Data Carpentry][dc-lessons] lesson materials, an open source project.
-
-[dc-lessons]: https://datacarpentry.org/lessons/
