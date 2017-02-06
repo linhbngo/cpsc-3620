@@ -1,4 +1,5 @@
-#hello.py
+#/usr/bin/env python
+# gethostname.py
 from mpi4py import MPI
 import socket
 
