@@ -34,8 +34,8 @@ for step in range(0, size):
         print ("My rank is ", rank, " and my des is ", des)
         comm.Send(local_array, dest = des, tag = 0)
         comm.Recv(local_tmp, source = des)    
-        print ("Initial local_array: ", local_array)
-        print ("Received local_tmp:", local_tmp)
+        print ("Rank ", rank, " ", step, ": Initial local_array: ", local_array)
+        print ("Rank ", rank, " ", step, ": Received local_tmp:", local_tmp)
         local_remain = np.concatenate((local_array, local_tmp), axis=0)
         local_remain.sort()
         
@@ -43,7 +43,7 @@ for step in range(0, size):
             local_array = local_remain[0:int(N/size)]
         else:
             local_array = local_remain[int(N/size):2 * int(N/size)]
-        print ("Retained portions: ", local_array)
+        print ("Rank ", rank, " ", step, ": Retained portions: ", local_array)
 comm.Gather(local_array, final_sorted)
 
 if (rank  == 0):
